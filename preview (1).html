@@ -1,0 +1,2139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>UTI Report</title>
+    <link rel="icon" href="/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      /* @font-face {
+            font-family: "Helvetica_Neue_Bold";
+            src: url("fonts/HelveticaNeueBold.otf") format("opentype");
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: "Helvetica_Neue_Medium";
+            src: url("fonts/HelveticaNeueMedium.otf") format("opentype");
+            font-style: normal;
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: "Helvetica_Neue_normal";
+            src: url("fonts/HelveticaNeueRoman.otf") format("opentype");
+            font-style: normal;
+        } */
+      * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      body {
+        font-size: 15px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        /* font-family: "Helvetica_Neue_normal"; */
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #0a1b4b;
+      }
+
+      .f-weight-500 {
+        font-weight: 500;
+      }
+
+      .f-weight-600 {
+        font-weight: 600;
+      }
+
+      .f-weight-700 {
+        font-weight: 700;
+      }
+
+      .body-fs {
+        font-size: 15px;
+      }
+
+      .mt-30 {
+        margin-top: 30px;
+      }
+
+      .mt-10 {
+        margin-top: 10px;
+      }
+
+      .mt-50 {
+        margin-top: 50px;
+      }
+
+      .p-0 {
+        padding: 0 !important;
+      }
+
+        @page {
+          size: A4;
+          border: none;
+          margin: 50px 45px 25px 45px;
+          border-radius: 10px;
+        }
+
+      .main-table {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      .page-break-avoid-inside {
+        page-break-inside: avoid;
+      }
+
+      thead,
+      tbody,
+      tfoot {
+        border: none !important;
+      }
+
+      #defaultReportPage {
+        width: 900px;
+        margin: 20px auto 0;
+        position: relative;
+        overflow: hidden;
+        border: none;
+      }
+
+      .header {
+        height: 64px;
+        width: 100%;
+        margin: 0 auto;
+        border: none;
+        position: relative;
+      }
+
+      .empty-header {
+        height: 80px;
+        display: none;
+      }
+
+      .info-strip {
+        background-color: #ec212526;
+        color: #d33b2c;
+        font-weight: 600;
+        padding: 2px 5px;
+        text-align: center;
+        margin-top: 10px !important;
+        letter-spacing: 1px;
+        line-height: 1.3;
+        border-radius: 5px;
+      }
+
+      /* .revision-block {} */
+
+      .revision-block h4 {
+        margin-bottom: 0px !important;
+      }
+
+      .revision-block p {
+        border: 0.7px solid rgba(0, 0, 0, 0.3);;
+        padding: 5px 10px;
+        margin-top: 5px !important;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+
+      /* tbody table {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+      } */
+
+      /* tbody tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+      } */
+
+      /* Header code start here */
+      .header .logo {
+    max-width: 300px;
+    width: 200px;
+    height: 50px;
+}
+
+      .report-name {
+        font-size: 1.3em;
+        text-align: right;
+        color: #000000;
+      }
+
+      /* .address-information {
+            margin-top: 15px;
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .address-information .list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .address-information .list li:not(:last-child) {
+            margin-right: 6px;
+        }
+
+        .address-information .list li {
+            display: flex;
+            align-items: center;
+        }
+
+        .address-information .list p {
+            margin: 0;
+            line-height: 25px;
+            font-size: 13.5px;
+            letter-spacing: 0;
+        }
+
+        .address-information .list .dot {
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        } */
+
+      /* Patient Information Code Start here */
+      .patient-information td {
+        padding: 10px;
+      }
+
+      /* .patient-information td:not(:last-child) {
+            border-right: 1px solid #333 !important;
+        } */
+
+      .patient-information .title {
+        font-size: 1.2em;
+      }
+
+      .patient-information .patient-details {
+        border-radius: 8px;
+        border: 0.7px solid rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.08);
+      }
+
+      .patient-information .patient-details td {
+        vertical-align: top;
+      }
+
+      .patient-information .patient-details p {
+        margin: 0;
+      }
+
+      .patient-information .patient-details p .each-cell {
+        display: grid !important;
+        grid-template-columns: 110px auto;
+      }
+       .patient-information .patient-details p .each-cell.left {
+        display: grid !important;
+        grid-template-columns: 100px auto;
+      }
+      .patient-information .patient-details p .each-cell.middle {
+        display: grid !important; 
+        grid-template-columns: 70px auto;
+    }
+      .patient-information .patient-details p .each-cell.w-170 {
+        display: grid !important;
+        grid-template-columns: 170px auto;
+      }
+
+      .patient-information .patient-details p .each-cell .line-value {
+        align-self: flex-end;
+        position: relative;
+        /* font-family: "Helvetica_Neue_normal"; */
+        font-size: 12px;
+        letter-spacing: -0.08px;
+        padding: 5px 10px;
+      }
+
+      .patient-information .patient-details p .line-name {
+        display: inline-block;
+        position: relative;
+        /* font-family: "Helvetica_Neue_bold"; */
+        font-size: 12px;
+        letter-spacing: -0.08px;
+        padding: 5px 10px;
+        font-weight: 600;
+      }
+
+      /* .patient-information .patient-details p .line-name:after {
+            content: ":";
+            position: absolute;
+            right: 10px;
+        } */
+
+      /* Each Block Code Start here */
+
+      .each-block .block-title {
+        /* font-family: "Helvetica_Neue_medium"; */
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 5px !important;
+      }
+
+      .each-block tr {
+        vertical-align: top;
+      }
+
+      .molecular-result .block-title {
+        margin-bottom: 10px !important;
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 5px !important;
+      }
+        .molecular-result .positive-negative-table .antibiotic-resistance .detect-bold .assay-vlaues-level.Detected{
+        font-weight: bold;
+        }
+
+      .molecular-result .result-summary-table {
+        border: 1px solid #000;
+        width: 100%;
+      }
+
+      .molecular-result .result-summary-table .summary-text {
+        font-weight: bold;
+      }
+
+      .molecular-result .result-summary-table .sub-title {
+        color: red;
+        text-decoration: underline;
+        margin-top: 0;
+      }
+
+      .molecular-result .result-summary-table .detected-table .heading td {
+        font-weight: bold;
+      }
+
+      /* .molecular-result .positive-negative-table {
+        background: linear-gradient(
+          to right,
+          #e1efdd 49%,
+          white 49%,
+          white 51%,
+          #e1efdd 51%,
+          #e1efdd 100%
+        );
+      } */
+      .molecular-result .positive-negative-table .antibiotic-resistance .assay-vlaues-level {
+        width: 75%;
+        text-align: left;
+      }
+ 
+      .molecular-result .positive-negative-table .antibiotic-resistance .assay-vlaues-name {
+        width: 25%;
+        text-align: left;
+      }
+
+      .assay-vlaues-name.positive {
+        font-weight: bold;
+      }
+
+      .assay-vlaues-level.Detected {
+        font-weight: bold;
+      }
+      .assay-vlaues-name.Detected {
+        font-weight: bold;
+      }
+        .negative-table{
+        border-radius: 8px;
+        border: 0.7px solid rgba(0, 0, 0, 0.30); 
+        border-spacing: 0;
+       }
+      .negative-table .titlebg th{
+        padding: 10px!important;
+      }
+
+       .negative-table .assay-vlaues-level {
+        font-size:12px;
+        padding: 3px 10px;
+        width: 50%
+       }
+
+       .negative-table .assay-vlaues-name {
+        font-size:12px;
+        padding: 3px 10px;
+       }
+      .molecular-result .positive-negative-table .high {
+        background: linear-gradient(
+          90deg,
+          rgba(236, 33, 37, 0.2) 0%,
+          rgba(236, 33, 37, 0) 100%
+        );
+      }
+
+      .molecular-result .positive-negative-table .low {
+        background: linear-gradient(
+          90deg,
+          rgba(57, 155, 247, 0.2) 0%,
+          rgba(57, 155, 247, 0) 100%
+        );
+      }
+
+      .molecular-result .positive-negative-table .medium {
+        background: linear-gradient(
+          90deg,
+          rgba(247, 152, 57, 0.2) 0%,
+          rgba(247, 152, 57, 0) 100%
+        );
+      }
+
+      /* .adenovirus-report .detected>td>table>td,
+        .adenovirus-report .detected>th>table>td {
+            padding-left: 4px !important;
+        } */
+
+      /* .adenovirus-report .detected {
+            background-color: #ff7777;
+        }
+
+        .adenovirus-report .detected.high {
+            background-color: #ff7777;
+        }
+
+        .adenovirus-report .detected.low {
+            background-color: #ffdddd;
+        }
+
+        .adenovirus-report .detected.medium {
+            background-color: #ff9999;
+        } */
+      .molecular-result .positive-negative-table tr td table tbody tr td {
+        padding: 2px 10px !important;
+        font-size: 11px;
+      }
+
+      .molecular-result .positive-negative-table .assay-vlaues-symbol {
+        width: 10%;
+        font-weight: 300;
+      }
+
+      .molecular-result .positive-negative-table .assay-vlaues-level {
+        width: 20%;
+        font-weight: 600;
+        text-align: center;
+      }
+      .molecular-result .positive-negative-table .antibiotic-resistance .assay-vlaues-level{
+        font-weight: 400;
+      }
+
+      .molecular-result .positive-negative-table .assay-vlaues-name {
+        width: 80%;
+        text-align: left;
+      }
+
+      /* .molecular-result .positive-negative-table .assay-vlaues-result {
+            width: 20%;
+            text-align: right;
+        } */
+
+      .molecular-result .positive-negative-table td {
+        padding: 0 !important;
+      }
+
+      .molecular-result .positive-negative-table td:nth-child(odd) p {
+        margin-right: 10px;
+      }
+
+      .molecular-result .positive-negative-table p {
+        margin-top: 0;
+        background: #eedcdb;
+        padding: 0 2px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .molecular-result .positive-negative-table p span {
+        padding: 0 3px;
+      }
+
+      /*  */
+
+      .microorganisms .block-title {
+        margin-bottom: 10px !important;
+      }
+
+      .microorganisms table th {
+        color: #333;
+        padding-bottom: 5px;
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .microorganisms table td {
+        padding: 3px !important;
+        font-size: 15px;
+      }
+
+      .microorganisms table td:nth-child(3) {
+        font-size: 14px;
+      }
+
+      .microorganisms .title {
+        margin-bottom: 15px !important;
+        padding-bottom: 5px;
+      }
+
+      .microorganisms p {
+        margin-top: 0;
+        font-size: 17px;
+      }
+
+      /*  */
+      .adenovirus-report th {
+        color: #333;
+        padding-bottom: 5px;
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .adenovirus-report table > td > table > tbody > tr > td {
+        font-size: 14.5px;
+        line-height: 20px;
+        padding: 3px 5px 3px 0 !important;
+      }
+
+      .adenovirus-report table tbody th:nth-child(2),
+      .adenovirus-report table tbody td:nth-child(2) {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+      }
+
+      /*  */
+      /* .description-information {
+            margin-top: 1em;
+            margin-bottom: 2em;
+        } */
+      .description-information .inner-block .each-block {
+        margin-top: 1rem;
+      }
+      .description-information .inner-block .each-block.first-block {
+        margin-top: 0rem;
+        padding-top: 1rem;
+        border-top: 2px solid #d9d9d9;
+      }
+      .description-information .inner-block .each-block span {
+        color: #009829;
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .description-information .inner-block .each-block p {
+        line-height: 22px;
+        margin: 10px 0;
+        font-size: 14px;
+        color: #000000;
+      }
+      /* 
+        .description-information p span {
+            color: #2b5e76;
+            font-weight: 600;
+        } */
+
+      .sub-heading {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        color: #000;
+        line-height: normal;
+        letter-spacing: -0.12px;
+        padding: 8px 0;
+      }
+      .paracontent {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        width: 100%;
+        padding-left: 15px;
+        margin: 0.3rem 0 0.5rem;
+      }
+
+      .Disclaimer {
+        background-color: #F3F3F3;
+      }
+
+      .disclaimer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #ffffff;
+        padding: 5px;
+      }
+
+      .disclaimer-heading {
+        font-size: 12px;
+        color: #000000;
+        margin-bottom: 5px;
+        font-weight: 700;
+      }
+
+      .disclimer-content {
+        font-size: 12px;
+        margin: 0px;
+        text-align: justify;
+        line-height: 18px;
+        color: #000000;
+        font-weight: 400;
+      }
+
+      .clia-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 100%;
+      }
+      .footer {
+        height: 100px;
+        width: 100%;
+        margin: 0 auto;
+        background: #fff;
+      }
+      .empty-footer {
+        height: 100px;
+        display: none;
+        background: #fff;
+      }
+      @media print {
+      .empty-footer{
+        display: block;
+      }
+        
+        .clia-container {
+          position: relative;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          margin-top: 550px;
+        }
+        .footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 900px;
+          margin: 0 auto;
+          z-index: 1000;
+          background: #fff;
+        }
+      }
+
+      .report-name {
+        font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: #000;
+        margin: 0;
+        letter-spacing:0.4px;
+        white-space: nowrap;
+      }
+ /* Footer styles */
+      .footer-inner-block {
+        position: absolute;
+        width: 100%;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block ul {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+        border-bottom: 1px solid #000;
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block ul::after {
+        content: "";
+        background-color: #36B44A;
+        height: 8px;
+        width: 50px;
+        position: absolute;
+        right: 0;
+        bottom: -4px;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block .disclimer-content {
+        font-size: 12px;
+        padding: 10px 0;
+        margin: 0;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block ul li {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+        column-gap: 5px;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block ul li p {
+        margin: 0;
+        font-size: 12px;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block ul li img {
+        width: 14px;
+        height: 14px;
+      }
+
+      .footer .footer-inner .footer-table .footer-inner-block ul li a {
+        color: #000000 !important;
+        font-size: 12px;
+        text-decoration: none !important;
+      }
+
+      .footer-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .footer-table td {
+        padding: 0;
+        vertical-align: middle;
+      }
+
+      .clia-column {
+        flex: 1;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.4;
+      }
+
+      .clia-column p {
+        margin: 0 0 10px 0;
+      }
+
+      .clia-column strong {
+        font-weight: 700;
+      }
+
+      .report-performed-info {
+        border: 1px solid #36B44A;
+        background: #ffffff;
+      }
+
+      .report-performed-info .patient-details td {
+        vertical-align: top;
+      }
+
+      .report-performed-info .performed-details p {
+        margin: 0;
+      }
+
+      .report-performed-info .performed-details p .each-cell {
+        display: grid !important;
+        grid-template-columns: 110px auto;
+      }
+
+      .report-performed-info .performed-details p .each-cell.w-150 {
+        display: grid !important;
+        grid-template-columns: 150px auto;
+      }
+
+      .report-performed-info .performed-details p .each-cell .line-value {
+        align-self: flex-end;
+        position: relative;
+        font-size: 12px;
+        letter-spacing: -0.08px;
+        padding: 5px 10px;
+      }
+
+      .report-performed-info .performed-details p .line-name {
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        letter-spacing: -0.08px;
+        padding: 5px 10px;
+        font-weight: 600;
+      }
+
+      .comment_details {
+        margin-bottom: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+        background-color: #d9d9d9;
+        border-radius: 5px;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .comment-content {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        flex: 1;
+        min-width: 0;
+        margin-top: 0;
+      }
+
+      .comment-heading {
+        color: #000000;
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+        margin-right: 0.5rem;
+      }
+
+      .last-content {
+        page-break-inside: auto;
+
+      }
+
+      .last-content .Disclaimer {
+        page-break-inside: auto;
+      }
+
+      .last-content .disclaimer-inner {
+        page-break-inside: avoid;
+      }
+
+      .last-content .report-performed-info {
+        page-break-inside: avoid;
+      }
+
+      .last-content .clia-container {
+        page-break-inside: avoid;
+      }
+
+      @media print {
+        .sub-heading {
+          page-break-after: avoid;
+        }
+
+        .positive-negative-table {
+          page-break-inside: auto;
+        }
+
+        .positive-negative-table tr {
+          page-break-inside: avoid;
+        }
+
+        div[style*="page-break-inside: avoid"] {
+          page-break-inside: avoid;
+        }
+
+        .last-content {
+          page-break-before: auto;
+          page-break-inside: auto;
+
+        }
+
+        #sti-quick + .last-content {
+          page-break-before: auto;
+        }
+      }
+
+      /*# sourceMappingURL=app.css.map */
+    </style>
+    <style>
+      @media print {
+        .header #header-information {
+          border-bottom: none;
+        }
+/* 
+        #defaultReportPage {
+          margin: 0;
+          padding: 0 30px 30px 30px !important;
+        } */
+
+        /* .overal-table{
+                margin: 30px!important;
+                width: 940px;
+            } */
+
+        .description-information {
+          margin-top: 1em;
+          margin-bottom: 1em;
+        }
+
+        .each-block .block-title {
+          margin-bottom: 5px !important;
+        }
+
+        /* .address-information .list li:not(:last-child) {
+                margin-right: 2px;
+            }
+
+            .address-information .list p {
+                font-size: 13px;
+            } */
+
+        .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 1000px;
+          margin: 0 auto;
+        }
+
+        .header .header-inner {
+          padding: 20px 30px 0 30px;
+        }
+
+  
+        .microorganisms-tested-report,
+        .adenovirus-report {
+          page-break-before: always;
+        }
+
+        .empty-row {
+          height: 0;
+          line-height: 0;
+          opacity: 0;
+        }
+      }
+
+    
+    </style>
+    <style>
+      .content td {
+        font-size: 15px;
+        line-height: 1;
+      }
+
+      .content tr {
+        page-break-inside: avoid;
+      }
+
+      #sti-quick ul li:not(:last-child) {
+        margin-right: 5px;
+        position: relative;
+      }
+
+      #sti-quick p {
+        font-size: 15.5px !important;
+      }
+
+      #sti-quick ul li:not(:last-child):after {
+        content: ",";
+      }
+
+      #sti-quick ul li {
+        line-height: 1.5 !important;
+      }
+
+      .sti-quick-each {
+        display: grid;
+        grid-template-columns: 155px auto;
+      }
+
+      .sti-quick-each p {
+        position: relative;
+      }
+      .boldText {
+        font-size: 15.5px !important;
+        font-weight: 800;
+      }
+    </style>
+    <style>
+      #sti-quick {
+        page-break-inside: avoid;
+      }
+
+      #sti-quick:empty {
+        display: none;
+      }
+
+      .mt-20 {
+        margin-top: 20px;
+      }
+
+      .mt-15 {
+        margin-top: 15px;
+      }
+
+      .patient-information td {
+        padding: 2px 10px;
+      }
+
+      .CFU-Equivalents {
+        margin-top: 0;
+      }
+
+      .CFU-Equivalents td {
+        font-size: 14px !important;
+      }
+
+      .CFU-Equivalents .block-title {
+        padding: 3px 10px;
+      }
+
+      .CFU-Equivalents tr {
+        vertical-align: middle;
+      }
+
+      .abr-tests {
+        margin-top: 20px;
+      }
+
+           .cru-equivalents {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        column-gap: 0.8rem;
+      }
+      .cru-equivalents h3 {
+        font-size: 13px;
+        padding: 5px 10px;
+        font-weight: normal;
+        color: #000;
+        margin-bottom: 0.3rem;
+      }
+      .cru-equivalents h3 span {
+        font-weight: 700;
+      }
+
+      .cru-equivalents .blockOne {
+        font-weight: bold;
+        margin-right: 6px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .cru-equivalents .blockTwo {
+        background: #399bf726;
+    border-radius: 8px;
+    color: #0277BD;
+      }
+      .cru-equivalents .blockThree {
+            background: #f7983933;
+    border-radius: 8px;
+    color: #BF7C01;
+      }
+      .cru-equivalents .blockFour {
+            background: #ec212526;
+    border-radius: 8px;
+    color: #FC0D0D;
+      }
+      .titlebg {
+        border-bottom: 0.7px solid rgba(0, 0, 0, 0.3);
+        background: rgba(0, 152, 41, 0.05);
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+      }
+      .titlebg th {
+        font-size: 12px;
+        text-align: left;
+        font-weight: bold;
+        padding: 10px 6px !important;
+      }
+      .halfTable {
+        border: 0.7px solid rgba(0, 0, 0, 0.3);
+        width: 49%;
+        border-radius: 8px;
+      }
+      .positive-negative-table .negative {
+        border-collapse: separate;
+        border-spacing: 0 5px;
+        padding: 0;
+        margin: 0;
+      }
+      .antibiotic-resistance .assay-vlaues-level {
+        font-size: 12px;
+        width: 80%;
+        padding: 0 6px;
+      }
+      .antibiotic-resistance .assay-vlaues-name {
+        font-size: 12px;
+        width: 20%;
+        padding: 0px 6px;
+      }
+    </style>
+    <style>
+
+      .progress-bar {
+        width: 350px;
+        height: 16px;
+        display: flex;
+        border-radius: 2px;
+        overflow: hidden;
+        margin: 0px 0px 10px 0px;
+      }
+
+      .segment-1 {
+        width: 45%;
+        background-color: #36b44a;
+      }
+
+      .segment-2 {
+        width: 25%;
+        background-color: #a8dcb0;
+      }
+
+      .segment-3 {
+        width: 30%;
+        background-color: #d7f2db;
+      }
+
+      .header-page-1,
+      .header-page-other {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 900px;
+        margin: 0 auto;
+        z-index: 1000;
+        background: #fff;
+      }
+
+      .header-page-1 {
+        display: block;
+      }
+
+      .header-page-other {
+        display: none;
+      }
+
+      .header-page-1 #header-information table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .header-page-1 #header-information table td {
+        padding: 0;
+        vertical-align: middle;
+      }
+
+      .header-page-1 #header-information table tbody tr:first-child td {
+        display: flex;
+        align-items: center;
+        column-gap: 2rem;
+      }
+
+      .header-page-1 .logo {
+        display: inline-block;
+        vertical-align: middle;
+        flex-shrink: 0;
+      }
+
+      .header-page-1 .logo img {
+        max-width: 200px;
+        max-height: 60px;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .header-page-1 .report-name {
+        flex: 1;
+      }
+
+      .second-header-info {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #000;
+      }
+
+      .second-header-info .each-inner-block {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+      }
+
+      .second-header-info .each-inner-block p {
+        color: #000000;
+        font-size: 12px;
+        margin: 0;
+      }
+
+      .second-header-info .each-inner-block .value {
+        color: #000000;
+        font-size: 12px;
+        margin: 0;
+        font-weight: 400;
+      }
+
+      .patient-information table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .patient-information td {
+        padding: 0px 5px 0px 15px !important;
+        vertical-align: top;
+        border-left: 1px solid #000 !important;
+      }
+
+      .patient-information p {
+        margin: 0;
+        line-height: 20px;
+        color: #000;
+        font-size: 12px;
+        display: grid !important;
+        grid-template-columns: 110px auto;
+      }
+
+      .patient-information p .name {
+        display: inline-block;
+        position: relative;
+        font-weight: 700;
+      }
+
+      .patient-information p .value {
+        display: inline-block;
+        position: relative;
+        font-weight: 400;
+      }
+
+      @media print {
+
+        body.has-multiple-pages .header-page-1 {
+          display: none !important;
+        }
+
+        body.has-multiple-pages .header-page-other {
+          display: block !important;
+        }
+
+      }
+    .testgoLogo{
+    margin: 10px 0px;
+    width: 230px;
+    height: 80px;
+    }
+    .testgoImage{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    }
+
+    </style>
+  </head>
+
+  <body class="covid-page">
+    <noscript>
+      <strong
+        >We're sorry but app.labsquire.com doesn't work properly without
+        JavaScript enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app">
+      <div>
+        <section id="defaultReportPage" layout="div">
+          <table class="overal-table">
+            <thead>
+              <tr>
+                <td>
+                  <div style="width:100%;">
+                    <table style="width:100%; border-collapse:collapse;">
+                      <tbody>
+                        <tr>
+                          <td style="display:flex; align-items:center; column-gap:2rem; padding:0;">
+                            <div class="testgoLogo">
+                              <img src="https://services-api.labsquire.com/img/logos/TestGo.svg" alt="logo" class="testgoImage">
+                            </div>
+                            <p class="report-name">
+                              UTI DIAGNOSTIC REPORT
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>
+                  <div id="bodyContentStartHere">
+                    <div class="progress-bar">
+                      <div class="segment-1"></div>
+                      <div class="segment-2"></div>
+                      <div class="segment-3"></div>
+                    </div>
+                      <section class="patient-information">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name">Name</span>
+                                  <span class="value">TESTGO, TEST</span>
+                                </p>
+                                <p>
+                                  <span class="name">Gender</span>
+                                  <span class="value">MALE</span>
+                                </p>
+                                <p>
+                                  <span class="name">Date of Birth</span>
+                                  <span class="value">Apr 08, 1974, 51y</span>
+                                </p>
+                                <p>
+                                  <span class="name">Accession ID</span>
+                                  <span class="value">MU251121001</span>
+                                </p>
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name">Physician</span>
+                                  <span class="value">BARIKAT ODERINDE</span>
+                                </p>
+                                <p>
+                                  <span class="name">NPI #</span>
+                                  <span class="value">1740767946</span>
+                                </p>
+                                <p>
+                                  <span class="name">Organization</span>
+                                  <span class="value">DLW-THE COLONY</span>
+                                </p>
+                                <p>
+                                  <span class="name">Phone</span>
+                                  <span class="value">DLW-THE COLONY</span>
+                                </p>
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name">Collected Date</span>
+                                  <span class="value">Nov 17, 2025, 04:44 PM</span>
+                                </p>
+                                <p>
+                                  <span class="name">Received Date</span>
+                                  <span class="value">Nov 19, 2025, 04:51 PM</span>
+                                </p>
+                                <p>
+                                  <span class="name">Reported Date</span>
+                                  <span class="value">Nov 21, 2025, 04:16 AM</span>
+                                </p>
+                                <p>
+                                  <span class="name">Specimen Type(s)</span>
+                                  <span class="value">Urine, Catheter Urine, Urine Swab</span>
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
+                       
+                      <div class="content">
+                              <div class="body-info">
+                                <table class="w-100">
+                                  <tr>
+                                    <td>
+                                      <h4 class="sub-heading">
+                                        Tested assay results
+                                      </h4>
+                                       
+                                       
+                                      <p class="paracontent">
+                                        All microbial targets tested as part of the assay are listed below. No organisms were detected. Detected genes, if any, are indicated in <b>bold</b> and marked as <b>Detected</b>.
+                                      </p>
+                                       
+                                       
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                              <div class="each-block molecular-result mt-5">
+                             <!-- UTI SECTION -->
+<h4 class="sub-heading">Urinary tract infection (UTI)</h4>
+   
+     
+     
+
+<table class="w-100 positive-negative-table">
+  <tr style="vertical-align: top">
+    <!-- Left Table for listA -->
+    <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+      <table class="w-100 titlebg">
+        <tr>
+          <th class="assay-vlaues-level" style="text-align: left; font-weight:600;">Organism</th>
+          <th class="assay-vlaues-name">Interpretation</th>
+        </tr>
+      </table>
+
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Acinetobacter Baumannii
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Candida Albicans
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Candida Glabrata
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Candida Parapsilosis
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Candida Tropicalis
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Citrobacter Freundii/ Koseri
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Enterobacter Cloacae
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Enterococcus Faecalis/ Faecium
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Escherichia Coli
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Klebsiella Oxytoca
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Klebsiella Pneumoniae
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+    </td>
+
+    <!-- Divider -->
+    <td style="width: 0.5%" class="p-0 vertical-line"></td>
+
+    <!-- Right Table for listB -->
+    <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+      <table class="w-100 titlebg">
+        <tr>
+          <th class="assay-vlaues-level" style="text-align: left; font-weight:600;">Organism</th>
+          <th class="assay-vlaues-name">Interpretation</th>
+        </tr>
+      </table>
+
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Morganella Morganii
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Pichia Kudriavzevii/Candida Krusei
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Proteus Mirabilis
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Pseudomonas Aeruginosa
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Serratia Marcescens
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Staphylococcus Aureus
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Staphylococcus Epidermidi
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Stenotrophomonas Maltophilia
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Streptococcus Agalactiae
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Streptococcus Pyogenes
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+    </td>
+  </tr>
+</table>
+
+
+<!-- STI SECTION -->
+
+<h4 class="sub-heading">Sexually Transmitted Infections (STI)</h4>
+    
+
+  
+
+<table class="w-100 positive-negative-table">
+  <tr style="vertical-align: top">
+    <!-- Left Table -->
+    <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+      <table class="w-100 titlebg">
+        <tr>
+          <th class="assay-vlaues-level" style="text-align: left; font-weight:600;">Organism</th>
+          <th class="assay-vlaues-name">Interpretation</th>
+        </tr>
+      </table>
+
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Chlamydia Trachomatis
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Gardnerella Vaginalis
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Herpes Simplex Virus Type 1
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Herpes Simplex Virus Type 2
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Mycoplasma Genitalium
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+    </td>
+
+    <!-- Divider -->
+    <td style="width: 0.5%" class="p-0 vertical-line"></td>
+
+    <!-- Right Table -->
+    <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+      <table class="w-100 titlebg">
+        <tr>
+          <th class="assay-vlaues-level" style="text-align: left; font-weight:600;">Organism</th>
+          <th class="assay-vlaues-name">Interpretation</th>
+        </tr>
+      </table>
+
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Neisseria Gonorrhoeae
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Treponema Pallidum
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Trichomonas Vaginalis
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+        <table class="negative w-100">
+          <tr>
+            <td class="assay-vlaues-level " style="text-align: left">
+              Ureaplasma Urealyticum
+            </td>
+            <td class="assay-vlaues-name" style="text-align: left">
+              NOT DETECTED
+            </td>
+          </tr>
+        </table>
+      
+    </td>
+  </tr>
+</table>
+
+
+
+
+<!-- ABR SECTION -->
+
+  <div style="page-break-inside: avoid;">
+    <h4 class="sub-heading">Antibiotic Resistance</h4>
+    <table class="w-100 positive-negative-table antibiotic-report">
+      <tr style="vertical-align: top">
+      <!-- Left Column -->
+      <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+        <table class="w-100 titlebg">
+          <tr>
+            <th class="assay-vlaues-level" style="text-align: left; font-weight:600;">Gene(s)</th>
+            <th class="assay-vlaues-name">Interpretation</th>
+          </tr>
+        </table>
+
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Ambier Class Beta-Lactamase
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Cefotaximase Munich
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                ErmA/B/C
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                KP.Carbapenemase
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Mobilized Colistin Resistance
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Methicillin Resistance A
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                New Delhi Metallo
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+      </td>
+
+      <!-- Divider -->
+      <td style="width: 0.5%" class="p-0 vertical-line"></td>
+
+      <!-- Right Column -->
+      <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+        <table class="w-100 titlebg">
+          <tr>
+            <th class="assay-vlaues-level" style="text-align: left; font-weight:600">Gene(s)</th>
+            <th class="assay-vlaues-name">Interpretation</th>
+          </tr>
+        </table>
+
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Oxacillinase-23
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Oxacillinase-48
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Quinolone Resistance A
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Quinolone Resistance B
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Tetracycline Resistance
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Verona Integron Metallo
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+          <table class="negative w-100">
+            <tr class="detect-bold">
+              <td class="assay-vlaues-level " style="text-align: left">
+                Vancomycin A/B/C
+              </td>
+              <td class="assay-vlaues-name" style="text-align: left">
+                NOT DETECTED
+              </td>
+            </tr>
+          </table>
+        
+      </td>
+    </tr>
+    </table>
+  </div>
+
+
+                            </div>
+
+                            <section
+                              class="each-block molecular-result"
+                              id="sti-quick"
+                              style="page-break-inside: avoid"
+                            ></section>
+
+                            <div class="last-content" >
+                              <div class="Disclaimer" style="padding: 1rem;">
+                                <div class="disclaimer-inner">
+                                  <p class="disclaimer-heading">Limitation</p>
+                                  <p class="disclimer-content">
+                                  Absence of detection does not rule out the presence of other microorganisms or the possibility that the target sequence exists below the limit of detection. This UTI Diagnostic Report does not consider patient history, potential drug interactions, drug sensitivities, or allergies. It is the responsibility of the treating physician to determine the appropriate medication and dosing based on the complete clinical context and all available data.                                  </p>
+                                </div>
+                              </div>
+                              <div class="Disclaimer" style = "padding: 0px 1rem;">
+                                  <div class="disclaimer-inner">
+                                  <p class="disclaimer-heading">Methodology</p>
+                                  <p class="disclimer-content">
+                                  Nucleic acids are extracted from urine samples and analyzed using Real-Time Polymerase Chain Reaction (RT-PCR). The Genepath-MGN-LUTI assays detect urinary tract pathogens and antibiotic resistance markers with greater than 99% accuracy and specificity. Infection ranges—classified as high, medium, or low—were established during method validation based on corresponding CFU/μL values. The clinical significance of these ranges has not been evaluated by MicroGen.                                  </p>
+                                </div>
+                              </div>
+                               <div class="Disclaimer" style = "padding: 1rem;">
+                                  <div class="disclaimer-inner">
+                                  <p class="disclaimer-heading">Disclaimer</p>
+                                  <p class="disclimer-content">
+                                    These tests were developed and validated by MicroGen Health Inc. The tests included in this UTI panel have not been approved by the FDA.
+                                    However, FDA approval is not required, provided that the laboratory maintains compliance with all applicable accrediting bodies and consistently
+                                    demonstrates high analytical accuracy in its testing protocols and procedures.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="report-performed-info" style="margin:1rem 0">
+                                <table class="performed-details">
+                                  <tr>
+                                    <td style="width: 50%">
+                                      <p>
+                                        <span class="each-cell w-150">
+                                          <span class="line-name">Finalised by: </span>
+                                          <span class="line-value">
+                                            
+                                          </span>
+                                        </span>
+                                      </p>
+                                      <p>
+                                        <span class="each-cell w-150">
+                                          <span class="line-name">Lab Director: </span>
+                                          <span class="line-value">
+                                            Dr.Shamaladevi Nagarajarao, Ph. D
+                                          </span>
+                                        </span>
+                                      </p>
+                                    </td>
+                                    <td style="width: 50%">
+                                      <p>
+                                        <span class="each-cell w-150">
+                                          <span class="line-name">Performed Location: </span>
+                                          <span class="line-value">
+                                            14225 Sullyfield Circle,Suite E,Chantilly,Virginia20151.
+                                          </span>
+                                        </span>
+                                      </p>
+                                      <p>
+                                        <span class="each-cell w-150">
+                                          <span class="line-name">CLIA: </span>
+                                          <span class="line-value">
+                                            49D2178444
+                                          </span>
+                                        </span>
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                              <div class="clia-container">
+                                      <div class="clia-column">
+                                        <p>CLIA <strong>01D2141620</strong><br>
+                                        234 Aquarius Dr, Ste 110 &amp; 111,<br>
+                                        Homewood, AL 35209</p>
+                                        <p>CLIA <strong>04D2307358</strong><br>
+                                        10912 Colonel Glenn Rd, Ste 1000,<br>
+                                        Little Rock, AR 72204</p>
+                                      </div>
+                                      <div class="clia-column">
+                                        <p>CLIA <strong>45D2289923</strong><br>
+                                        2925 Skyway Cir N, Ste 140,<br>
+                                        Irving, TX 75038</p>
+                                        <p>CLIA <strong>04D307358</strong><br>
+                                        16310 State Hwy 249, Ste 601,<br>
+                                        Houston, TX 77064-1346</p>
+                                      </div>
+                                      <div class="clia-column">
+                                        <p>CLIA <strong>49D2178444</strong><br>
+                                        14225 Sullyfield Cir, Ste E,<br>
+                                        Chantilly, VA 20151</p>
+                                      </div>
+                              </div>
+                          </div>
+                       </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <div class="empty-footer"></div>
+                  <div class="footer">
+                    <div class="footer-inner">
+                      <table class="footer-table">
+                        <tbody>
+                          <tr style="vertical-align: middle">
+                            <td>
+                              <div class="footer-inner-block">
+                                <ul>
+                                  <li>
+                                    <img
+                                      src="https://services-api.labsquire.com/img/logos/phone_testgo.svg"
+                                      alt="footer logo"
+                                    />
+                                    <p>+(205) 994-8266</p>
+                                  </li>
+                                  <li>
+                                    <img
+                                      src="https://services-api.labsquire.com/img/logos/fax_testgo.svg"
+                                      alt="footer logo"
+                                    />
+                                    <p>(205) 201-4797</p>
+                                  </li>
+                                  <li>
+                                    <img
+                                      src="https://services-api.labsquire.com/img/logos/mail_testgo.svg"
+                                      alt="footer logo"
+                                    />
+                                    <a href="mailto:info@testgo.com">
+                                      info@testgo.com
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <img
+                                      src="https://services-api.labsquire.com/img/logos/globe_testgo.svg"
+                                      alt="footer logo"
+                                    />
+
+                                    <a href="https://testgo.com" target="_blank" rel="noopener noreferrer">
+                                      testgo.com
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

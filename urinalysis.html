@@ -1,0 +1,1170 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Urinalysis Report</title>
+    <link rel="icon" href="https://dev-app.labsquire.com/favicon.png">
+    <link href="./Toxicology Report_files/css2" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        height: 100%;
+      }
+
+      .bold {
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        margin: 0;
+        color: #0a1b4b;
+      }
+
+      .f-weight-500 {
+        font-weight: 500;
+      }
+
+      .f-weight-600 {
+        font-weight: 600;
+      }
+
+      .f-weight-700 {
+        font-weight: 700;
+      }
+
+      .body-fs {
+        font-size: 15px;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+        border: none;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      thead,
+      tbody,
+      tfoot {
+        border: none !important;
+      }
+
+      tbody {
+        vertical-align: top;
+      }
+
+      #defaultReportPage {
+        width: 900px;
+        margin: 0 auto !important;
+        position: relative;
+        overflow: hidden;
+        border: none;
+      }
+
+      .header {
+        height: 100px;
+        width: 100%;
+        border: none;
+        position: relative;
+      }
+
+      .empty-header {
+        height: 120px;
+        display: none;
+      }
+
+      .footer {
+        height: 80px;
+        width: 100%;
+        background: #fff;
+      }
+
+      .footer .footer-inner .report-date {
+        background: #e3f5f9;
+        color: #184f68;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 5px 15px;
+        margin: 0;
+      }
+
+      .empty-footer {
+        height: 100px;
+        display: none;
+        background: #fff;
+      }
+            @media print {
+        .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 900px;
+          margin: 0 auto;
+        }
+ 
+        .header .header-inner {
+          padding: 20px 30px 0 30px;
+        }
+ 
+        .header #header-information {
+          border-bottom: none;
+        }
+ 
+        .footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 860px;
+          margin: 0 auto!important;
+        }
+
+      .content {
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 130px;
+          width: calc(100% - 40px);
+          margin: 0 auto;
+        }
+ 
+        .empty-header,
+        .empty-footer {
+          display: block;
+        }
+      }
+ 
+
+      .page-header {
+        display: table-header-group;
+      }
+
+      .page-footer {
+        display: table-footer-group;
+      }
+
+
+      #header-information .logo {
+         max-width: 200px;
+        float: left;
+        width: 100%;
+      }
+
+    #header-information .report-name {
+        font-size: 28px;
+        font-weight: 550;
+        color: #000000;
+        text-align: left;
+        font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        margin: 0;
+      }
+
+      .info-strip {
+        background-color: #FCE3E3;
+        color: #FD003A;
+        font-weight: 600;
+        padding: 5px;
+        text-align: center;
+        margin-top: 15px !important;
+        letter-spacing: 1px;
+      }
+
+      .revision-block p {
+        border: 1px solid #333333;
+        padding: 2px 10px !important;
+        margin-top: 5px !important;
+      }
+
+      .patient-information td {
+        padding:0 0 0 18px !important;
+        vertical-align: top;
+      }
+
+      .patient-information td{
+        border-left: 1px solid #000000 !important;
+      }
+
+      .patient-information p {
+        margin: 0;
+        min-height: 20px;
+        color: #000000;
+        font-size: 12px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        word-break: break-word;
+      }
+
+      .patient-information p .name {
+        width: 42%;
+        display: inline-block;
+        font-weight: 700;
+      }
+      .patient-information p .name,
+      .patient-information p .patient,
+      .patient-information p .dob,
+      .patient-information p .sex,
+      .patient-information p .id {
+        width: 32%;
+      }
+
+      .patient-information p .physician,
+      .patient-information p .npi,
+      .patient-information p .practice,
+      .patient-information p .phone {
+        width: 25%;
+      }
+
+      .patient-information p .collected,
+      .patient-information p .received,
+      .patient-information p .processed,
+      .patient-information p .specimen {
+        width: 38%;
+      }
+
+    .patient-information p .value.first {
+        display: inline-block;
+        width: 68%;
+        font-weight: 400;
+      }
+         .patient-information p .value.second {
+        display: inline-block;
+        width: 75%;
+        font-weight: 400;
+      }
+      .patient-information p .value.thrid {
+        display: inline-block;
+        width: 62%;
+        font-weight: 400;
+      }
+      thead tr td {
+        font-weight: 600;
+      }
+
+      .default-report .heading {
+        font-size: 16px;
+        color: #000000;
+        font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 0;
+      }
+      .default-report .heading-block{
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        padding-left: 0!important;
+      }
+
+      .default-report table {
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+      }
+      .default-report table thead tr{
+        background-color: #E5E5E5;
+      }
+
+      .default-report table tr {
+        width: 100%;
+        vertical-align: middle;
+      }
+
+      .default-report table tr td:first-child {
+        padding-left: 15px !important;
+      }
+
+
+      .default-report table tr td {
+        padding: 5px 3px !important;
+        color: #000000;
+        font-size: 12px;
+        height: 20px;
+      }
+
+      .default-report table tr td .abnormal {
+       background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+       border-left: 1px solid #FD003A;
+       padding: 3px;
+       display: block;
+      }
+       .default-report table tr td .normal {
+       background: linear-gradient(270deg, rgba(54, 180, 74, 0) 0%, rgba(54, 180, 74, 0.2) 100%);
+       border-left: 1px solid #33AC46;
+       padding: 3px;
+        display: block;
+      }
+      .default-report table tr:nth-child(even) {
+        background-color: #F3F3F3;
+      }
+
+
+    
+      @media print {
+        .footer-info .footer-heading {
+          margin-top: 20px !important;
+        }
+      }
+    
+    </style>
+    <style>
+          .reportName{
+              font-family: 'IBM Plex Sans Devanagari', sans-serif;
+              font-size: 28px;
+              font-weight: 600;
+              color: #000;
+              margin: 0;
+              letter-spacing: 1.9px;
+            white-space: nowrap;
+        }
+        .testgoLogo {
+          margin: 10px 0px 0; 
+          width: 230px;
+          height: 80px;
+          }
+          .testgoImage {
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+          }
+       .progress-bar {
+      width: 350px;         
+      height: 16px;         
+      display: flex;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .progress-bar.w-150 {
+      width: 150px;
+      margin-bottom: 0;
+
+    }
+
+    .segment-1 {
+      width: 45%;        
+      background-color: #36B44A;
+    }
+
+    .segment-2 {
+      width: 25%;           
+      background-color: #A8DCB0;
+    }
+
+    .segment-3 {
+      width: 30%;          
+      background-color: #D7F2DB;
+    }
+      
+    .Disclaimer {
+      background-color: #F3F3F3;
+      padding: 1rem 1rem 0;
+    }
+
+    .pb-1 {
+      padding-bottom: 1rem;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .disclaimer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #ffffff;
+      padding: 5px;
+    }
+
+    .disclaimer-heading {
+      font-size: 12px;
+      color: #000000;
+      margin-bottom: 5px;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .disclimer-content {
+      font-size: 10px;
+      margin: 0px;
+      text-align: center;
+      line-height: 14px;
+      color: #000000;
+      font-weight: 400;
+      text-align: justify;
+
+    }
+       .clia-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 100%;
+    }
+@media print{
+  .clia-container {
+    position: fixed;
+    bottom: 80px; 
+    left: 0;
+    right: 0;
+    width: 900px; 
+    margin: 0 30px;
+    background: white;
+    padding: 10px 0;
+    z-index: 50;
+    page-break-inside: avoid;
+  }
+}
+
+    .clia-column {
+      flex: 1;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+
+    .clia-column p {
+      margin: 0 0 10px 0;
+    }
+
+    .clia-column strong {
+      font-weight: 700;
+    }
+
+     .report-performed-info {
+      border: 1px solid #36b44a;
+      background: #ffffff;
+      padding: 10px;
+    }
+    .report-performed-info .performed-details p {
+      margin: 0;
+    }
+    .report-performed-info .performed-details p .each-cell {
+      display: flex !important;
+      align-items: center;
+    }
+    .report-performed-info .performed-details p .each-cell .line-value {
+      align-self: flex-end;
+      position: relative;
+      font-size: 12px;
+      letter-spacing: -0.08px;
+      padding: 5px 0 5px 3px;
+    }
+    .report-performed-info .performed-details p .line-name {
+      display: inline-block;
+      position: relative;
+      font-size: 12px;
+      letter-spacing: -0.08px;
+      padding: 5px 0;
+      font-weight: 600;
+    }
+      .footer-inner-block{
+      position: absolute;
+      width: 100%;
+    }
+        .footer .footer-inner .footer-table .footer-inner-block ul{ 
+      display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    border-bottom: 1px solid #000;
+    margin: 0;
+    padding-left: 0;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul::after{
+      content: "";
+      background-color: #36B44A;
+      height: 8px;
+      width: 50px;
+      position: absolute;
+      right: 0;
+      bottom: -4px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block .disclimer-content{
+      font-size: 12px;
+      padding:10px 0;
+      margin: 0;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li{ 
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    column-gap: 5px;
+    }
+     .footer .footer-inner .footer-table .footer-inner-block ul li p{ 
+    margin: 0;
+    font-size: 12px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li img{
+      width: 14px;
+      height: 14px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li a{ 
+      color:#000000!important;
+      font-size: 12px;
+      text-decoration: none!important;
+    }
+      .amendent-block{
+      border: 1px solid #FFD1DC;
+      margin: 2rem 0 1rem;
+      position: relative;
+        padding: 0rem 1rem 0;
+    }
+      .amendent-block p {
+      font-size: 12px;
+      margin: 0 0 10px;
+      color: #000000;
+    }
+     .amendent-header {
+      position: relative;
+      margin: 0;
+      padding: 0.2rem 0.5rem;
+      font-size: 14px;
+      font-weight: 600;
+      top: -16px;
+      width: fit-content;
+       background:#FFD1DC;
+      color: #000000;
+      letter-spacing: 0.8px;
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+    }
+    </style>
+  </head>
+
+  <body class="covid-page">
+    <noscript>
+      <strong>We're sorry but app.labsquire.com doesn't work properly without
+        JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+      <div>
+        <section id="defaultReportPage" layout="div">
+          <div class="el-loading-mask" style="display: none">
+            <div class="el-loading-spinner">
+              <svg viewBox="25 25 50 50" class="circular">
+                <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+              </svg>
+              <!---->
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>
+                  <div class="header">
+                    <div class="header-inner">
+                      <div id="header-information">
+                        <div style="width:100%;">
+                          <table style="width:100%; border-collapse:collapse;">
+                            <tbody>
+                              <tr>
+                                <td style="display:flex; align-items:center; column-gap:2rem; padding:0;">
+                                  <div class="testgoLogo">
+                                    <img src="https://services-api.labsquire.com/img/logos/TestGo.svg" alt="logo" class="testgoImage">
+                                  </div>
+                                  <p class="reportName">
+                                    URINALYSIS REPORT
+                                  </p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="empty-header"></div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="content" style="display: block;">
+                    <div class="body-info">
+                      <div class="progress-bar">
+                        <div class="segment-1" style="width: 45%; height: 16px; min-height: 16px; background-color: #36B44A !important; flex-shrink: 0;"></div>
+                        <div class="segment-2" style="width: 25%; height: 16px; min-height: 16px; background-color: #A8DCB0 !important; flex-shrink: 0;"></div>
+                        <div class="segment-3" style="width: 30%; height: 16px; min-height: 16px; background-color: #D7F2DB !important; flex-shrink: 0;"></div>
+                      </div>
+                      <section class="patient-information">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name Patient">Name</span>
+                                  <span class="value first">
+                                    URINALYSIS GAIN, TEST
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name dob">
+                                    Date of Birth</span>
+                                  <span class="value first">
+                                    May 19, 1998, 27y
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name sex">Gender</span>
+                                  <span class="value first">
+                                    MALE
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name id">Accession ID</span>
+                                  <span class="value first">
+                                    MY251216002
+                                  </span>
+                                </p>
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name physician">Physician</span><span class="value second">
+                                    Dr Venkatesh
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name npi">NPI #</span><span class="value second">
+                                    1265494561
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name practice">Practice</span><span class="value second">
+                                    TESTING ORDERING FACILITY
+                                  </span>
+                                </p>
+                             <p>
+                                  <span class="name phone">Phone</span><span class="value second">
+                                    (630)-099-4600
+                                  </span>
+                                </p>
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name collected">Collected Date</span><span class="value thrid">
+                                    Dec 15, 2025, 03:47 PM
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name received">Received Date</span><span class="value thrid">
+                                    Dec 15, 2025, 03:47 PM
+                                  </span>
+                                </p>
+                                
+                                <p>
+                                  <span class="name specimen">
+                                    Specimen Type </span><span class="value thrid">
+                                    Urine
+                                  </span>
+                                </p>
+                         
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
+                      <section>
+                      
+                      <div class="amendent-block">
+                      <h3 class="amendent-header">
+                        AMENDED REASON
+                      </h3>
+                      <p>
+                          Amended Reason : testing - prasad manager 12/17/2025 01:45 AM
+                      </p>
+                    </div>
+                    
+                      </section>
+                      <section class="default-report">
+                        <table style="height: 5px"></table>
+                        <table style="border: none; background: none">
+                          <tbody>
+                            <tr style="border: none; background: none">
+                              <td style="padding-left: 0!important;">
+                                <div class="heading-block">
+                                  <div class="progress-bar w-150">
+                                    <div class="segment-1"></div>
+                                    <div class="segment-2"></div>
+                                    <div class="segment-3"></div>
+                                  </div>
+                                  <span class="heading">Test Results</span>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="default-table">
+                          <table>
+                            <thead>
+                              <tr>
+                                <td style="width: 250px">Test Name</td>
+                                <td style="width: 175px">Result</td>
+                                <td style="width: 125px">Units</td>
+                                <td style="width: 175px">Reference Range</td>
+                                <td style="width: 175px">Flags</td>
+                              </tr>
+                            </thead>
+                            <tbody> 
+                              
+                              
+                              <tr>
+                                <td>
+                                  BILIRUBIN
+                                </td>
+
+                                <td>
+                                
+                                  18
+                                
+                                </td>
+
+                                <td>
+                                  μmol/L
+                                </td>
+
+                                <td>
+                                  0 -
+                                  17
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  BLOOD
+                                </td>
+
+                                <td>
+                                
+                                  11
+                                
+                                </td>
+
+                                <td>
+                                  Ery/μL
+                                </td>
+
+                                <td>
+                                  0 -
+                                  10
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  GLUCOSE
+                                </td>
+
+                                <td>
+                                
+                                  5
+                                
+                                </td>
+
+                                <td>
+                                  mmol/L
+                                </td>
+
+                                <td>
+                                  0 -
+                                  5
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="normal">
+                                   Normal
+                                  </span>
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  KETONE (ACETOACETIC ACID)
+                                </td>
+
+                                <td>
+                                
+                                  1
+                                
+                                </td>
+
+                                <td>
+                                  
+                                </td>
+
+                                <td>
+                                  0 -
+                                  0.5
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  LEUKOCYTES
+                                </td>
+
+                                <td>
+                                
+                                  15
+                                
+                                </td>
+
+                                <td>
+                                  Leu/μL
+                                </td>
+
+                                <td>
+                                  0 -
+                                  15
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="normal">
+                                   Normal
+                                  </span>
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  NITRITE
+                                </td>
+
+                                <td>
+                                
+                                  1
+                                
+                                </td>
+
+                                <td>
+                                  mg/dL
+                                </td>
+
+                                <td>
+                                  0 -
+                                  0.05
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  PROTEIN
+                                </td>
+
+                                <td>
+                                
+                                  1
+                                
+                                </td>
+
+                                <td>
+                                  g/L
+                                </td>
+
+                                <td>
+                                  0 -
+                                  0.15
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  SPECIFIC GRAVITY
+                                </td>
+
+                                <td>
+                                
+                                  0
+                                
+                                </td>
+
+                                <td>
+                                  
+                                </td>
+
+                                <td>
+                                  1 -
+                                  1.03
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  UROBILINOGEN
+                                </td>
+
+                                <td>
+                                
+                                  0
+                                
+                                </td>
+
+                                <td>
+                                  μmol/L
+                                </td>
+
+                                <td>
+                                  3.5 -
+                                  17
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              <tr>
+                                <td>
+                                  pH
+                                </td>
+
+                                <td>
+                                
+                                  11
+                                
+                                </td>
+
+                                <td>
+                                  
+                                </td>
+
+                                <td>
+                                  5 -
+                                  9
+                                </td>
+                                
+                                <td> 
+                                  
+                                  <span class="abnormal">
+                                    Abnormal
+                                  </span>    
+                                  
+                                </td> 
+                              </tr>
+                              
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                        <table style="height: 5px"></table>
+                      </section>
+                    </div>
+                    <div class="Disclaimer">
+                      <div class="disclaimer-inner">
+                        <p class="disclaimer-heading">Regulatory Status and Test Development</p>
+                        <p class="disclimer-content">
+                          These tests were developed and validated by TestGo - Chantilly.
+                          The U.S. Food and Drug Administration (FDA) has determined that formal premarket approval is not required for laboratory-developed
+                          tests when the laboratory operates in good standing with applicable accrediting bodies and demonstrates that its testing protocols consistently
+                          achieve a high degree of analytical accuracy.
+                        </p>
+                      </div>
+                    </div>
+                     <div class="Disclaimer pb-1">
+                          <div class="disclaimer-inner">
+                            <p class="disclaimer-heading">Disclaimer</p>
+                            <p class="disclimer-content">
+                              The information contained in this report is intended for interpretation by a 
+                              licensed physician or other qualified healthcare professional and does not 
+                              replace professional medical advice, diagnosis, or treatment. All decisions 
+                              regarding patient care, including medication selection and dosing, must be made 
+                              solely by a licensed physician, pharmacist, or other authorized healthcare professional
+                              based on the patient’s complete clinical information.
+                            </p>
+                          </div>
+                          </div>
+                    <div class="report-performed-info" style="margin:1rem 0">
+                      <table class="performed-details">
+                          <tbody>
+                                      <tr>
+                                        <td style="width: 45%">
+                                        <p>
+                                            <span class="each-cell">
+                                              <span class="line-name">Test Performed: </span><span class="line-value">TestGo - Chantilly</span>
+                                            </span>
+                                        </p>
+                                          <p>                                    
+                                          <span class="each-cell">
+                                              <span class="line-name">CLIA: </span><span class="line-value"> 49D2178444</span>
+                                          </span></p>
+                                        </td>
+                                        <td style="width: 55%">
+                                        
+                                          <p>
+                                            <span class="each-cell">
+                                              <span class="line-name">Lab Director: </span><span class="line-value">Dr. Shamaladevi Nagarajarao, Ph.D</span>
+                                            </span>
+                                        </p>
+                                        </td>
+                                      </tr>
+                            </tbody>
+                      </table>
+                    </div>
+                    <div class="clia-container">
+                      <div class="clia-column">
+                        <p>CLIA <strong>01D2141620</strong><br>
+                          234 Aquarius Dr, Ste 100 &amp; 111,<br>
+                          Homewood, AL 35209</p>
+                      </div>
+                      <div class="clia-column">
+                        <p>CLIA <strong>04D2307358</strong><br>
+                          10912 Colonel Glenn Rd, Ste 1000,<br>
+                          Little Rock, AR 72204</p>
+                      </div>
+                      <div class="clia-column">
+                        <p>CLIA <strong>04D307358</strong><br>
+                          16310 Tomball Pkwy,<br>
+                          Houston, TX 77064</p>
+                      </div>
+                      <div class="clia-column">
+                        <p>CLIA <strong>45D2289923</strong><br>
+                          2925 Skyway Cir N, Ste 140,<br>
+                          Irving, TX 75038</p>
+                      </div>
+                      <div class="clia-column">
+                        <p>CLIA <strong>49D2178444</strong><br>
+                          14225 Sullyfield Cir, Ste E,<br>
+                          Chantilly, VA 20151</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <div class="empty-footer"></div>
+                  <div class="footer">
+                    <div class="footer-inner">
+                      <table class="footer-table">
+                        <tbody>
+                          <tr style="vertical-align: middle">
+                            <td>
+                              <div class="footer-inner-block">
+                                <ul>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/phone_testgo.svg" alt="footer logo">
+                                    <p>+(205) 994-8266</p>
+                                  </li>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/fax_testgo.svg" alt="footer logo">
+                                    <p>(205) 201-4797</p>
+                                  </li>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/mail_testgo.svg" alt="footer logo">
+                                    <a href="mailto:info@testgo.com">
+                                      info@testgo.com
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/globe_testgo.svg" alt="footer logo">
+
+                                    <a href="https://testgo.com" target="_blank" rel="noopener noreferrer">
+                                      testgo.com
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </div>
+  
+
+</body></html>

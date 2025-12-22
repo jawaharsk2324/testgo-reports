@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Genomics Report -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Report</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      font-family: roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+      font-weight: 500;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table thead,
+    table tbody,
+    table tfoot {
+      border: none !important;
+    }
+
+    table td,
+    table tr {
+      padding: 0;
+    }
+
+    tbody img {
+      max-width: 100%;
+    }
+
+    #defaultReportPage {
+      width: 900px;
+      margin: 0 auto !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+   .header {
+      height: 100px;
+      width: 100%;
+      margin: 0 auto;
+      border: none;
+      position: relative;
+    }
+    .empty-header {
+      height: 110px;
+      display: none;
+    }
+
+    .pb-1{
+      padding-bottom: 1rem!important;
+    }
+
+      .footer {
+      height: 50px;
+      width: 100%;
+      margin: 0 auto;
+      background: #fff;
+    }
+    .empty-footer {
+      height: 70px;
+      display: none;
+      background: #fff;
+    }
+     
+    .customTable{
+      margin-top: 1.2rem;
+    }
+    .customTable.mt-0{
+     margin-top: 0!important;
+    }
+    
+    .customTable.summary-table table tbody td{
+      padding: 3px 5px!important;
+    }
+     
+    .customTable table {
+      border-collapse: collapse;
+    }
+
+    .customTable table thead tr th {
+      background-color: #E5E5E5;
+      color: #000;
+      text-align: left;
+      padding: 8px 5px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .customTable table tbody td {
+      font-size: 12px;
+      color: #000000;
+      font-weight: 500;
+      vertical-align:middle;
+      padding: 20px 5px;
+    }
+ 
+    .customTable table tbody td .bold{
+      font-weight: bold;
+    }
+      .customTable table tbody td .critical{
+      background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+      border-left: 2px solid #FD003A;
+      padding: 0px 10px;
+      display: block;
+      width: 100%;
+      color:#000000;
+    }
+      .customTable table tbody td .low{
+      background: linear-gradient(270deg, rgba(67, 54, 180, 0) 0%, rgba(67, 54, 180, 0.2) 100%);
+      border-left: 2px solid #4336B4;
+      padding: 0px 10px;
+      display: block;
+      width: 100%;
+      color: #000000;
+    }
+        .customTable table tbody td .abnormal{
+      background: linear-gradient(270deg, rgba(145, 0, 33, 0) 0%, rgba(145, 0, 33, 0.2) 100%);
+      border-left: 2px solid #910021;
+      padding: 0px 10px;
+      display: block;
+      width: 100%;
+      color: #000000;
+    }
+
+    .customTable table tbody tr:nth-of-type(even){
+      background-color: #F3F3F3;
+    }
+
+    .customTable table tr {
+      page-break-inside: avoid;
+    }
+
+    body.duplicate:before {
+      content: "Preliminary Report";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 75px;
+      transform: rotate(-30deg);
+      opacity: 0.05;
+      font-weight: 600;
+      z-index: -9;
+    }
+
+    @media print {
+      body.duplicate:before {
+        position: fixed !important;
+      }
+      .content{
+        top: 100px;
+      }
+       .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 1000px;
+        margin: 0 auto;
+      }
+
+      .empty-header,
+      .empty-footer {
+        display: block;
+      }
+    }
+
+    .report-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .table-header {
+      background-color: #f2f2f2;
+    }
+
+    .table-cell {
+      border: 1px solid #000;
+      padding: 6px;
+    }
+  </style>
+  <style>
+    .patient-information td {
+      padding: 0 0 0 18px !important;
+      vertical-align: top;
+    }
+
+    .patient-information td {
+      border-left: 1px solid #000000 !important;
+    }
+
+    .patient-information p {
+      margin: 0;
+      min-height: 20px;
+      color: #000000;
+      font-size: 12px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .patient-information p .name {
+      width: 42%;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .patient-information p .name,
+    .patient-information p .patient,
+    .patient-information p .dob,
+    .patient-information p .sex,
+    .patient-information p .id {
+      width: 32%;
+    }
+
+    .patient-information p .physician,
+    .patient-information p .npi,
+    .patient-information p .practice,
+    .patient-information p .phone {
+      width: 25%;
+    }
+
+    .patient-information p .collected,
+    .patient-information p .received,
+    .patient-information p .processed,
+    .patient-information p .specimen {
+      width: 38%;
+    }
+
+    .patient-information p .value.first {
+      display: inline-block;
+      width: 68%;
+      font-weight: 400;
+    }
+
+    .patient-information p .value.second {
+      display: inline-block;
+      width: 75%;
+      font-weight: 400;
+    }
+
+    .patient-information p .value.third {
+      display: inline-block;
+      width: 62%;
+      font-weight: 400;
+    }
+
+    .reportName {
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #000;
+      margin: 0;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .testgoLogo {
+      margin: 10px 0px 0;
+      width: 230px;
+      height: 80px;
+    }
+
+    .testgoImage {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    /* green bar styles  */
+    .progress-bar {
+      width: 350px;
+      height: 16px;
+      display: flex;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar.w-150 {
+      width: 150px;
+      margin-bottom: 0;
+
+    }
+
+    .segment-1 {
+      width: 45%;
+      background-color: #36B44A;
+    }
+
+    .segment-2 {
+      width: 25%;
+      background-color: #A8DCB0;
+    }
+
+    .segment-3 {
+      width: 30%;
+      background-color: #D7F2DB;
+    }
+
+    /* green block with lable styles */
+    .summary-block {
+      padding: 0rem 1rem 0;
+      border: 1px solid #36B44A;
+      margin: 2rem 0 1rem;
+      position: relative;
+    }
+
+    .summary-block p {
+      font-size: 12px;
+      margin: 0 0 10px;
+      color: #000000;
+    }
+
+    .summary-header {
+      position: relative;
+      margin: 0;
+      padding: 0.2rem 0.5rem;
+      font-size: 16px;
+      font-weight: 500;
+      top: -16px;
+      width: fit-content;
+      background: #36B44A;
+      color: #ffffff;
+      letter-spacing: 0.4px;
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+    }
+
+    .heading-block {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .heading {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      font-size: 16px;
+      color: #000000;
+      font-weight: 600;
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: max-content;
+    }
+
+    /* disclaimer styles  */
+    .Disclaimer {
+      background-color: #F3F3F3;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .disclaimer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #ffffff;
+      padding: 5px;
+    }
+
+    .disclaimer-heading {
+      font-size: 12px;
+      color: #000000;
+      margin-bottom: 5px;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .disclimer-content {
+      font-size: 12px;
+      margin: 0px;
+      text-align: center;
+      line-height: 18px;
+      color: #000000;
+      font-weight: 400;
+      text-align: justify;
+
+    }
+
+    /* clia block styles */
+    .clia-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 100%;
+    }
+    @media print {
+      .clia-container{
+        margin-top: 610px;
+      }
+    }
+
+    .clia-column {
+      flex: 1;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+
+    .clia-column p {
+      margin: 0 0 10px 0;
+    }
+
+    .clia-column strong {
+      font-weight: 700;
+    }
+
+    /* report performed details styles */
+    .report-performed-info {
+      border: 1px solid #36B44A;
+      background: #ffffff;
+    }
+
+    .report-performed-info .patient-details td {
+      vertical-align: top;
+    }
+
+    .report-performed-info .performed-details p {
+      margin: 0;
+    }
+
+    .report-performed-info .performed-details p .each-cell {
+      display: flex !important;
+      align-items: center;
+    }
+
+    .report-performed-info .performed-details p .each-cell .line-value {
+      align-self: flex-end;
+      position: relative;
+      font-size: 12px;
+      letter-spacing: -0.08px;
+      padding: 5px 10px;
+    }
+
+    .report-performed-info .performed-details p .line-name {
+      display: inline-block;
+      position: relative;
+      font-size: 12px;
+      letter-spacing: -0.08px;
+      padding: 5px 10px;
+      font-weight: 600;
+    }
+
+    /* footer styles  */
+    .footer-inner-block {
+      position: absolute;
+      width: 100%;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+      border-bottom: 1px solid #000;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul::after {
+      content: "";
+      background-color: #36B44A;
+      height: 8px;
+      width: 50px;
+      position: absolute;
+      right: 0;
+      bottom: -4px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block .disclimer-content {
+      font-size: 12px;
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+      column-gap: 5px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li img {
+      width: 14px;
+      height: 14px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li a {
+      color: #000000 !important;
+      font-size: 12px;
+      text-decoration: none !important;
+    }
+  </style>
+  <style>
+    .range-container {
+    width: 100%;
+    position: relative;
+    margin: 0;
+}
+
+.range-label {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.bottom-left {
+    bottom: -16px;
+    left: 50px;
+}
+
+.bottom-right {
+    bottom: -16px;
+    right: 50px;
+}
+
+.range-bar {
+    width: 200px;
+    height: 16px;
+    margin: 0 auto;
+    background: #BDBDBD;
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+}
+.range-bar::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;              
+    left: 0;              
+    width: 3px;
+    height: 36px;       
+    background-color: #BDBDBD;
+    z-index: 10;          
+}
+.range-bar::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;              
+    right: 0;              
+    width: 2px;
+    height: 36px;       
+    background-color: #BDBDBD;
+    z-index: 10;          
+}
+
+.segment {
+    width: 25%; 
+    background: #BDBDBD;
+  }
+
+.segment:last-child {
+    border-right: none;
+}
+.indicator-value-start{
+  font-size: 10px;
+  color: #000000;
+  position: relative;
+  left: 8%;
+  z-index: 9999;
+}
+.indicator-value-start::after{
+      content: "";
+    position: absolute;
+    left: -3px;
+    top: 13px;
+    width: 20px;            
+    height: 20px;
+    background-image: url("/OBJECTS.svg");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    border-radius: 50%;
+
+}
+
+.indicator-value-end{
+  font-size: 10px;
+  color: #000000;
+  position: relative;
+  left: 87%;
+  z-index: 9999;
+}
+.indicator-value-end::after{
+      content: "";
+    position: absolute;
+    left: -3px;
+    top: 13px;
+    width: 20px;            
+    height: 20px;
+    background-image: url("/OBJECTS.svg");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    border-radius: 50%;
+}
+
+.indicator-value-middle{
+  font-size: 10px;
+  color: #000000;
+  position: relative;
+  left: 46%;
+  z-index: 9999;
+}
+.indicator-value-middle::after{
+      content: "";
+    position: absolute;
+    left: -3px;
+    top: 13px;
+    width: 20px;            
+    height: 20px;
+    background-image: url("/OBJECTS.svg");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    border-radius: 50%;
+}
+
+  </style>
+</head>
+
+<body class="duplicate"> 
+  <div>
+    <section id="defaultReportPage" layout="div">
+      <div class="overall-border">
+        <table class="overall-table">
+          <!-- header code -->
+          <thead>
+            <tr>
+              <td>
+                <div class="header">
+                  <div class="header-inner">
+                    <div id="header-information">
+                      <div style="width:100%;">
+                        <table style="width:100%; border-collapse:collapse;">
+                          <tbody>
+                            <tr>
+                              <td style="display:flex; align-items:center; column-gap:2rem; padding:0;">
+                                <div class="testgoLogo">
+                                  <img src="https://services-api.labsquire.com/img/logos/TestGo.svg" alt="logo"
+                                    class="testgoImage">
+                                </div>
+                                <p class="reportName">
+                                  Clinical Chemistry Report
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="empty-header"></div>
+              </td>
+            </tr>
+          </thead>
+          <!-- body code  -->
+          <tbody>
+            <tr>
+              <td>
+                <div id="bodyContentStartHere">
+                  <div class="content">
+                    <div class="body-info">
+                      <!-- green color bar code -->
+                      <div class="progress-bar">
+                        <div class="segment-1"></div>
+                        <div class="segment-2"></div>
+                        <div class="segment-3"></div>
+                      </div>
+                      <!-- patient info code -->
+                      <section class="patient-information">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name Patient">Patient</span>
+                                  <span class="value first">
+                                    TESTECW, TESTECW
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name dob">
+                                    Date of Birth</span>
+                                  <span class="value first">
+                                    10-11-2024
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name sex">Gender</span><span class="value first">
+                                    FEMALE
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name id">Accession ID</span><span class="value first">
+                                    DY251110002
+                                  </span>
+                                </p>
+
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name physician">Physician</span><span class="value second">
+                                    JORGE LEDEZMA
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name npi">NPI #</span><span class="value second">
+                                    1124238126
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name practice">Practice</span><span class="value second">
+                                    FOREST CLINICA FAMILIAR
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name phone">Phone</span><span class="value second">
+                                    9284372894
+                                  </span>
+                                </p>
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name collected">Collected Date</span><span class="value third">
+                                    Nov 07, 2025, 06:19 PM
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name received">Received Date</span><span class="value third">
+                                    Nov 07, 2025, 06:19 PM
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name processed">Reported Date</span><span class="value third">
+                                    Nov 07, 2025
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name specimen">
+                                    Specimen Type </span><span class="value third">
+                                    Urine
+                                  </span>
+                                </p>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
+                        <div class="summary-block pb-1">
+                      <h3 class="summary-header">
+                        SUMMARY
+                      </h3>
+                      <div class="customTable mt-0 summary-table"> 
+                  <table>
+                          <thead>   
+                            <tr>
+                              <th style="width: 300px;">Test Name</th>
+                              <th style="width: 150px;">Result</th>
+                              <th style="width: 150px;">Units</th>
+                              <th style="width: 200px;">Reference Range</th>
+                              <th style="width: 250px;">Status</th>
+                            </tr>
+                          </thead>
+                          <tbody class="pb-1">
+                            <tr>
+                              <td>
+                                <div>
+                                  Sodium
+                                </div>
+                              </td>
+                              <td>
+                                <p class="bold">12</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <p>136 - 145</p>
+                              </td>
+                              <td>
+                                <span class="critical">Critical</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Potassium
+                                </div>
+                              </td>
+                              <td>
+                                <p class="bold">-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <p>3.5 - 5.1</p>
+                              </td>
+                                 <td><span class="critical">Critical</span></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <di>
+                                  Chloride
+                                </di>
+                              </td>
+                              <td>
+                                <p class="bold">10</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <p>98 - 107</p>
+                              </td>
+                                 <td></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  CO2
+                                </div>
+                              </td>
+                              <td>
+                                <p class="bold">-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <p>22 - 29</p>
+                              </td>
+                              <td><span class="low">Critical Low</span></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Calcium
+                                </div>
+                              </td>
+                              <td>
+                                <p class="bold">-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p>8.4 - 10.2</p>
+                              </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p class="bold">-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                          </tbody>
+                        </table>
+                      </div>        
+                    </div>
+                      <!-- table code  -->
+                      <div class="customTable">
+                            <div class="heading-block">
+                                  <div class="progress-bar w-150">
+                                    <div class="segment-1"></div>
+                                    <div class="segment-2"></div>
+                                    <div class="segment-3"></div>
+                                  </div>
+                                  <p class="heading">Comprehensive Metabolic Panel</p>
+                              </div>
+                        <table>
+                          <thead>   
+                            <tr>
+                              <th style="width: 300px;">Test Name</th>
+                              <th style="width: 100px;">Result</th>
+                              <th style="width: 100px;">Units</th>
+                              <th style="width: 150px;">Flag</th>
+                              <th style="width: 150px;">Reference Range</th>
+                              <th style="width: 350px;">Visual Range</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div>
+                                  Sodium
+                                </div>
+                              </td>
+                              <td 
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <span class="critical">High</span>
+                              </td>
+                              <td>
+                                <p>136 - 145</p>
+                              </td>
+                              <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-start">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Potassium
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                               <span class="critical">High</span>
+                              </td>
+                              <td>
+                                <p>3.5 - 5.1</p>
+                              </td>
+                                 <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-end">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <di>
+                                  Chloride
+                                </di>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                 <span class="low">Low</span>
+                              </td>
+                              <td>
+                                <p>98 - 107</p>
+                              </td>
+                                     <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-middle">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  CO2
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                               <span class="critical">High</span>
+                              </td>
+                              <td>
+                                <p>22 - 29</p>
+                              </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Calcium
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <span class="low">Critical Low</span>
+                              </td>
+                              <td>
+                                <p>8.4 - 10.2</p>
+                              </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p></p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                              <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p></p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                              <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p></p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                              <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p></p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                              <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p></p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                              <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                                <p></p>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                              <tr>
+                              <td>
+                                <div>
+                                  Glucose
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mg/dL</p>
+                              </td>
+                              <td>
+                             <span class="abnormal">Abnormal</span>
+                              </td>
+                              <td>
+                                <p>74 - 100</p>
+                              </td>
+                              <td></td>
+                           </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                        <div class="customTable">
+                            <div class="heading-block">
+                                  <div class="progress-bar w-150">
+                                    <div class="segment-1"></div>
+                                    <div class="segment-2"></div>
+                                    <div class="segment-3"></div>
+                                  </div>
+                                  <p class="heading">Comprehensive Metabolic Panel</p>
+                              </div>
+                        <table>
+                          <thead>   
+                            <tr>
+                              <th style="width: 300px;">Test Name</th>
+                              <th style="width: 100px;">Result</th>
+                              <th style="width: 100px;">Units</th>
+                              <th style="width: 150px;">Flag</th>
+                              <th style="width: 150px;">Reference Range</th>
+                              <th style="width: 350px;">Visual Range</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div>
+                                  Sodium
+                                </div>
+                              </td>
+                              <td 
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <span class="critical">High</span>
+                              </td>
+                              <td>
+                                <p>136 - 145</p>
+                              </td>
+                              <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-start">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div>
+                                  Potassium
+                                </div>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                               <span class="critical">High</span>
+                              </td>
+                              <td>
+                                <p>3.5 - 5.1</p>
+                              </td>
+                                 <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-end">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <di>
+                                  Chloride
+                                </di>
+                              </td>
+                              <td>
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                 <span class="low">Low</span>
+                              </td>
+                              <td>
+                                <p>98 - 107</p>
+                              </td>
+                                     <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-middle">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                         <div class="customTable">
+                            <div class="heading-block">
+                                  <div class="progress-bar w-150">
+                                    <div class="segment-1"></div>
+                                    <div class="segment-2"></div>
+                                    <div class="segment-3"></div>
+                                  </div>
+                                  <p class="heading">Comprehensive Metabolic Panel</p>
+                              </div>
+                        <table>
+                          <thead>   
+                            <tr>
+                              <th style="width: 300px;">Test Name</th>
+                              <th style="width: 100px;">Result</th>
+                              <th style="width: 100px;">Units</th>
+                              <th style="width: 150px;">Flag</th>
+                              <th style="width: 150px;">Reference Range</th>
+                              <th style="width: 350px;">Visual Range</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div>
+                                  Sodium
+                                </div>
+                              </td>
+                              <td 
+                                <p>-</p>
+                              </td>
+                              <td>
+                                <p>mmol/L</p>
+                              </td>
+                              <td>
+                                <span class="critical">High</span>
+                              </td>
+                              <td>
+                                <p>136 - 145</p>
+                              </td>
+                              <td>
+                                <div class="range-container">
+                                    <div class="indicator-value-start">12</div>
+
+                                    <div class="range-bar">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+
+                                        <div class="indicator"></div>
+                                    </div>
+
+                                    <div class="range-label bottom-left">30.5</div>
+                                    <div class="range-label bottom-right">47.7</div>
+                                </div>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- last content code -->
+                    <div class="last-content" style="page-break-inside: avoid">
+                      <div class="Disclaimer">
+                        <div class="disclaimer-inner">
+                          <p class="disclaimer-heading">Disclaimer</p>
+                          <p class="disclimer-content">
+                            The tests performed by Devansh Lab Werks Inc. are laboratory-developed tests (LDTs) that
+                            have been designed, validated, and verified by the laboratory to ensure a high degree of
+                            analytical accuracy, precision, and reliability. The U.S. Food and Drug Administration (FDA)
+                            has determined that formal premarket review or approval is not required for such tests,
+                            provided the laboratory maintains compliance with applicable regulatory and quality
+                            standards. These tests are intended for use by qualified healthcare professionals in
+                            clinical decision-making. </p>
+                        </div>
+                      </div>
+                      <div class="report-performed-info" style="margin:1rem 0">
+                        <table class="performed-details">
+                          <tbody>
+                            <tr>
+                              <td style="width: 45%">
+                                <p>
+                                  <span class="each-cell">
+                                    <span class="line-name">Finalised by: </span><span class="line-value">
+
+                                    </span>
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="each-cell">
+                                    <span class="line-name">Lab Director: </span><span class="line-value">
+                                      Dr. Shamaladevi Nagarajarao, Ph.D
+                                    </span>
+                                  </span>
+                                </p>
+                              </td>
+                              <td style="width: 55%">
+                                <p>
+                                  <span class="each-cell">
+                                    <span class="line-name">Performed Location: </span>
+                                    <span class="line-value">
+                                      234 Aquarius Drive,Suite 100, 111,Homewood,ALABAMA,35209
+                                    </span>
+                                  </span>
+                                </p>
+                                <p style="display: flex;align-items: center; column-gap: 10px;">
+                                  <span class="each-cell">
+                                    <span class="line-name">
+                                      CLIA: </span><span class="line-value">
+                                      01D2141620
+                                    </span>
+                                  </span>
+                                  <span class="each-cell">
+                                    <span class="line-name">
+                                      Test Performed by: </span><span class="line-value">
+                                      Rohith Manam
+                                    </span>
+                                  </span>
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="clia-container">
+                        <div class="clia-column">
+                          <p>CLIA <strong>01D2141620</strong><br>
+                            234 Aquarius Dr, Ste 110 &amp; 111,<br>
+                            Homewood, AL 35209</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>04D2307358</strong><br>
+                            10912 Colonel Glenn Rd, Ste 1000,<br>
+                            Little Rock, AR 72204</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>04D307358</strong><br>
+                            16310 State Hwy 249, Ste 601,<br>
+                            Houston, TX 77064-1346</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>45D2289923</strong><br>
+                            2925 Skyway Cir N, Ste 140,<br>
+                            Irving, TX 75038</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>49D2178444</strong><br>
+                            14225 Sullyfield Cir, Ste E,<br>
+                            Chantilly, VA 20151</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <!-- footer code  -->
+          <tfoot>
+            <tr>
+              <td>
+                <div class="empty-footer"></div>
+                <div class="footer">
+                  <div class="footer-inner">
+                    <table class="footer-table">
+                      <tbody>
+                        <tr style="vertical-align: middle">
+                          <td>
+                            <div class="footer-inner-block">
+                              <ul>
+                                <li>
+                                  <img src="https://services-api.labsquire.com/img/logos/phone_testgo.svg"
+                                    alt="footer logo" />
+                                  <p>+(205) 994-8266</p>
+                                </li>
+                                <li>
+                                  <img src="https://services-api.labsquire.com/img/logos/fax_testgo.svg"
+                                    alt="footer logo" />
+                                  <p>(205) 201-4797</p>
+                                </li>
+                                <li>
+                                  <img src="https://services-api.labsquire.com/img/logos/mail_testgo.svg"
+                                    alt="footer logo" />
+                                  <a href="mailto:info@testgo.com">
+                                    info@testgo.com
+                                  </a>
+                                </li>
+                                <li>
+                                  <img src="https://services-api.labsquire.com/img/logos/globe_testgo.svg"
+                                    alt="footer logo" />
+
+                                  <a href="https://testgo.com" target="_blank" rel="noopener noreferrer">
+                                    testgo.com
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

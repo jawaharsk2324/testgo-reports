@@ -1,0 +1,2467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>
+      TOXICOLOGY REPORT
+    </title>
+    <link rel="icon" href="/favicon.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Montserrat:wght@500;600;700&amp;display=swap"
+      rel="stylesheet">
+      <style>
+        * {
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+        }
+  
+        body {
+          font-family: "Lato", sans-serif;
+          font-size: 15px;
+          line-height: 1.5;
+          margin: 0;
+          padding: 0;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          overflow-x: hidden;
+          height: 100%;
+        }
+  
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 500;
+          margin: 0;
+          color: #0a1b4b;
+        }
+  
+        .f-weight-500 {
+          font-weight: 500;
+        }
+  
+        .f-weight-600 {
+          font-weight: 600;
+        }
+  
+        .f-weight-700 {
+          font-weight: 700;
+        }
+  
+        .body-fs {
+          font-size: 15px;
+        }
+  
+        @page {
+          size: A4;
+          margin: 10px;
+          border: none;
+        }
+  
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+  
+        .twoTables table .other-color {
+          color: black;
+        }
+  
+        thead,
+        tbody,
+        tfoot {
+          border: none !important;
+        }
+  
+        #defaultReportPage {
+          width: 900px;
+          margin: 0 auto !important;
+          position: relative;
+          overflow: hidden;
+          border: none;
+        }
+  
+        .header {
+          height: 140px;
+          width: 100%;
+          border: none;
+          position: relative;
+        }
+  
+        .empty-header {
+          height: 150px;
+          display: none;
+        }
+  
+        .footer {
+          height: 150px;
+          width: 100%;
+          background: #fff;
+        }
+  
+        .footer .footer-inner .report-date {
+          background: #e3f5f9;
+          color: #184f68;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding: 5px 15px;
+          margin: 0;
+        }
+  
+        .empty-footer {
+          height: 170px;
+          display: none;
+          background: #fff;
+        }
+  
+        .page-header {
+          display: table-header-group;
+        }
+  
+        .page-footer {
+          display: table-footer-group;
+        }
+  
+        #header-information {
+          padding-bottom: 0px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        }
+  
+        #header-information .logo {
+          max-width: 250px;
+          float: right;
+        }
+  
+        #header-information .report-name {
+          font-size: 25px;
+          font-weight: 400;
+          color: #333;
+          text-align: left;
+          font-family: "Montserrat", sans-serif;
+          margin: 0;
+        }
+  
+        .info-strip {
+          background-color: #fce3e3;
+          color: #d33b2c;
+          font-weight: 600;
+          padding: 5px;
+          text-align: center;
+          margin-top: 15px !important;
+          letter-spacing: 1px;
+        }
+  
+        .revision-block p {
+          border: 1px solid #333333;
+          padding: 2px 10px !important;
+          margin-top: 5px !important;
+        }
+  
+        /* Each Block Code Start here */
+        .each-block .block-title {
+          background: #e5f5fb;
+          padding: 5px 10px;
+          font-size: 1.1em;
+          color: #2b5e76;
+          font-weight: normal;
+          margin-bottom: 20px;
+        }
+  
+        .each-block tr {
+          vertical-align: top;
+        }
+  
+        .fullWidthTable {
+          width: 100%;
+        }
+  
+        .each-block p {
+          font-size: 1em;
+          margin-top: 10px;
+          line-height: 28px;
+        }
+  
+        .each-block .block-title {
+          margin-bottom: 15px !important;
+        }
+  
+        /*  */
+  
+        #header-information .address-information {
+          margin-top: 5px;
+          position: relative;
+          text-align: left;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+  
+        #header-information .address-information p {
+          margin: 0;
+          padding: 0;
+          font-weight: 400;
+          line-height: 22px;
+          font-size: 13.5px;
+          font-family: "Lato", sans-serif;
+          color: #000;
+          text-align: center;
+        }
+  
+        #header-information .address-information .dot::before {
+          content: "";
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          margin: 0 5px 0px 3px;
+          margin-bottom: 2px;
+          display: inline-block;
+          background-color: black;
+          vertical-align: middle;
+        }
+  
+        .patient-information {
+          border: 1px solid #c2c2c2;
+          background: #ecf7fa;
+          border-radius: 5px;
+        }
+  
+        .patient-information td {
+          padding: 9px 8px !important;
+          vertical-align: top;
+        }
+  
+        .patient-information td:not(:last-child) {
+          border-right: 1px solid #c2c2c2 !important;
+        }
+  
+        .patient-information p {
+          margin: 0;
+          margin-bottom: 5px;
+          line-height: 20px;
+          color: #333;
+          font-size: 14px;
+          display: grid !important;
+          grid-template-columns: 110px auto;
+        }
+  
+        .patient-information p .name {
+          display: inline-block;
+          position: relative;
+        }
+  
+        .patient-information p .value {
+          display: inline-block;
+          position: relative;
+        }
+  
+        .patient-information p .name:after {
+          content: ":";
+          position: absolute;
+          right: 8px;
+          top: 0;
+        }
+  
+        .medication-table {
+          border: 1px solid #dedede;
+          padding: 10px;
+          margin-top: 15px;
+          border-radius: 5px;
+        }
+  
+        .medication-table h4 {
+          margin: 0;
+          padding-bottom: 5px;
+          font-size: 18px;
+          font-weight: 600;
+        }
+  
+        .medication-table p {
+          margin: 0;
+          font-size: 13.5px;
+          letter-spacing: 0.5px;
+        }
+  
+        .description {
+          padding: 0 0 20px 0;
+        }
+  
+        .description p {
+          padding: 0.5em 0;
+          margin: 0;
+        }
+  
+        .footer .report-date {
+          font-size: 18px;
+          font-weight: 500;
+        }
+  
+        .footer-table tr td:nth-child(1) {
+          width: 80%;
+        }
+  
+        .footer-table tr td p {
+          line-height: 23px;
+          margin-top: 0;
+          font-size: 16.5px;
+        }
+  
+        .footer-table tr td .footer-company-logo {
+          margin-left: 60px;
+        }
+  
+        .footer-table tr td .footer-company-logo img {
+          width: 120px;
+        }
+  
+        .footer-table tr td .footer-company-logo img {
+          width: 45px;
+          display: table;
+          margin: 0 0 0 auto;
+        }
+  
+        .confirmation-positive .table-heading {
+          border: none !important;
+        }
+  
+        thead tr td {
+          font-weight: 600;
+        }
+  
+        .d-none {
+          display: none;
+        }
+  
+        .default-report .heading {
+          font-size: 17px;
+          color: #333333;
+          font-weight: 600;
+          margin: 0;
+        }
+  
+        .default-report table {
+          border-collapse: collapse;
+          margin: 0;
+          padding: 0;
+          border: none;
+          background: none;
+        }
+  
+        .default-report table tr {
+          border: 1px solid #a6c1d4;
+        }
+  
+        .default-report table tr.sp-row {
+          border: none;
+        }
+  
+        .default-report table tr td:first-child {
+          padding-left: 15px !important;
+          border-left: 1px solid #dedede;
+        }
+  
+        .default-report table tr td:last-child {
+          border-right: 1px solid #dedede;
+        }
+  
+        .default-report table tr td {
+          padding: 6px 3px !important;
+          color: #333333;
+          font-size: 14px;
+        }
+  
+        .default-report table tr td.red {
+          color: #ff3c58;
+        }
+  
+        .default-report table tr:nth-child(even) {
+          background-color: #f8fbffd2;
+        }
+  
+        .text-right {
+          text-align: right;
+        }
+  
+        .text-center {
+          text-align: center;
+        }
+  
+        .text-left {
+          text-align: left;
+        }
+  
+        .confirmation-positive .table-heading {
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding: 5px 15px;
+          margin: 0;
+          background: #e2ebf3;
+          color: #0058a7;
+          border: none;
+        }
+  
+        .confirmation-result .table-heading {
+          background: #e3f5f9;
+          color: #184f68;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding: 5px 15px;
+          margin: 0;
+          border: none;
+        }
+  
+        @media print {
+          .patient-information {
+            margin-top: -10px;
+          }
+  
+          .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 900px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          }
+  
+          .header .header-inner {
+            padding: 20px 30px 0 30px;
+          }
+  
+          .header #header-information {
+            border-bottom: none;
+          }
+  
+          .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 900px;
+            margin: 0 auto;
+          }
+  
+          .footer .footer-inner {
+            padding: 0 10px;
+          }
+  
+          .content {
+            margin: 15px 20px;
+          }
+  
+          .empty-header,
+          .empty-footer {
+            display: block;
+          }
+        }
+  
+        /*# sourceMappingURL=app.css.map */
+      </style>
+      <style>
+        .patientInformation table {
+          border-spacing: 7px;
+          border-collapse: separate;
+          width: 100%;
+        }
+  
+        .patientInformation table td {
+          width: 33.33%;
+          border: 1px solid #000;
+          vertical-align: top;
+          overflow: hidden;
+        }
+  
+        .patientInformation table td .insideData {
+          position: relative;
+        }
+  
+        .patientInformation table td .insideData .tableHeading {
+          writing-mode: vertical-lr;
+          text-align: center;
+          padding: 0;
+          background: #2eaf9f;
+          font-size: 15px;
+          padding: 0 5px;
+          font-weight: 700;
+          transform: rotate(180deg);
+          position: absolute;
+          top: 0;
+          bottom: -10px;
+          left: 0;
+          border-left: 1px solid #000;
+          color: #fff;
+        }
+  
+        .patientInformation table td .insideData .eachData {
+          padding-left: 32px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          border-left: 1px solid #000;
+        }
+  
+        .patientInformation table td .insideData .eachData .eachDataInside {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+  
+        .patientInformation table td .insideData .eachData:not(:last-child) {
+          border-bottom: 1px solid #000;
+        }
+  
+        .patientInformation table td .insideData .eachData .name,
+        .patientInformation table td .insideData .eachData .value {
+          font-size: 14px;
+          font-weight: 400;
+          min-height: 17px;
+          line-height: 1.4;
+        }
+  
+        .bodyContent {
+          padding: 10px 0;
+        }
+  
+        .prescribed h4 {
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+  
+        .prescribed p {
+          font-size: 16.5px;
+          line-height: 1.3;
+          margin: 0;
+        }
+  
+        .reportName {
+          padding: 2px 10px;
+          border: 1px solid #000;
+          text-align: center;
+          font-size: 16.5px;
+          margin: 10px 0 5px 0;
+          font-weight: 600;
+        }
+  
+        .tableCOntainer {
+          column-count: 2;
+          -moz-column-count: 2;
+          -webkit-column-count: 2;
+        }
+  
+        .twoTables table {
+          border: 1px solid #000;
+          border-bottom: none;
+        }
+  
+        .twoTables table tr {
+          page-break-inside: avoid;
+          border-top: 1px solid #000;
+        }
+  
+        .twoTables table th,
+        .twoTables table td {
+          font-size: 13.5px;
+          font-weight: 500;
+          padding: 2.5px 2px;
+          text-align: center;
+          word-break: break-word;
+          line-height: 1.3;
+        }
+  
+        table th {
+          font-weight: 600 !important;
+        }
+  
+        .twoTables table .greyBackground {
+          background: #ecf7fa;
+          color: #333;
+          font-weight: 600 !important;
+        }
+  
+        .twoTables table .greyLightBackground {
+          background: #d2d0d3;
+          /* border-bottom: 1px solid #000; */
+        }
+  
+        .twoTables table .greyLightBackground:not(:last-child) {
+          border-right: 1px solid #000;
+        }
+  
+        /* .twoTables table td {
+          border-bottom: 1px solid #000;
+        } */
+  
+        .twoTables table td:not(:last-child) {
+          border-right: 1px solid #000;
+        }
+  
+        .insideTable table tr:first-child {
+          border-top: none;
+        }
+  
+        .twoTables table .textLeft {
+          text-align: left !important;
+          padding-left: 10px;
+        }
+  
+        .twoTables table .red {
+          color: red;
+        }
+  
+        .noteInformation {
+          margin-top: 10px;
+        }
+  
+        .noteInformation p {
+          font-size: 15.5px;
+          margin: 5px 0 0 0;
+        }
+  
+        .signatures P {
+          font-size: 16.5px;
+        }
+  
+        .performedBy {
+          margin-top: 15px;
+        }
+  
+        .footer-report-number h3 {
+          background: #e5f5fb;
+          padding: 4px 10px;
+          font-size: 1.3em;
+          color: #2b5e76;
+          font-weight: normal;
+          margin-bottom: 0;
+        }
+  
+        .prescribed {
+          border: 1px solid #333;
+          padding: 5px 10px;
+        }
+  
+        .customTable li {
+          padding: 0 !important;
+          border: none !important;
+        }
+  
+        .customTable li {
+          /* border-left: 1px solid #333 !important; */
+          /* border-right: 1px solid #333 !important; */
+          border-bottom: 1px solid #333 !important;
+        }
+  
+        /* .customTable li table {
+          border: none;
+        } */
+  
+        .twoTables tbody tr:last-child table tr:last-child td {
+          border-bottom: none !important;
+        }
+  
+        /* .customTable li table tbody tr:first-child {
+          border-top: 0.1px solid #333 !important;
+        } */
+  
+        .customTable li tr td:nth-child(2),
+        .tableColumTwo {
+          width: 52px;
+        }
+  
+        .screening-results-section .tableColumTwo {
+          width: 80px !important;
+        }
+  
+        .customTable li tr td:nth-child(3),
+        .tableColumThree {
+          width: 70px;
+        }
+  
+        .screening-results-section .tableColumThree {
+          width: 90px !important;
+        }
+  
+        .customTable li tr td:nth-child(4),
+        .tableColumFour {
+          width: 105px;
+        }
+  
+        .customTable li tr td:nth-child(5),
+        .tableColumFive {
+          width: 91px;
+        }
+  
+        .customTable {
+          column-count: 2;
+          margin: 0;
+          padding: 0;
+          gap: 10px;
+        }
+  
+        .customTable li {
+          margin: 0;
+          display: grid;
+          grid-template-rows: 1fr auto;
+          break-inside: avoid;
+        }
+  
+        .page-break-before-always {
+          page-break-before: always;
+        }
+  
+        #screening-results .customTable tr td:nth-child(1),
+        #screening-results .customTable tr th:nth-child(1) {
+          width: 125px;
+        }
+  
+        #screening-results .customTable tr td:nth-child(2),
+        #screening-results .customTable tr th:nth-child(2) {
+          width: 60px;
+        }
+  
+        #screening-results .customTable tr td:nth-child(3),
+        #screening-results .customTable tr th:nth-child(3) {
+          width: 80px;
+        }
+  
+        #screening-results .customTable tr td:nth-child(4),
+        #screening-results .customTable tr th:nth-child(4) {
+          width: 60px;
+        }
+  
+        .Bold {
+          font-weight: 600;
+        }
+  
+        /* .amendment-report .confirmation-results-section {
+          page-break-inside: avoid;
+        } */
+        /* .comments-section td {
+          font-size: 14px !important;
+          font-weight: 600 !important;
+        }
+        .comments-section td:nth-child(2) {
+          text-align: left !important;
+          padding-left: 10px !important;
+          font-weight: normal !important;
+        } */
+        .commented-test sup {
+          vertical-align: text-bottom;
+          position: relative;
+          top: 0.2em;
+          color: red;
+          font-size: 22px;
+          line-height: 0.8;
+          font-weight: bold;
+        }
+  
+        .comments-divider {
+          height: 2px;
+          background: #2196f3;
+          margin-top: 30px;
+          margin-bottom: 10px;
+        }
+  
+        .comments-heading {
+          color: #2196f3;
+          font-weight: 600;
+          font-size: 15px;
+        }
+  
+        .comments-heading-block {
+          background: #e5f5fb;
+          padding: 0 10px 2px 10px;
+          font-size: 1.1rem;
+          color: #2b5e76;
+          font-weight: 600;
+          margin-bottom: 30px;
+          margin-top: 30px;
+          page-break-inside: avoid;
+          border-radius: 2px;
+          text-align: center;
+        }
+  
+        .comments-heading-block span {
+          color: #ff3b58;
+          padding-right: 3px;
+          font-size: 1.2em;
+          font-weight: 800;
+        }
+  
+        .inconsistent-results th p,
+        .confirmation-results-section th p {
+          margin: 0;
+          min-height: 55px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+  
+        .screening-results-section .customTable li tr td:nth-child(4),
+        .screening-results-section .tableColumFour {
+          width: 65px;
+        }
+  
+        .screening-results-section .customTable li tr td:nth-child(3),
+        .screening-results-section .tableColumThree {
+          width: 75px !important;
+        }
+  
+        .screening-results-section .customTable li tr td:nth-child(2),
+        .screening-results-section .tableColumTwo {
+          width: 100px !important;
+        }
+      </style>
+  </head>
+
+
+  <body class="covid-page ">
+    <noscript>
+      <strong>We're sorry but app.labsquire.com doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+      <div>
+        <section id="defaultReportPage" layout="div">
+          <div class="el-loading-mask" style="display: none;">
+            <div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular">
+                <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+              </svg>
+              <!---->
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>
+                  <div class="header">
+                    <div class="header-inner">
+                      <div id="header-information">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td style="width: 60%">
+                                <h2 class="report-name">
+                                  TOXICOLOGY REPORT
+                                </h2>
+                              </td>
+                              <td style="width: 40%">
+                                <div class="logo">
+                                  <img data-v-0e549244="" src="https://dlw-prod-labsquire.s3.amazonaws.com/labs/d30d3eea856efab417a60b1c88d714ed1.svg%2Bxml?AWSAccessKeyId=AKIAQH5QYIOJFGHVC6F2&amp;Expires=1762874770&amp;Signature=RZrpRvzUl6L0Xd7eqsOeugsE9vA%3D" alt="logo"
+                                    style="max-width:350px; max-height:60px; width: 100%;">
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table class="w-100 address-information">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <p>
+                                  DLW - Homewood<span class="dot"> 234 Aquarius Drive</span> <span class="dot">Suite 100, 111</span> <span class="dot"> Homewood </span><span class="dot"> ALABAMA</span> <span class="dot"> 35209</span> <span class="dot"> Phone: 2059948266 </span><span class="dot"> Fax: 2052014797</span> <br>
+                                  <span class="dot">Web: www.devlabwerks.com</span> <span class="dot"> CLIA #: 01D2141620</span><span class="dot"> Laboratory Director: Dr. Shamaladevi Nagarajarao, Ph.D</span>
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="empty-header"></div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <section class="patient-information">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td style="width: 33.33%">
+                            <p>
+                              <span class="name">Patient</span>
+                              <span class="value">
+                                TESTECW, TESTECW
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Date of Birth</span><span class="value">
+                                10-11-2024
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Sex</span><span class="value">
+                                FEMALE
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Phone</span><span class="value">
+                                9284372894
+                              </span>
+                            </p>
+                          </td>
+                          <td style="width: 33.33%">
+                            <p>
+                              <span class="name">Physician </span><span class="value">
+                                JORGE LEDEZMA
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">NPI #</span><span class="value">
+                                1124238126
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Practice Care</span><span class="value">
+                                FOREST CLINICA FAMILIAR
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Phone</span><span class="value">
+                                
+                              </span>
+                            </p>
+                          </td>
+                          <td style="width: 33.33%">
+                            <p>
+                              <span class="name">Date Collected</span><span class="value">
+                                Nov 07, 2025, 06:19 PM
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Date Received</span><span class="value">
+                                Nov 07, 2025, 06:19 PM
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Date Processed</span><span class="value">
+                                Nov 11, 2025
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">
+                                Specimen type <br>/Source </span><span class="value">
+                                Urine
+                              </span>
+                            </p>
+                            <p>
+                              <span class="name">Sample ID</span><span class="value">
+                                DT251110006
+                              </span>
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  <section>
+                    
+                  </section>
+                  <div class="bodyContent">
+                    <div class="prescribed">
+                      <h4>Prescribed Medications</h4>
+                      <p>
+                        NOT AVAILABLE
+                      </p>
+                    </div>
+                    <h4 class="reportName">PATIENT TEST RESULTS SUMMARY</h4>
+                    <div class="twoTables">
+                      <div class="tableOne">
+                        <!-- INCONSISTENT results -->
+                        
+                        <!-- Confirmation results -->
+                        <section id="confirmation-results" class="confirmation-results-section">
+                          
+                          <h4 style="font-size: 16.5px; margin-top: 20px; margin-bottom: 10px;font-weight: 600;text-transform: uppercase;">
+                            Confirmation RESULTS</h4>
+                          <!-- table Heading -->
+                          <!-- table Heading -->
+                          <ul class="customTable customTableHeading">
+                            <li>
+                              <table>
+                                <thead>
+                                  <tr>
+                                  <tr>
+                                    <th class="greyLightBackground">
+                                      <p>
+                                        DRUG CLASS / DRUGS
+                                      </p>
+                                    </th>
+                                    <th class="greyLightBackground tableColumTwo">
+                                      <span>
+                                        Cutoff <br> Level
+                                        <span style="display: block;">(ng/mL)</span>
+                                      </span>
+                                    </th>
+                                    <th class="greyLightBackground tableColumThree">
+                                      <span>
+                                        Measured <br>
+                                        Results
+                                        <span>(ng/mL)</span>
+                                      </span>
+                                    </th>
+                                    <th class="greyLightBackground tableColumFour">Interpretation</th>
+                                    <th class="greyLightBackground tableColumFive">Test <br>
+                                      Outcome</th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <thead>
+                                  <tr>
+                                  <tr>
+                                    <th class="greyLightBackground">
+                                      <p>
+                                        DRUG CLASS / DRUGS
+                                      </p>
+                                    </th>
+                                    <th class="greyLightBackground tableColumTwo">
+                                      <span>
+                                        Cutoff <br> Level
+                                        <span style="display: block;">(ng/mL)</span>
+                                      </span>
+                                    </th>
+                                    <th class="greyLightBackground tableColumThree">
+                                      <span>
+                                        Measured <br>
+                                        Results
+                                        <span>(ng/mL)</span>
+                                      </span>
+                                    </th>
+                                    <th class="greyLightBackground tableColumFour">Interpretation</th>
+                                    <th class="greyLightBackground tableColumFive">Test <br>
+                                      Outcome</th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </li>
+                            
+                          </ul>
+                          <!-- tableBody -->
+                          <ul class="customTable">
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Alkaloids
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Naloxone
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Amphetamines
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Amphetamine
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Methamphetamine
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Antidepressants(TCAs)
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Amitriptyline
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Doxepin
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Imipramine
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Nortriptyline
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Barbiturates
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Butalbital
+                                    </td>
+                                    <td>
+                                      200
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Phenobarbital
+                                    </td>
+                                    <td>
+                                      200
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Benzodiazepine
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      7-aminoclonazepam
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Alpha-hydroxyalprazolam
+                                    </td>
+                                    <td>
+                                      20
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Alprazolam
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Clonazepam
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Diazepam
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Flunitrazepam
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Flurazepam
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Lorazepam
+                                    </td>
+                                    <td>
+                                      40
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Nordiazepam
+                                    </td>
+                                    <td>
+                                      40
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Oxazepam
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Temazepam
+                                    </td>
+                                    <td>
+                                      40
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Buprenorphine
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Norbuprenorphine
+                                    </td>
+                                    <td>
+                                      20
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Cocaine
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Benzoylecgonine
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Dextromethorphan
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Cotinine
+                                    </td>
+                                    <td>
+                                      200
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Dextromethorphan
+                                    </td>
+                                    <td>
+                                      25
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Fentanyl
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Fentanyl
+                                    </td>
+                                    <td>
+                                      2
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Norfentanyl
+                                    </td>
+                                    <td>
+                                      2
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Gabapentin
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Gabapentin
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Heroin Metabolite
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      6-MAM
+                                    </td>
+                                    <td>
+                                      10
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Hypnotics
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Zolpidem
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Zolpidem Phenyl 4-COOH
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Methadone
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      EDDP
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Methadone
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Methylenedioxy-amphetamines
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      MDA
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      MDMA
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                       Not Otherwise specified
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Naltrexone
+                                    </td>
+                                    <td>
+                                      20
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Opiates
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Codeine
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Morphine
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Opioids and Opiate Analogs
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Hydrocodone
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Hydromorphone
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Meperidine
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Normeperidine
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Oxycodone
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Oxycodone
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Oxymorphone
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      PCP
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      PCP
+                                    </td>
+                                    <td>
+                                      10
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Pregabalin
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Pregabalin
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Propoxyphene
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Propoxyphene
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Skeletal Muscle Relaxants
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Carisoprodol
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Cyclobenzaprine
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Meprobamate
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Stimulants
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      MDPV
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Methylphenidate
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Tapentadol
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      Tapentadol
+                                    </td>
+                                    <td>
+                                      50
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="5" class="greyBackground textLeft">
+                                      Tramadol
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td>
+                                      O-Desmethyltramadol
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Tramadol
+                                    </td>
+                                    <td>
+                                      100
+                                    </td>
+                                    <td>
+                                      ----
+                                    </td>
+                                    <td class="black">
+                                      CONSISTENT
+                                    </td>
+                                    <td class="black">
+                                      Not Detected
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            
+                          </ul>
+                          
+                        </section>
+                        <!--!Etg/Ets Results-->
+                        <section id="confirmation-results">
+                          
+                        </section>
+                        <!--!Screening Results -->
+                        <section id="confirmation-results" class="screening-results-section"
+                          style="page-break-inside: avoid;">
+                          
+                        </section>
+                      </div>
+                    </div>
+                    <div class="noteInformation">
+                      <p>The confirmatory methods were developed and their performance characteristics were determined
+                        by DLW - Homewood. The methods have not been cleared or approved by FDA. The laboratory is
+                        regulated under CLIA as qualified to perform high complexity testing. These tests are used for
+                        clinic purposes. It should not be regarded as investigational or research.</p>
+                    </div>
+                    <div class="signatures" style="page-break-inside: avoid;">
+                      
+                      
+                      
+                      <p style="margin-bottom: 5px; margin-top: 10px;">
+                        Laboratory Certification:
+                        <span class="Bold">CLIA # 01D2141620</span>
+                      </p>
+                      
+                      
+                      <p style="margin-bottom: 5px; margin-top: 10px;">
+                        Laboratory Director:
+                        <span class="Bold">
+                          Dr. Shamaladevi Nagarajarao, Ph.D
+                        </span>
+                      </p>
+                      
+                    </div>
+
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <div class="empty-footer"></div>
+                  <div class="footer">
+                    <div class="footer-inner">
+                      <div class="footer-report-number">
+                        <h3 class="footer-heading">
+                          DT251110006 - TESTECW, TESTECW - Reported
+                          Nov 11, 2025, 08:26 AM
+                        </h3>
+                      </div>
+                      <table class="footer-table">
+                        <tbody>
+                          <tr style="vertical-align: middle">
+                            <td>
+                              <p>
+                                The information contained in this report is
+                                intended to be interpreted by a licensed physician
+                                or other licensed healthcare professional and not
+                                a substitute for professional medical advice,
+                                diagnosis, or treatment. Only a physician,
+                                pharmacist or other healthcare professional should
+                                advise a patient on the use of the medications
+                                prescribed.
+                              </p>
+                            </td>
+                            <td>
+                              <div class="footer-company-logo">
+                                <img src="https://services-api.labsquire.com/img/labsquire-logo-v2.png" width="120">
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
+
+</html>

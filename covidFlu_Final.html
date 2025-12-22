@@ -1,0 +1,1012 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+  <title>services.labsquire.com</title>
+    <script>
+    !(function () {
+      var e = document,
+        t = e.createElement("script");
+      if (!("noModule" in t) && "onbeforeload" in t) {
+        var n = !1;
+        e.addEventListener(
+          "beforeload",
+          function (e) {
+            if (e.target === t) n = !0;
+            else if (!e.target.hasAttribute("nomodule") || !n) return;
+            e.preventDefault();
+          },
+          !0
+        ),
+          (t.type = "module"),
+          (t.src = "."),
+          e.head.appendChild(t),
+          t.remove();
+      }
+    })();
+  </script>
+
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap);
+
+    html {
+      font-size: 16px;
+    }
+
+    body,
+    html {
+      height: 100%;
+    }
+
+    body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f2f2f9;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin: 0 !important;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .mb-5{
+        margin-bottom: 5px!important;
+    }
+    a {
+      text-decoration: none;
+    }
+    .image,
+    .image img {
+      max-width: 100%;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      list-style: none;
+    }
+   .img-fluid {
+      width: 100%;
+      height: auto;
+    }
+    .info-strip {
+      background-color: #FCE3E3;
+      color: #D33B2C;
+      font-weight: 600;
+      padding: 5px;
+      text-align: center;
+      margin-top: 15px !important;
+      letter-spacing: 1px;
+    }
+    .revision-block h4 {
+      margin-bottom: 0px !important;
+    }
+    .revision-block p {
+      border: 1px solid #333333;
+      padding: 2px 10px;
+      margin-top: 5px !important;
+    }
+      .footer {
+          height: 80px;
+          width: 100%;
+          background: #fff;
+        }
+        .empty-footer {
+          height: 100px;
+          display: none;
+          background: #fff;
+        }
+    #report {
+      padding: 5px 10px;
+    }
+    #report .report-header {
+      border-bottom: 1px solid #000;
+    }
+    #report .patient-details {
+      padding: 5px 0;
+    }
+
+    #report .patient-details h4 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1em;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+
+    #report .patient-details ul li {
+      display: grid;
+      grid-template-columns: 130px auto;
+    }
+
+    #report .patient-details ul li p {
+      margin: 0;
+      font-size: 0.9em;
+      line-height: 23px;
+    }
+
+    #report .patient-details ul li p:first-child {
+      position: relative;
+    }
+
+    #report .patient-details ul li p:first-child:after {
+      content: ":";
+      position: absolute;
+      right: 10px;
+      top: 0;
+    }
+
+    #report .patient-details .provider-details li {
+      grid-template-columns: auto;
+    }
+
+    #report .patient-details .provider-details li p:after {
+      content: ":";
+      position: absolute;
+      right: 10px;
+      top: 0;
+      display: none;
+    }
+    .covid-page {
+      background: #fff !important;
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+    .report-container {
+      border: none;
+    }
+    .report-container thead tr th {
+      background: #f2f2f9 !important;
+      border-bottom: 1px solid #f2f2f9;
+    }
+   
+    #covid-report {
+      width: 900px;
+      margin: 0 auto;
+      padding: 0 !important;
+      font-size: 14px;
+      color: #000;
+      position: relative;
+    }
+
+    #covid-report .w-100 {
+      width: 100%;
+    }
+
+    #covid-report .report-container thead tr th {
+      background: #fff !important;
+    }
+
+    #covid-report .report-header th {
+      border-bottom: none !important;
+    }
+
+    #covid-report thead {
+      display: table-header-group;
+    }
+
+    #covid-report tfoot {
+      display: table-row-group;
+    }
+
+    #covid-report tr {
+      page-break-inside: avoid;
+    }
+    table {
+      border-collapse: collapse;
+    }
+
+    table td {
+      padding: 0;
+    }
+
+    .body-info {
+      margin-top: 6px;
+    }
+
+      .patient-information td {
+        padding:0 0 0 18px !important;
+        vertical-align: top;
+      }
+
+      .patient-information td{
+        border-left: 1px solid #000000 !important;
+      }
+
+      .patient-information p {
+        margin: 0;
+        min-height: 20px;
+        color: #000000;
+        font-size: 12px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .patient-information p .name {
+        width: 42%;
+        display: inline-block;
+        font-weight: 700;
+      }
+      .patient-information p .name,
+      .patient-information p .patient,
+      .patient-information p .dob,
+      .patient-information p .sex,
+      .patient-information p .id {
+        width: 32%;
+      }
+
+      .patient-information p .physician,
+      .patient-information p .npi,
+      .patient-information p .practice,
+      .patient-information p .phone {
+        width: 25%;
+      }
+
+      .patient-information p .collected,
+      .patient-information p .received,
+      .patient-information p .processed,
+      .patient-information p .specimen {
+        width: 38%;
+      }
+
+      .patient-information p .value {
+        display: inline-block;
+        width: auto;
+        font-weight: 400;
+      }
+
+    .body-info .each-block .block-title {
+      background: #e5f5fb;
+      padding: 4px 10px;
+      font-size: 1.2em;
+      color: #2b5e76;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    .body-info .each-block p {
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table td {
+      vertical-align: bottom;
+      padding: 0 !important;
+    }
+    .body-info .result-summary-report .result-summary-report-table td h5{
+      font-size: 12px;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table td p {
+      margin: 0 !important;
+      line-height: 16px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table h4 {
+      font-size: 12px;
+      color: #000000;
+      font-weight: 400;
+      padding: 10px 0;
+    }
+    .body-info .result-summary-report .result-summary-report-table .inner-table  tr td{
+      padding: 5px!important;
+    }
+    .body-info .result-summary-report .result-summary-report-table .inner-table thead tr{
+      background-color: #E5E5E5;
+    }
+     .body-info .result-summary-report .result-summary-report-table .inner-table tbody tr:nth-child(even) {
+        background-color: #F3F3F3;
+      }
+
+    .body-info .result-summary-report .result-summary-report-table .negative-report {
+      font-size: 12px;
+      background: linear-gradient(90deg, rgba(54, 180, 74, 0.3) 0%, rgba(54, 180, 74, 0) 100%);
+      color: #000000;
+      display: inline-block;
+      padding: 8px 5px;
+      font-weight: 600;
+      width: 100%;
+      border-left: 2px solid #36B44A;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .negative-report span {
+      font-size: 12px;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .positive-report {
+      font-size: 12px;
+      background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+      color: #000000;
+      display: inline-block;
+      padding: 8px 5px;
+      font-weight: 600;
+      margin-bottom: 10px !important;
+      border-left: 2px solid #FD003A;
+      width: 100%;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .positive-report span {
+      font-size: 12px;
+    }    
+    .body-info .result-summary-report .result-summary-report-table .coviddetected-report {
+       font-size: 12px;
+      background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+      color: #000000;
+      display: inline-block;
+      padding: 8px 5px;
+      font-weight: 600;
+      margin-bottom: 10px !important;
+      border-left: 2px solid #FD003A;
+      width: 100%;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .positive-report span {
+      font-size: 12px;
+    }
+    
+    .body-info .result-summary-report .result-summary-report-table .inconclusive-report {
+      font-size: 13px;
+       background: linear-gradient(90deg, rgb(228 206 151 / 98%) 0%, rgba(255, 255, 255, 1) 100%);
+      color: #000000;
+      display: inline-block;
+      padding: 8px 5px;
+      font-weight: 600;
+      margin-bottom: 10px !important;
+      border-left: 2px solid #E0A309;
+      width: 100%;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .inconclusive-report span {
+      font-size: 12px;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .invalid-result-report {
+      font-size: 16px;
+      background: #000;
+      color: #fff;
+      display: inline-block;
+      padding: 3px;
+      font-weight: 600;
+      margin-bottom: 10px !important;
+    }
+
+    .body-info .result-summary-report .result-summary-report-table .invalid-result-report span {
+      font-size: 12px;
+    }
+    .body-info .description-info {
+      padding: 1rem;
+      background: #f3f3f3;
+      margin: 1rem 0;
+    }
+    .body-info .description-info p {
+      line-height: 20px;
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: -0.2;
+      padding-bottom: 0.5rem;
+    }
+    .negative {
+     background: linear-gradient(270deg, rgba(54, 180, 74, 0) 0%, rgba(54, 180, 74, 0.2) 100%);
+     border-left: 1px solid #33AC46;
+     padding: 3px 5px;
+    }
+    .positive {
+      background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+      border-left: 1px solid #FD003A;
+      padding: 3px 5px;
+
+    }
+    .coviddetected{
+      background: #fee5ea;
+    }
+    .inconclusive {
+      background: orange;
+    }
+    .mini-text {
+      font-size: 10px;
+    }
+  </style>
+  <style>
+    .reportName{
+              font-family: 'IBM Plex Sans Devanagari', sans-serif;
+              font-size: 28px;
+              font-weight: 600;
+              color: #000;
+              margin: 0;
+              letter-spacing: 0.4px;
+              white-space: nowrap;
+        }
+        .testgoLogo {
+          margin: 10px 0px;
+          width: 230px;
+          height: 80px;
+          }
+          .testgoImage {
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+          }
+           .progress-bar {
+              width: 350px;         
+              height: 16px;         
+              display: flex;
+              border-radius: 2px;
+              overflow: hidden;
+              margin-bottom: 1rem;
+            }
+          .progress-bar.w-150 {
+            width: 150px;
+            margin-bottom: 0;
+          }
+    .segment-1 {
+      width: 45%;        
+      background-color: #36B44A;
+    }
+    .segment-2 {
+      width: 25%;           
+      background-color: #A8DCB0;
+    }
+    .segment-3 {
+      width: 30%;          
+      background-color: #D7F2DB;
+    }
+    .heading-block .heading{
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 16px;
+        color: #000000;
+        font-weight: 600;
+        font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        text-transform: uppercase;
+        margin-top: 0!important;
+        letter-spacing: 0.4;
+        margin-bottom: 0!important;
+      }
+   .heading-block {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+       margin-bottom: 10px;
+      }
+    .summary-block{
+      padding: 0rem 1rem 0;
+      border: 1px solid #36B44A;
+      margin: 2rem 0 1rem;
+      position: relative;
+    }
+    .summary-block p{
+      font-size: 12px;
+      margin: 0 0 10px;
+      color: #000000;
+    }
+    .summary-header{
+      position: relative;
+      margin: 0;
+      padding: 0.2rem 0.5rem;
+      font-size: 12px;
+      font-weight: 700;
+      top: -16px;
+      width: fit-content;
+      background: #36B44A;
+      color: #ffffff;
+      letter-spacing: 0.4px;
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+    }
+    .clia-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 100%;
+    }
+    @media print{
+      .clia-container {
+        position: fixed;
+        bottom: 80px; 
+        left: 0;
+        right: 0;
+        width: 900px; 
+        background: white;
+        padding: 10px 0;
+        z-index: 50;
+        page-break-inside: avoid;
+      }
+         .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 900px;
+            margin: 0 auto;
+          }
+    }
+    .clia-column {
+      flex: 1;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+    .clia-column p {
+      margin: 0 0 10px 0;
+      line-height: 18px;
+      font-size: 12px;
+    }
+    .clia-column strong {
+      font-weight: 700;
+    }
+      .report-performed-info{
+        border: 1px solid #36B44A;
+        background: #ffffff;
+      }
+      .report-performed-info .patient-details{
+        padding: 5px;
+      }
+      .report-performed-info .patient-details td {
+        vertical-align: top;
+      }
+      .report-performed-info .performed-details p {
+        margin: 0;
+      }
+      .report-performed-info .performed-details p .each-cell {
+        display: flex !important;
+        align-items: center;
+      }
+      .report-performed-info .performed-details p .each-cell .line-value {
+        align-self: flex-end;
+        position: relative;
+        font-size: 12px;
+        letter-spacing: -0.08px;
+        padding: 5px;
+      }
+      .report-performed-info .performed-details p .line-name {
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        letter-spacing: -0.08px;
+        padding: 5px;
+        font-weight: 600;
+      }
+    .footer-inner-block{
+      position: absolute;
+      width: 100%;
+    }
+      .footer .footer-inner .footer-table .footer-inner-block ul{ 
+      display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    border-bottom: 1px solid #000;
+    margin: 0;
+    padding-left: 0;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul::after{
+      content: "";
+      background-color: #36B44A;
+      height: 8px;
+      width: 50px;
+      position: absolute;
+      right: 0;
+      bottom: -4px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block .disclimer-content{
+      font-size: 12px;
+      padding:10px 0;
+      margin: 0;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li{ 
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    column-gap: 5px;
+    }
+     .footer .footer-inner .footer-table .footer-inner-block ul li p{ 
+    margin: 0;
+    font-size: 12px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li img{
+      width: 14px;
+      height: 14px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li a{ 
+      color:#000000!important;
+      font-size: 12px;
+      text-decoration: none!important;
+    }
+  </style>
+</head>
+
+<body class="covid-page">
+  <noscript><strong>We're sorry but app.labsquire.com doesn't work properly without
+      JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+  <div id="app">
+    <div>
+      <section id="covid-report" layout="div">
+        <table>
+            <thead>
+              <tr>
+                <td>
+                 <div class="header">
+                    <div class="header-inner">
+                      <div id="header-information">
+                    <table style="width:100%; border-collapse:collapse;">
+                      <tbody>
+                        <tr>
+                          <td style="display:flex; align-items:center; column-gap:2rem; padding:0!important;">
+                            <div class="testgoLogo">
+                              <img src="https://services-api.labsquire.com/img/logos/TestGo.svg" alt="logo" class="testgoImage">
+                            </div>
+                            <p class="reportName">
+                             COVID & FLU REPORT
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                      </div>
+                      </div>
+                  </div>
+                </td>
+              </tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td style="padding-top: 0px !important">
+                <div class="body-info">
+                  <section>
+                         <div class="progress-bar">
+                          <div class="segment-1"></div>
+                          <div class="segment-2"></div>
+                          <div class="segment-3"></div>
+                      </div>
+                   <section class="patient-information">
+                        <table class="w-100">
+                          <tbody>
+                            <tr>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name Patient">Patient</span>
+                                  <span class="value">
+                                    TESTECW, TESTECW
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name dob">
+                                    Date of Birth</span>
+                                  <span class="value">
+                                    10-11-2024
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name sex">Sex</span><span class="value">
+                                    FEMALE
+                                  </span>
+                                </p>
+                                       <p>
+                                  <span class="name id">Sample ID</span><span class="value">
+                                    DY251110002
+                                  </span>
+                                </p>
+                               
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name physician">Physician</span><span class="value">
+                                    JORGE LEDEZMA
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name npi">NPI #</span><span class="value">
+                                    1124238126
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name practice">Practice</span><span class="value">
+                                    FOREST CLINICA FAMILIAR
+                                  </span>
+                                </p>
+                             <p>
+                                  <span class="name phone">Phone</span><span class="value">
+                                    9284372894
+                                  </span>
+                                </p>
+                              </td>
+                              <td style="width: 33.33%">
+                                <p>
+                                  <span class="name collected">Date Collected</span><span class="value">
+                                    Nov 07, 2025, 06:19 PM
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name received">Date Received</span><span class="value">
+                                    Nov 07, 2025, 06:19 PM
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name processed">Date Processed</span><span class="value">
+                                    Nov 07, 2025
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="name specimen">
+                                    Specimen Type </span><span class="value">
+                                    Urine
+                                  </span>
+                                </p>
+                         
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
+                    <div class="summary-block">
+                      <h3 class="summary-header">
+                        About This Report
+                      </h3>
+                      <p>
+                        This COVID-19 & Flu Report consists of molecular tests for assays implicated in SARS-COV-2 infection.
+                      </p>
+                    </div>
+                    <div class="diagnostic-result each-block">
+                          <div class="heading-block">
+                                   <div class="progress-bar w-150">
+                                    <div class="segment-1"></div>
+                                    <div class="segment-2"></div>
+                                    <div class="segment-3"></div>
+                                </div>
+                                <p class="heading">Molecular Diagnostic Results</p>
+                      </div>
+                      <div class="result-summary-report">
+                        <table class="w-100 result-summary-report-table">
+                          <tbody>
+                            <tr>
+                            <td>
+                              <div>
+                                 <h5 class="negative-report mb-5">
+                                        Covid Not Detected </h5>
+                                         <h5 class="positive-report">
+                                        Flu Detected </h5>
+                                <h4>
+                                  COVID-19 & Flu Result Summary (TaqMan TM 2019-nCoV Assay)
+                                </h4>
+                                <table class="inner-table w-100">
+                                  <thead>
+                                    <tr>
+                                    <td>
+                                      <h5>Assay</h5>
+                                    </td>
+                                    <td>
+                                      <h5>Result</h5>
+                                    </td>
+                                    <td>
+                                      <h5>Status</h5>
+                                    </td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                    <td>
+                                      <p>Covid-19</p>
+                                    </td>
+                                    <td>
+                                      <p>
+                                        NOT DETECTED
+                                      </p>
+                                    </td>
+                                     <td>
+                                      <p class="negative">
+                                        Negative
+                                      </p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <p>FLU A </p>
+                                    </td>
+                                    <td>
+                                      <p>
+                                        NOT DETECTED
+                                      </p>
+                                    </td>
+                                       <td>
+                                      <p class="negative">
+                                        Negative
+                                      </p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <p>FLU B</p>
+                                    </td>
+                                    <td>
+                                      <p>
+                                        NOT DETECTED
+                                      </p>
+                                    </td>
+                                       <td>
+                                      <p class="negative">
+                                        Negative
+                                      </p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <p>MS2 Control</p>
+                                    </td>
+                                    <td>
+                                      <p>
+                                        DETECTED
+                                      </p>
+                                    </td>
+                                    <td>
+                                      <p class="positive">
+                                        Positive
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                          <div class="description-info">
+                            <p>
+                              This sample was analyzed using an RT-PCR platform utilizing nucleic acid amplification technology. A negative result does not rule out active SARS-CoV-2 infection, particularly in individuals with moderate or high clinical suspicion. If clinically indicated, repeat testing or testing of an alternate specimen type may be warranted. No COVID-19 diagnostic test can guarantee 100% accuracy.
+                            </p>
+                              <p>
+                              The performing laboratory is not responsible for false or inaccurate results, including but not limited to: (i) testing performed during the early incubation period of SARS-CoV-2 infection; (ii) suboptimal specimen collection or situations where adequate sample material cannot be obtained; (iii) insufficient viral presence in the specimen due to early infection or limited viral shedding at the time of collection; or (iv) viral loads below the analytical sensitivity of the assay.
+                              </p>
+                                <p>           
+                             Reagents used for this assay were obtained as laboratory-developed test reagents from authorized vendors. This test was developed and its performance characteristics were established by the performing laboratory. It has not been cleared or approved by the U.S. Food and Drug Administration (FDA). This test is intended for clinical use and should not be considered investigational or research-based. The laboratory is certified under the Clinical Laboratory Improvement Amendments of 1988 (CLIA) to perform high-complexity testing.
+                                </p>
+                          </div>
+                             <div class="report-performed-info" style="margin:1rem 0;padding: 10px;">
+                              <table class="performed-details">
+                                <tbody><tr>
+                                  <td style="width: 45%">
+                                    <p>
+                                      <span class="each-cell">
+                                        <span class="line-name">Finalised by: </span><span class="line-value">
+                                      
+                                        </span>
+                                      </span>
+                                    </p>
+                                    <p>
+                                      <span class="each-cell">
+                                        <span class="line-name">Lab Director: </span><span class="line-value">
+                                        Dr. Shamaladevi Nagarajarao, Ph.D
+                                        </span>
+                                      </span>
+                                    </p>
+                                  </td>
+                                  <td style="width: 55%">
+                                    <p>
+                                      <span class="each-cell">
+                                        <span class="line-name">Performed Location: </span>
+                                        <span class="line-value">
+                                        234 Aquarius Drive,Suite 100, 111,Homewood,ALABAMA,35209
+                                        </span>
+                                      </span>
+                                    </p>
+                                    <p style="display: flex;align-items: center; column-gap: 10px;">
+                                      <span class="each-cell">
+                                        <span class="line-name">
+                                         CLIA: </span><span class="line-value">
+                                          01D2141620 
+                                        </span>
+                                      </span>
+                                         <span class="each-cell">
+                                        <span class="line-name">
+                                         Test Performed by: </span><span class="line-value">
+                                          Rohith Manam 
+                                        </span>
+                                      </span>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody></table>
+                    </div>
+                    <div class="clia-container">
+                                      <div class="clia-column">
+                                        <p>CLIA <strong>01D2141620</strong><br>
+                                        234 Aquarius Dr, Ste 110 &amp; 111,<br>
+                                        Homewood, AL 35209</p> 
+                                      </div>
+                                       <div class="clia-column">
+                                        <p>CLIA <strong>04D2307358</strong><br>
+                                        10912 Colonel Glenn Rd, Ste 1000,<br>
+                                        Little Rock, AR 72204</p>
+                                       </div>
+                                        <div class="clia-column">
+                                        <p>CLIA <strong>04D307358</strong><br>
+                                        16310 State Hwy 249, Ste 601,<br>
+                                        Houston, TX 77064-1346</p>
+                                        </div>
+                                      <div class="clia-column">
+                                        <p>CLIA <strong>45D2289923</strong><br>
+                                        2925 Skyway Cir N, Ste 140,<br>
+                                        Irving, TX 75038</p>
+                                      </div>
+                                      <div class="clia-column">
+                                        <p>CLIA <strong>49D2178444</strong><br>
+                                        14225 Sullyfield Cir, Ste E,<br>
+                                        Chantilly, VA 20151</p>
+                                      </div>
+                    </div>
+                    </div>
+                  </section>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+         <tfoot>
+              <tr>
+                <td>
+                  <div class="empty-footer"></div>
+                  <div class="footer">
+                    <div class="footer-inner">
+                      <table class="footer-table">
+                        <tbody>
+                          <tr style="vertical-align: middle">
+                            <td>
+                              <div class="footer-inner-block">
+                                <ul>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/phone_testgo.svg" alt="footer logo">
+                                    <p>+(205) 994-8266</p>
+                                  </li>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/fax_testgo.svg" alt="footer logo">
+                                    <p>(205) 201-4797</p>
+                                  </li>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/mail_testgo.svg" alt="footer logo">
+                                    <a href="/cdn-cgi/l/email-protection#bad3d4dcd5facedfc9ceddd594d9d5d7">
+                                      <span class="__cf_email__" data-cfemail="650c0b030a2511001611020a4b060a08">info@testgo.com</span>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <img src="https://services-api.labsquire.com/img/logos/globe_testgo.svg" alt="footer logo">
+
+                                    <a href="https://testgo.com" target="_blank" rel="noopener noreferrer">
+                                      testgo.com
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+        </table>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
