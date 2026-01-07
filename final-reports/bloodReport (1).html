@@ -1,0 +1,3264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Genomics Report -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Report</title>
+    <link rel="icon" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+        <style>
+      :root {
+        --primaryColor: #2eaf9f;
+        --secondaryColor: #e0f3f1;
+        --primaryColorBlackAndWhite: #414042;
+        --secondaryColorBlackAndWhite: #57595b4d;
+        --whiteColor: #ffffff;
+        --blackColor: #000000;
+        --linkColor: #a81d5e;
+        --companyNameColor: #069cc1;
+      }
+
+      body {
+        --primary-color: var(--primaryColor);
+        --secondary-color: var(--secondaryColor);
+        --link-color: var(--linkColor);
+        --company-name-color: var(--companyNameColor);
+        --white-color: var(--whiteColor);
+        --table-th-color: var(--primaryColor);
+        --table-th-color-light: var(--secondaryColor);
+        --table-th-border-color: var(--whiteColor);
+        --table-td-border-color: var(--primaryColor);
+      }
+
+      body.black-and-white {
+        --primary-color: var(--primaryColorBlackAndWhite);
+        --secondary-color: var(--secondaryColorBlackAndWhite);
+        --link-color: var(--blackColor);
+        --company-name-color: var(--blackColor);
+        --white-color: var(--blackColor);
+        --table-th-color: var(--secondaryColorBlackAndWhite);
+        --table-th-color-light: var(--secondaryColorBlackAndWhite);
+        --table-th-border-color: var(--blackColor);
+        --table-td-border-color: var(--blackColor);
+      }
+
+      * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      @page {
+        size: A4;
+        border: none;
+        margin: 25px 45px;
+        border-radius: 10px;
+      }
+
+      body {
+        /* font-family: "Roboto", sans-serif; */
+        font-family: Tahoma, sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        font-family: roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0;
+        font-weight: 500;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table thead,
+      table tbody,
+      table tfoot {
+        border: none !important;
+      }
+
+      table td,
+      table tr {
+        padding: 0;
+      }
+
+      tbody img {
+        max-width: 100%;
+      }
+
+      .img-fluid {
+        max-width: 100%;
+      }
+
+      .bold {
+        font-weight: 600;
+      }
+
+      #defaultReportPage {
+        width: 900px;
+        margin: 0 auto !important;
+        position: relative;
+        overflow: hidden;
+        border: none;
+      }
+
+      #defaultReportPage h10 {
+        page-break-before: always;
+        display: block;
+        width: 100%;
+        background: #f1f1f1;
+        height: 25px;
+        position: relative;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      #defaultReportPage h10:after {
+        content: "Page-Break";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: #333;
+        font-weight: 500;
+        transform: translateY(-50%);
+      }
+
+      #defaultReportPage h10 br {
+        display: none;
+      }
+
+      @media print {
+        #defaultReportPage h10 {
+          opacity: 0;
+          height: 0;
+          margin: 0;
+        }
+      }
+
+      @media print {
+        #pageborder {
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          border: 1px solid #000;
+          border-radius: 10px;
+        }
+
+        body.duplicate:before {
+          content: "Duplicate";
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 100px;
+          transform: rotate(-40deg);
+          opacity: 0.05;
+          font-weight: 600;
+          z-index: -9;
+        }
+      }
+
+      .backEndReportAPI .nabl-logo {
+        display: flex;
+      }
+
+      .backEndReportAPI .nabl-logo img {
+        width: 65px;
+        margin: 0 5px;
+      }
+
+      .backEndReportAPI .body-info {
+        padding: 0 0 5px 0;
+      }
+
+      .backEndReportAPI #everyReportInfo {
+        padding-bottom: 10px;
+        page-break-inside: avoid;
+      }
+
+      .backEndReportAPI #everyReportInfo .endOfTheReport {
+        border-top: 2px solid #333;
+        margin: 5px 0 15px 0;
+      }
+
+      .backEndReportAPI #everyReportInfo .endOfTheReport p {
+        text-align: center;
+        display: block;
+        color: #000;
+        padding-top: 5px;
+        font-weight: 600;
+      }
+
+      .backEndReportAPI #everyReportInfo .suggestedTest {
+        margin-top: 15px;
+      }
+
+      .backEndReportAPI #everyReportInfo .suggestedTest p {
+        background: var(--secondary-color);
+        padding: 5px 10px;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      @media print {
+        .backEndReportAPI #everyReportInfo .suggestedTest {
+          margin-left: 1.5px;
+          margin-right: 1.5px;
+        }
+      }
+
+      .backEndReportAPI #everyReportInfo #apolloAuthorizedNote {
+        display: none;
+        margin-top: 5px;
+      }
+
+      .black-and-white #bodyContentStartHere * {
+        color: #000 !important;
+      }
+
+      .black-and-white #bodyContentStartHere img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+
+      :root {
+        --setCompanyLogoHeight: 65px;
+        --setDepartmentTitleHeight: 20px;
+        --setPatientInformationHeight: 176px;
+        --setPatientInformationHeightShort: 105px;
+        --setPatientInformationHeightZero: 0px;
+        --setPatientInformationHeightWholeExom: 35.5px;
+        --setPrimaryReportTitle: 13px;
+        --setPrimaryReportTitleZero: 0px;
+        --setExtraSpaceEmptyHeader: 10px;
+        --setApolloCompanyLogoHeight: 140px;
+      }
+
+      body {
+        --set-patient-information-height: var(--setPatientInformationHeight);
+        --set-primary-report-title: var(--setPrimaryReportTitle);
+      }
+
+      .backEndReportAPI .patientInformationFourRows {
+        --set-patient-information-height: var(
+          --setPatientInformationHeightShort
+        );
+      }
+
+      .backEndReportAPI .withOutReportTitle {
+        --set-primary-report-title: var(--setPrimaryReportTitleZero);
+      }
+
+      .backEndReportAPI .withOutReportTitle .primaryReportTitle {
+        display: none !important;
+      }
+
+      .backEndReportAPI .IntegratedQuadrupleMarkers,
+      .backEndReportAPI .PentaMarkers,
+      .backEndReportAPI .defaultMarkerReports {
+        --set-patient-information-height: var(
+          --setPatientInformationHeightWholeExom
+        );
+        --set-primary-report-title: var(--setPrimaryReportTitleZero);
+      }
+
+      .backEndReportAPI .HLA_TYPING_CLASS_1_2_CLASS_TYPE,
+      .backEndReportAPI .Parental_Carrier_Testing {
+        --set-patient-information-height: var(
+          --setPatientInformationHeightZero
+        );
+        --set-primary-report-title: var(--setPrimaryReportTitleZero);
+      }
+
+      .backEndReportAPI .NIPT {
+        --set-patient-information-height: var(--setPatientInformationHeight);
+      }
+
+      .backEndReportAPI .header {
+        height: calc(
+          var(--setCompanyLogoHeight) + var(--setDepartmentTitleHeight) +
+            var(--set-patient-information-height) +
+            var(--set-primary-report-title)
+        );
+        width: 100%;
+        border: none;
+        position: relative;
+      }
+
+      .info-strip {
+        background-color: #fce3e3;
+        color: #d33b2c;
+        font-weight: 600;
+        padding: 5px;
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      .amendment-details {
+        position: relative;
+        bottom: 5px;
+      }
+
+      .revision-block p {
+        border: 1px solid #333333;
+        padding: 2px 10px !important;
+        margin-top: 5px !important;
+      }
+
+      .revision-block {
+        margin-bottom: 5px !important;
+      }
+
+      .backEndReportAPI .empty-header {
+        height: calc(
+          var(--setCompanyLogoHeight) + var(--setDepartmentTitleHeight) +
+            var(--set-patient-information-height) +
+            var(--set-primary-report-title) + var(--setExtraSpaceEmptyHeader)
+        );
+        display: none;
+      }
+
+      @media print {
+        .backEndReportAPI .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 900px;
+          margin: 0 auto;
+        }
+
+        .backEndReportAPI .empty-header {
+          display: block;
+        }
+
+        .backEndReportAPI .patient-information {
+          padding-left: 1px;
+        }
+      }
+
+      .backEndReportAPI .logoAndReportTitle {
+        border-bottom: 1.5px solid #333;
+        padding: 5px 0;
+      }
+
+      .backEndReportAPI .logoAndReportTitle .companyLogo {
+        height: var(--setCompanyLogoHeight);
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+      }
+
+      .backEndReportAPI .logoAndReportTitle .companyLogo img {
+        width: 110px;
+      }
+
+      .backEndReportAPI .primaryDepartmentTitle {
+        height: var(--setDepartmentTitleHeight);
+        margin: 0;
+        color: var(--whiteColor);
+        font-weight: 600;
+        font-size: 20px;
+        background: var(--primary-color);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-transform: uppercase;
+      }
+
+      .backEndReportAPI .patient-information {
+        height: var(--set-patient-information-height);
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .backEndReportAPI
+        .patient-information
+        tr
+        td:nth-child(1)
+        td:nth-child(1) {
+        width: 32%;
+      }
+
+      .backEndReportAPI
+        .patient-information
+        tr
+        td:nth-child(2)
+        td:nth-child(1) {
+        width: 34%;
+      }
+
+      .backEndReportAPI
+        .patient-information
+        tr
+        td:nth-child(3)
+        td:nth-child(1) {
+        width: 42%;
+      }
+
+      .backEndReportAPI .patient-information tr td table tr td {
+        height: 20px;
+        vertical-align: center;
+        line-height: 16px;
+      }
+
+      .backEndReportAPI .patient-information tr td table tr td.name {
+        padding-left: 8px;
+        font-weight: 400;
+        font-size: 13px;
+      }
+
+      .backEndReportAPI .patient-information tr td table tr td.value {
+        padding-left: 15px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 15px;
+      }
+
+      .backEndReportAPI .patient-information tr td table tr td.value p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        /* -webkit-line-clamp: 2; */
+        -webkit-box-orient: vertical;
+        line-height: inherit;
+      }
+
+      .backEndReportAPI .patient-information tr td table tr td .empty {
+        opacity: 0;
+      }
+
+      @media print {
+        .backEndReportAPI .patient-information {
+          padding-left: 1.5px;
+        }
+      }
+
+      .backEndReportAPI .primaryReportTitle {
+        padding: 10px 5px 5px 5px;
+        height: var(--set-primary-report-title);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .backEndReportAPI .primaryReportTitle h3 {
+        font-weight: 600;
+        font-size: 18px;
+        color: #000;
+        text-align: center;
+        background: var(--secondary-color);
+        border-radius: 5px;
+        width: 100%;
+        display: block;
+      }
+
+      .backEndReportAPI.hide-header .header {
+        height: calc(
+          var(--setDepartmentTitleHeight) +
+            var(--set-patient-information-height) +
+            var(--set-primary-report-title)
+        );
+      }
+
+      .backEndReportAPI.hide-header .empty-header {
+        height: calc(
+          var(--setDepartmentTitleHeight) +
+            var(--set-patient-information-height) +
+            var(--set-primary-report-title) + var(--setExtraSpaceEmptyHeader)
+        );
+      }
+
+      .backEndReportAPI.hide-header .companyLogo {
+        display: none !important;
+      }
+
+      .backEndReportAPI.apollo .header,
+      .backEndReportAPI .apollo .header {
+        height: calc(
+          var(--setApolloCompanyLogoHeight) + var(--setDepartmentTitleHeight)
+        );
+      }
+
+      .backEndReportAPI.apollo .empty-header,
+      .backEndReportAPI .apollo .empty-header {
+        height: calc(
+          var(--setApolloCompanyLogoHeight) + var(--setDepartmentTitleHeight) +
+            var(--setExtraSpaceEmptyHeader)
+        );
+      }
+
+      .backEndReportAPI.apollo .logoAndReportTitle .companyLogo,
+      .backEndReportAPI .apollo .logoAndReportTitle .companyLogo {
+        height: var(--setApolloCompanyLogoHeight);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px;
+      }
+
+      .backEndReportAPI.apollo .logoAndReportTitle .companyLogo img,
+      .backEndReportAPI .apollo .logoAndReportTitle .companyLogo img {
+        width: 180px;
+      }
+
+      @media print {
+        .backEndReportAPI.apollo .patient-information,
+        .backEndReportAPI .apollo .patient-information {
+          margin-top: calc(var(--setExtraSpaceEmptyHeader) * -1) !important;
+        }
+      }
+
+      .backEndReportAPI.apollo .patient-information,
+      .backEndReportAPI.apollo .primaryReportTitle,
+      .backEndReportAPI .apollo .patient-information,
+      .backEndReportAPI .apollo .primaryReportTitle {
+        height: 100% !important;
+      }
+
+      .backEndReportAPI.apollo.hide-header .header,
+      .backEndReportAPI .apollo.hide-header .header {
+        height: var(--setDepartmentTitleHeight);
+      }
+
+      .backEndReportAPI.apollo.hide-header .empty-header,
+      .backEndReportAPI .apollo.hide-header .empty-header {
+        height: calc(
+          var(--setDepartmentTitleHeight) + var(--setExtraSpaceEmptyHeader)
+        );
+      }
+
+      :root {
+        --setEmptyStripHeight: 5px;
+        --setSignaturesHeight: 40px;
+        --setAddressInformationHeight: 50px;
+        --setExtraSpaceEmptyFooter: 10px;
+        --setApolloFooterHeight: 116px;
+      }
+
+      .backEndReportAPI .empty-strip {
+        background: var(--primary-color);
+        height: var(--setEmptyStripHeight);
+        page-break-after: auto;
+        width: 100%;
+      }
+
+      .backEndReportAPI .footer {
+        height: calc(
+          var(--setEmptyStripHeight) + var(--setSignaturesHeight) +
+            var(--setAddressInformationHeight)
+        );
+        width: 100%;
+      }
+
+      .backEndReportAPI .empty-footer {
+        height: calc(
+          var(--setEmptyStripHeight) + var(--setSignaturesHeight) +
+            var(--setAddressInformationHeight) + var(--setExtraSpaceEmptyFooter)
+        );
+        display: none;
+      }
+
+      .backEndReportAPI.WHOLE_EXOME_SEQUESNCING .footer {
+        height: calc(
+          var(--setEmptyStripHeight) + var(--setAddressInformationHeight)
+        );
+      }
+
+      .backEndReportAPI.WHOLE_EXOME_SEQUESNCING .empty-footer {
+        height: calc(
+          var(--setEmptyStripHeight) + var(--setAddressInformationHeight) +
+            var(--setExtraSpaceEmptyFooter)
+        );
+      }
+
+      .backEndReportAPI.WHOLE_EXOME_SEQUESNCING.hide-footer tfoot {
+        display: none !important;
+      }
+
+      .backEndReportAPI .reportSignatures {
+        border-top: 5px solid var(--primary-color);
+        padding: 2px 5px 5px 5px;
+        page-break-inside: avoid;
+        height: var(--setSignaturesHeight);
+        overflow: hidden;
+      }
+
+      .backEndReportAPI .reportSignatures .signatureGroup {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .backEndReportAPI .reportSignatures .groupLeftItem,
+      .backEndReportAPI .reportSignatures .groupRightItem {
+        display: flex;
+      }
+
+      .backEndReportAPI .reportSignatures img {
+        max-width: 100%;
+      }
+
+      .backEndReportAPI .reportSignatures .flexItemOne {
+        display: flex;
+      }
+
+      .backEndReportAPI .reportSignatures .NABLLogo {
+        max-width: 60px;
+        padding-top: 10px;
+      }
+
+      .backEndReportAPI .reportSignatures .NABLLogo img {
+        display: table;
+        margin: 0 auto;
+      }
+
+      .backEndReportAPI .reportSignatures .signature {
+        max-width: 170px;
+        min-width: 140px;
+        text-align: center;
+        padding: 0 5px;
+      }
+
+      .backEndReportAPI .reportSignatures .signature .QRCode img {
+        max-width: 75px;
+      }
+
+      .backEndReportAPI .reportSignatures .signature h5 {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--blackColor);
+        padding-bottom: 5px;
+        min-height: 24px;
+      }
+
+      .backEndReportAPI .reportSignatures .signature p {
+        font-weight: 600;
+        color: var(--blackColor);
+        font-size: 12px;
+        line-height: 1.15;
+      }
+
+      .backEndReportAPI .reportSignatures .signature .signatureImage {
+        min-height: 50px;
+        padding-bottom: 5px;
+        max-height: 60px;
+      }
+
+      .backEndReportAPI .reportSignatures .signature .signatureImage img {
+        max-height: 55px;
+      }
+
+      .backEndReportAPI .footer-address-information {
+        border-top: 1px solid var(--primary-color);
+        height: var(--setAddressInformationHeight);
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .backEndReportAPI .footer-address-information .icon {
+        padding-top: 5px;
+      }
+
+      .backEndReportAPI .footer-address-information .icon img {
+        width: 20px;
+      }
+
+      .backEndReportAPI .footer-address-information td {
+        vertical-align: top;
+      }
+
+      .backEndReportAPI .footer-address-information .cname {
+        color: #333;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .backEndReportAPI .footer-address-information ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .backEndReportAPI .footer-address-information ul a {
+        text-decoration: none;
+        color: #000;
+        font-size: 12px;
+        display: inline-block;
+        margin-top: -3px;
+      }
+
+      .backEndReportAPI .footer-address-information ul li {
+        font-size: 12px;
+      }
+
+      .backEndReportAPI .footer-address-information ul li:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .backEndReportAPI .footer-address-information ul li img {
+        width: 12px;
+        margin-bottom: -3px;
+      }
+
+      .backEndReportAPI .footer-address-information p,
+      .backEndReportAPI .footer-address-information a {
+        font-size: 11px;
+      }
+
+      @media print {
+        .backEndReportAPI .footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 900px;
+          margin: 0 auto;
+        }
+
+        .backEndReportAPI .empty-footer {
+          display: block;
+        }
+      }
+
+      .backEndReportAPI.hide-footer .footer-address-information {
+        display: none;
+      }
+
+      .backEndReportAPI.hide-footer .footer {
+        height: calc(var(--setEmptyStripHeight) + var(--setSignaturesHeight));
+        width: 100%;
+      }
+
+      .backEndReportAPI.hide-footer .empty-footer {
+        height: calc(
+          var(--setEmptyStripHeight) + var(--setSignaturesHeight) +
+            var(--setExtraSpaceEmptyFooter)
+        );
+      }
+
+      .backEndReportAPI.apollo .reportSignatures,
+      .backEndReportAPI .apollo .reportSignatures {
+        height: auto !important;
+        min-height: 75px;
+      }
+
+      .backEndReportAPI.apollo .footer,
+      .backEndReportAPI .apollo .footer {
+        height: calc(var(--setApolloFooterHeight));
+      }
+
+      .backEndReportAPI.apollo .empty-footer,
+      .backEndReportAPI .apollo .empty-footer {
+        height: calc(
+          var(--setApolloFooterHeight) + var(--setExtraSpaceEmptyFooter)
+        );
+      }
+
+      .backEndReportAPI.apollo .footer td,
+      .backEndReportAPI .apollo .footer td {
+        padding: 5px 15px;
+      }
+
+      .backEndReportAPI.apollo .footer td address,
+      .backEndReportAPI .apollo .footer td address {
+        font-style: normal;
+      }
+
+      .backEndReportAPI.apollo .footer p,
+      .backEndReportAPI .apollo .footer p {
+        font-size: 13px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .backEndReportAPI.apollo .footer a,
+      .backEndReportAPI .apollo .footer a {
+        text-decoration: none;
+      }
+
+      .backEndReportAPI.apollo .footer .link,
+      .backEndReportAPI .apollo .footer .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 13px;
+      }
+
+      .backEndReportAPI.apollo .footer .cname,
+      .backEndReportAPI .apollo .footer .cname {
+        font-size: 13px;
+        color: var(--company-name-color);
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .backEndReportAPI.apollo .footer-address-information,
+      .backEndReportAPI .apollo .footer-address-information {
+        height: calc(var(--setApolloFooterHeight));
+        display: flex;
+        align-items: center;
+      }
+
+      .backEndReportAPI.apollo .footer-address-information a,
+      .backEndReportAPI.apollo .footer-address-information p,
+      .backEndReportAPI .apollo .footer-address-information a,
+      .backEndReportAPI .apollo .footer-address-information p {
+        font-size: 13px;
+      }
+
+      .backEndReportAPI.apollo .footer-address-information address a,
+      .backEndReportAPI .apollo .footer-address-information address a {
+        color: var(--link-color);
+      }
+
+      .backEndReportAPI.apollo.hide-footer .footer-inner,
+      .backEndReportAPI .apollo.hide-footer .footer-inner {
+        display: none;
+      }
+
+      .backEndReportAPI.apollo.hide-footer .footer,
+      .backEndReportAPI .apollo.hide-footer .footer {
+        height: var(--setExtraSpaceEmptyFooter);
+      }
+
+      .backEndReportAPI.apollo.hide-footer .empty-footer,
+      .backEndReportAPI .apollo.hide-footer .empty-footer {
+        height: var(--setExtraSpaceEmptyFooter);
+      }
+
+      .backEndReportAPI.black-and-white .signature img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+
+      .backEndReportAPI .ck-top-space {
+        margin-top: 15px;
+      }
+
+      .backEndReportAPI .ck-bottom-space {
+        margin-bottom: 15px;
+      }
+
+      .backEndReportAPI .each-ck-content-item .title {
+        color: var(--primary-color);
+        line-height: 1.2;
+        margin: 0;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .backEndReportAPI .each-ck-content-item p {
+        text-align: justify;
+        font-size: 15px;
+        line-height: 22px !important;
+        margin: 0;
+      }
+
+      .backEndReportAPI .content-ck-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .backEndReportAPI .content-ck-table thead {
+        border: none;
+      }
+
+      .backEndReportAPI .content-ck-table th {
+        background: var(--table-th-color);
+        color: var(--white-color);
+        text-align: center;
+        border: 1px solid var(--primary-color);
+        line-height: 1.3;
+      }
+
+      .backEndReportAPI .content-ck-table th:not(:last-child) {
+        border-right-color: var(--table-th-border-color);
+      }
+
+      .backEndReportAPI .content-ck-table th.secondaryTitle {
+        background: var(--table-th-color-light);
+        color: var(--blackColor);
+      }
+
+      .backEndReportAPI .content-ck-table th.secondaryTitle:not(:last-child) {
+        border-right-color: var(--primary-color);
+      }
+
+      .backEndReportAPI .content-ck-table td {
+        border: 1px solid var(--table-td-border-color);
+      }
+
+      .backEndReportAPI .content-ck-table th,
+      .backEndReportAPI .content-ck-table td {
+        padding: 1px 10px;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .backEndReportAPI .content-ck-table th.td-left,
+      .backEndReportAPI .content-ck-table th.text-left,
+      .backEndReportAPI .content-ck-table td.td-left,
+      .backEndReportAPI .content-ck-table td.text-left {
+        text-align: left;
+      }
+
+      .backEndReportAPI .content-ck-table th.td-center,
+      .backEndReportAPI .content-ck-table th.text-center,
+      .backEndReportAPI .content-ck-table td.td-center,
+      .backEndReportAPI .content-ck-table td.text-center {
+        text-align: center;
+      }
+
+      .backEndReportAPI .content-ck-table th.td-right,
+      .backEndReportAPI .content-ck-table th.text-right,
+      .backEndReportAPI .content-ck-table td.td-right,
+      .backEndReportAPI .content-ck-table td.text-right {
+        text-align: right;
+      }
+
+      .backEndReportAPI.black-and-white .secondaryTitle:not(:last-child) {
+        border-right-color: var(--blackColor);
+      }
+
+      .backEndReportAPI.black-and-white .content-ck-table td,
+      .backEndReportAPI.black-and-white .content-ck-table td span {
+        color: var(--blackColor) !important;
+      }
+
+      .backEndReportAPI ol {
+        margin: 0;
+      }
+
+      .backEndReportAPI ul {
+        margin: 10px;
+        padding: 0 0 0 15px;
+      }
+
+      .backEndReportAPI ul li {
+        list-style: inherit;
+      }
+
+      .backEndReportAPI figure {
+        margin: 0 auto;
+      }
+
+      .backEndReportAPI figure img {
+        max-width: 100%;
+      }
+
+      .backEndReportAPI br {
+        display: none;
+      }
+
+      .backEndReportAPI br[data-cke-filler="true"] {
+        display: block !important;
+      }
+
+      .backEndReportAPI.black-and-white h1 *,
+      .backEndReportAPI.black-and-white h2 *,
+      .backEndReportAPI.black-and-white h3 *,
+      .backEndReportAPI.black-and-white h4 *,
+      .backEndReportAPI.black-and-white h5 *,
+      .backEndReportAPI.black-and-white h6 * {
+        color: #333;
+      }
+
+      .backEndReportAPI.black-and-white th {
+        background: rgba(87, 89, 91, 0.3019607843) !important;
+        color: #000 !important;
+      }
+
+      .backEndReportAPI.black-and-white th * {
+        color: #000 !important;
+      }
+
+      .backEndReportAPI.black-and-white a {
+        color: #000 !important;
+      }
+
+      .backEndReportAPI.black-and-white a * {
+        color: #000 !important;
+      }
+
+      .backEndReportAPI.black-and-white figure img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+
+      .backEndReportAPI.black-and-white p {
+        color: #000 !important;
+      }
+
+      .backEndReportAPI.black-and-white p * {
+        color: #000 !important;
+      }
+
+      .plasma-creatine-report .each-ck-content-item .title,
+      .page-urine-organic-acid .each-ck-content-item .title,
+      .page-urine-guanidino-acid .each-ck-content-item .title {
+        font-size: 17px !important;
+      }
+
+      .black-and-white #bodyContentStartHere {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+
+      .black-and-white .page-bio-chemical-genetic-report #bodyContentStartHere {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+
+      .Location_details {
+        display: grid;
+        grid-template-columns: 240px auto;
+        border: 1.7px solid #000;
+        padding: 5px;
+      }
+
+      .comment_details {
+        margin-bottom:5px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+        background-color: #d9d9d9;
+        border-radius: 5px;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .comment-content {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        flex: 1;
+        min-width: 0;
+        margin-top: 0;
+      }
+
+      .location-heading {
+        color: #000;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .comment-heading {
+        color: #000;
+        font-size: 14px;
+        font-weight: 700;
+        color: #000000;
+        white-space: nowrap;
+        margin-right: 0.5rem;
+      }
+
+      .Location_details .location-des {
+        color: #000;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16px;
+      }
+
+      .comment_details .comment-des {
+        color: #000;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16px;
+      }
+
+      .location_header {
+        color: #000000;
+        font-size: 14px;
+        padding: 5px 10px;
+        margin: 5px 0;
+        font-weight: 500;
+        /* background: #bf1b39; */
+        background-color: #d9d9d9;
+        border-radius: 5px;
+        line-height: 16px;
+        /* width: max-content; */
+      }
+
+      .Disclaimer p {
+        font-size: 13px;
+        margin: 5px 15px 0 15px;
+        text-align: center;
+        line-height: 18px;
+      }
+
+      /*# sourceMappingURL=theme.css.map */
+
+      /*# sourceMappingURL=app_v2.css.map */
+      .cid_details {
+        display: flex;
+        -moz-column-gap: 5px;
+        column-gap: 5px;
+        align-items: flex-end;
+      }
+
+      .cid_details p {
+        font-size: 13.5px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      .cid_details p .bold {
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      .cid_details p br {
+        display: block;
+      }
+
+      .cid_details .icon img {
+        width: 14px;
+        position: relative;
+        top: 1px;
+        margin-right: 1px;
+      }
+
+      .headerContactInformation ul {
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+        list-style: none;
+      }
+
+      .headerContactInformation ul li {
+        line-height: 1.5;
+        position: relative;
+      }
+
+      .headerContactInformation ul li a {
+        color: #000;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .headerContactInformation ul li a.fw-900 {
+        font-weight: 900;
+      }
+
+      .headerContactInformation .images {
+        display: flex;
+        align-items: center;
+        -moz-column-gap: 7px;
+        column-gap: 7px;
+      }
+
+      .headerContactInformation .images img {
+        width: 12px;
+      }
+
+      .headerContactInformation address {
+        margin-top: 5px;
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .headerContactInformation address .icon img {
+        width: 14px;
+        position: relative;
+        top: 3px;
+        margin-right: 1px;
+      }
+
+      .headerContactInformation address p {
+        line-height: 1.5;
+        padding: 3px 0;
+      }
+
+      .noBorder {
+        border-bottom: none !important;
+      }
+
+      .footer-inner {
+        padding: 0 10px 10px;
+        border-top: 2px solid #333333;
+      }
+
+      .footer-inner table tr td:nth-child(3) {
+        text-align: right;
+      }
+
+      .footer-inner table tr td:nth-child(2) {
+        text-align: center;
+      }
+
+      .footer-inner p {
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #000;
+      }
+
+      .footer-inner p span {
+        font-weight: 400;
+      }
+
+      .footer_patient_details {
+        display: flex;
+        justify-content: flex-end;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+      }
+
+      .customTable table {
+        border-collapse: collapse;
+        font-family: Tahoma, sans-serif;
+      }
+
+      .customTable table thead tr th {
+        border-top: 1.8px solid #000;
+        border-bottom: 1.8px solid #000;
+        color: #000;
+        text-align: left;
+        padding: 0px 10px;
+        font-size: 13.5px;
+        font-weight: 800;
+      }
+
+      .customTable table thead tr th:last-child {
+        padding-left: 24px;
+      }
+
+      .customTable table td {
+        padding: 1px 10px 0;
+        font-size: 14px;
+        color: #000000;
+        font-weight: 500;
+        vertical-align: baseline;
+      }
+
+      .customTable table td h5 {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .customTable table td .sub {
+        padding-top: 0;
+        padding-left: 10px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .customTable table td #flag-result_bg {
+        background-color: #d9d9d9;
+        font-weight: 500;
+      }
+
+      .customTable table td .notes {
+        display: block;
+        align-items: flex-start;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+        padding-left: 10px;
+      }
+
+      .customTable table td .notes h6 {
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .customTable table td .notes .notesRanges {
+        position: relative;
+        top: 1px;
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .customTable table td .notes .notesRanges .RangeText {
+        white-space: nowrap;
+      }
+
+      .customTable table td.flag-result {
+        font-weight: 800;
+        font-size: 12px;
+      }
+
+      .customTable table td.flag-result-color-red {
+        font-weight: 800;
+        font-size: 13.5px;
+        color: #ff0000;
+      }
+
+      .customTable table td.flag-result-color-dark-red {
+        font-weight: 800;
+        font-size: 13.5px;
+        color: #ff0000;
+      }
+
+      .customTable table td.result-color-red {
+        font-weight: 800;
+        font-size: 13.5px;
+        color: #ff0000;
+      }
+
+      .customTable table td.result-color-dark-red {
+        font-weight: 800;
+        font-size: 13.5px;
+        color: #ff0000;
+      }
+
+      .customTable table td.result-color-green {
+        font-weight: 800;
+        font-size: 13.5px;
+        color: #008000;
+      }
+
+      .customTable table td .run-time {
+        text-align: end;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 12px;
+      }
+
+      .customTable table td .refRange {
+        padding-top: 0px;
+        text-align: left;
+        padding-left: 15px;
+      }
+
+      .customTable table td .sub_value {
+        padding-top: 0px;
+        font-family: Tahoma, sans-serif;
+      }
+
+      .customTable table .location_ref {
+        vertical-align: baseline;
+      }
+
+      .customTable table .gestation_notes {
+        display: flex;
+        -moz-column-gap: 70px;
+        column-gap: 70px;
+        align-items: baseline;
+      }
+
+      .customTable table .gestation_notes .gestation {
+        opacity: 0.85;
+      }
+
+      .customTable table tr {
+        page-break-inside: avoid;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      body.duplicate:before {
+        content: "Preliminary Report";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 75px;
+        transform: rotate(-30deg);
+        opacity: 0.05;
+        font-weight: 600;
+        z-index: -9;
+      }
+
+      @media print {
+        body.duplicate:before {
+          position: fixed !important;
+        }
+      }
+    .report-table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+    }
+    .table-header {
+        background-color: #f2f2f2;
+    }
+    .table-cell {
+        border: 1px solid #000;
+        padding: 6px;
+    }
+
+      /*# sourceMappingURL=app_v2.css.map */
+    </style>
+    <link rel="stylesheet" href="app_v2.css" />
+  </head>
+  <body id="standard-report" class="backEndReportAPI ">
+    <div class="backEndReportAPI">
+      <section
+        id="defaultReportPage"
+        layout="div"
+        class="patientInformationFourRows ATN1 GENE TRIPLET REPEAT ANALYSIS FOR DRPLA"
+      >
+        <div class="overall-border">
+          <table class="overall-table">
+            <thead class="thead">
+              <tr>
+                <td>
+                  <div class="header">
+                    <div class="logoAndReportTitle">
+                      <table>
+                        <tbody>
+                          <tr style="vertical-align: top">
+                            <td style="width: 180px">
+                              <div class="companyLogo">
+                                <img
+                                  data-v-0e549244=""
+                                  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA1MTIgMjg2LjgxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgMjg2LjgxOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBkPSJNNDEuMDIsMTY5LjI3YzkuOTQsMCwxOS42NCwwLDI5LjksMGMtMC4xNSw0LjM4LTAuMjEsNy4wOC0wLjIxLDEyLjMyYzE0LjUxLTEuMTUsMjkuODgtMS40Miw0My44NC0zLjY2DQoJYzEwLjQ1LTEuNjgsMTYuOTYtOS40LDE5LjU3LTE5LjgxYzQuNC0xNy41Myw0Ljc5LTM1LjIyLDAuNjEtNTIuNzhjLTQuMDYtMTcuMDMtMTMuNzktMjQuNjgtMzEuMjMtMjUuNzYNCgljLTQuNjYtMC4yOS05LjY4LTAuNzEtMTUuNDgtMS4xNWM3LjMzLTguMiw3LjEyLTE5LjU0LDAuMTQtMjUuNjZjOC41OSwwLDE2LjQ1LDAuNDksMjQuMTksMS4yYzI5LjAyLDIuNjksNDUuMjUsMTYuNjQsNTIuNzQsNDQuODUNCgljNC45NSwxOC42Niw1LjY2LDM3LjU2LDEuNzMsNTYuNDNjLTYuNTQsMzEuNDYtMjUuMjksNDguNTUtNTcuNSw1MC41MWMtMjIuMDEsMS4zNC00Ni4zNSwwLjc2LTY4LjQ0LDAuODFMNDEuMDIsMTY5LjI3eiIvPg0KPHBhdGggZD0iTTI5Ny4xNCwxODAuNjFjMCw4Ljk3LDAsMTYuODcsMCwyNS4yNGMtMzUuODksMC03MS41MSwwLTEwNy40OSwwYzAtNTAuOCwwLTEwMS4zMSwwLTE1Mi4xOWMxMC4xOCwwLDIwLjA3LDAsMzAuODEsMA0KCWMwLDQyLjQyLDAsODQuMzYsMCwxMjYuOTVDMjQ2LjM2LDE4MC42MSwyNzEuNDMsMTgwLjYxLDI5Ny4xNCwxODAuNjF6Ii8+DQo8cGF0aCBkPSJNODkuMTYsMjEuMjZjLTIuMjQsOS40Ni00LjY0LDE5LjI1LTYuODcsMjguNjdjLTIuMzQtMC43Mi0zLjY1LTAuODQtNS40NC0wLjc3Yy04LjA0LDAuMjktMTQuMSw1LjE4LTE1Ljg3LDEyLjc4DQoJYy0xLjY5LDcuMjYsMS43OCwxNS4wMyw4Ljg3LDE4LjM0YzEuNSwwLjcsNC42MiwxLjQ2LDQuNjIsMS40NmwtMTEuMyw0Ny43OWMtMTEuODktMi44Mi0yMy4zLTUuNTMtMzUuNTMtOC40NA0KCWMxLjU4LTYuNzgsMy0xMy4wNiw0LjUtMTkuMzFjNi42OC0yNy43NiwxMy41MS02MS4zMiwxOS45NC04OS4xM0w4OS4xNiwyMS4yNnoiLz4NCjxwYXRoIGQ9Ik02MC40NSwxLjg3YzkuMTcsMi4xNSwxOC4zNSw0LjMxLDI3LjQ5LDYuNDVjLTEuMTUsNy4wNi00LjM3LDkuNDYtMTAuMjgsOC4xM2MtMy43Ny0wLjg1LTcuNTMtMS43NS0xMS4yOC0yLjcNCglDNjAuMTEsMTIuMTYsNTguNiw5LjM4LDYwLjQ1LDEuODd6Ii8+DQo8cmVjdCB4PSIxMS4xNyIgeT0iMTYwLjIiIHdpZHRoPSI2Ny41OSIgaGVpZ2h0PSI2LjczIi8+DQo8cG9seWdvbiBwb2ludHM9IjI1LjY0LDIyMS43OCA5MC42NCwyMjEuNTggNzIuNjEsMjA4Ljc0IDQwLjg5LDIwOC43NiAiLz4NCjxnPg0KCTxwYXRoIGQ9Ik0zMzQuNDgsMjA1Ljk1TDI5Ny4wMiw1NC4zN2gzOC4xN2wxMS45NCw2Mi41MmMzLjUxLDE3Ljk5LDYuNzksMzcuNTYsOS4zNyw1Mi44NWgwLjQ3YzIuNTgtMTYuNDIsNi4zMi0zNC42MywxMC4zLTUzLjMNCgkJbDEzLjM1LTYyLjA3aDM3LjkzbDEyLjY0LDYzLjg3YzMuNTEsMTcuNzcsNi4wOSwzMy45Niw4LjQzLDUwLjgyaDAuNDdjMi4zNC0xNi44Nyw1Ljg1LTM0LjYzLDkuMTMtNTIuNjJsMTIuODgtNjIuMDdoMzYuMjkNCgkJbC00MC43NCwxNTEuNTdoLTM4LjYzbC0xMy4zNS02NS4yMmMtMy4wNC0xNS4yOS01LjYyLTI5LjQ2LTcuNDktNDYuNzhoLTAuNDdjLTIuODEsMTcuMDktNS4zOSwzMS40OC05LjEzLDQ2Ljc4bC0xNC45OSw2NS4yMg0KCQlIMzM0LjQ4eiIvPg0KPC9nPg0KPHBhdGggZD0iTTQ0LjIsMTQzLjg1Yy0wLjE4LTAuMDctMC4zOS0wLjEzLTAuNTktMC4yMWMtMS45Ny0wLjgyLTIuOTgtMy4wNi0yLjI5LTUuMDhjMC4wOC0wLjIyLDAuMDUtMC4zNS0wLjEyLTAuNTENCgljLTEuMzktMS4zOC0yLjc3LTIuNzctNC4xNi00LjE1Yy0wLjA3LTAuMDctMC4xNC0wLjEzLTAuMTgtMC4xN2MtMC40MywwLjQxLTAuODMsMC44NS0xLjI5LDEuMmMtMS44MywxLjM3LTMuODUsMS42NS01Ljk0LDAuNzQNCgljLTIuMDgtMC45LTMuMjgtMi41NS0zLjUyLTQuODFjLTAuMzQtMy4xNSwxLjkzLTYuMDQsNS4wMi02LjQzYzMuMjItMC40MSw2LjEzLDEuNzEsNi42Niw0Ljg2YzAuMjEsMS4yNywwLjAzLDIuNDgtMC41NSwzLjY0DQoJYy0wLjA2LDAuMTMtMC4xMywwLjIzLDAuMDEsMC4zN2MxLjQ2LDEuNDUsMi45MSwyLjksNC4zNyw0LjM2YzAuMDEsMC4wMSwwLjA0LDAuMDIsMC4wOCwwLjA0YzAuNTYtMC44MiwxLjI5LTEuNDMsMi4yNi0xLjczDQoJYzAuOTctMC4zLDEuOTItMC4yNCwyLjg5LDAuMTZjMC4zMy0wLjU2LDAuNjUtMS4xMiwwLjk4LTEuNjljLTAuOTYtMC45NC0wLjkyLTIuMjQtMC4xNi0zLjA3YzAuNjgtMC43NCwxLjgyLTAuODcsMi42Ny0wLjMzDQoJYzAuODUsMC41NSwxLjE5LDEuNjMsMC44LDIuNTdjLTAuNDQsMS4wNi0xLjM4LDEuNDUtMi44MSwxLjE1Yy0wLjMxLDAuNTQtMC42MywxLjA5LTAuOTUsMS42NWMxLjUyLDEuMSwyLjEyLDIuNTYsMS43OCw0LjQ0DQoJYzAuMTEsMC4wMSwwLjIxLDAuMDEsMC4zMiwwLjAxYzIuNTQsMCw1LjA4LDAsNy42MiwwLjAxYzAuMjQsMCwwLjMzLTAuMDYsMC40LTAuM2MwLjQzLTEuNDksMS45OC0yLjM0LDMuNDYtMS45Mw0KCWMxLjUsMC40MiwyLjM4LDEuOTYsMS45NywzLjQ3Yy0wLjQsMS40Ni0xLjkyLDIuMzctMy40LDEuOTljLTEuMjEtMC4zMS0xLjk2LTEuMjctMi4xMS0yLjNjLTAuMDItMC4xMS0wLjA0LTAuMjEtMC4wNi0wLjM0DQoJYy0wLjExLTAuMDEtMC4yLTAuMDItMC4zLTAuMDJjLTIuNiwwLTUuMjEsMC03LjgxLDAuMDFjLTAuMTIsMC0wLjMxLDAuMDctMC4zNiwwLjE3Yy0wLjgyLDEuNTQtMi4wOSwyLjMzLTMuODQsMi4zMw0KCWMtMC4wMywwLTAuMDcsMC0wLjEsMGMtMC4wMywwLTAuMDYsMC0wLjE0LDAuMDFjLTAuNDQsMy4wNS0wLjg5LDYuMS0xLjMzLDkuMThjMC4xMiwwLjA0LDAuMjMsMC4wOCwwLjM0LDAuMTINCgljMS4zNCwwLjQ3LDIuMTIsMS44OCwxLjgyLDMuMjVjLTAuMywxLjM3LTEuNTgsMi4zNS0yLjkyLDIuMjNjLTEuNTEtMC4xMy0yLjYxLTEuMjYtMi42Ny0yLjc0Yy0wLjA2LTEuMzcsMC45OC0yLjYzLDIuMzUtMi44Ng0KCWMwLjEtMC4wMiwwLjIxLDAuMDEsMC4yOS0wLjAzYzAuMDktMC4wNCwwLjItMC4xMywwLjIyLTAuMjFjMC40NC0yLjk5LDAuODctNS45OSwxLjMtOC45OEM0NC4yMiwxNDMuODksNDQuMjEsMTQzLjg4LDQ0LjIsMTQzLjg1eiINCgkvPg0KPGc+DQoJPHBhdGggZD0iTTc3LjA5LDUxLjc5Yy03LjYxLDAtMTMuOCw2LjEzLTEzLjgsMTMuNjdjMCw3LjQ4LDYuMjQsMTMuNjksMTMuNzQsMTMuNjljMCwwLDAuMDEsMCwwLjAxLDANCgkJYzcuNDktMC4wMSwxMy42MS02LjE0LDEzLjYyLTEzLjY0YzAuMDItNy41NC02LjA0LTEzLjY5LTEzLjUyLTEzLjcyQzc3LjEzLDUxLjc5LDc3LjExLDUxLjc5LDc3LjA5LDUxLjc5TDc3LjA5LDUxLjc5eg0KCQkgTTc3LjAzLDcxLjA5Yy0wLjAyLDAtMC4wMywwLTAuMDUsMGMtMy4wOS0wLjAzLTUuNTYtMi41Mi01LjU3LTUuNjFjMC0zLjE1LDIuNDgtNS42NCw1LjYzLTUuNjRjMCwwLDAuMDEsMCwwLjAxLDANCgkJYzMuMDUsMCw1LjU5LDIuNTUsNS42MSw1LjZDODIuNjYsNjguNSw4MC4wOSw3MS4wOSw3Ny4wMyw3MS4wOUw3Ny4wMyw3MS4wOXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGQ9Ik0xMS41NCwyNDYuNzJjMi45Mi0wLjQ5LDYuNjQtMC43NiwxMC41OC0wLjc2YzYuOCwwLDExLjUsMS40LDE0Ljg1LDQuMjFjMy41MSwyLjg2LDUuNjcsNy4xOCw1LjY3LDEzLjM5DQoJCWMwLDYuNDgtMi4yMSwxMS4zNC01LjY3LDE0LjQ3Yy0zLjYyLDMuMjktOS40LDQuOTctMTYuNDcsNC45N2MtMy44OSwwLTYuOC0wLjIyLTguOTYtMC40OVYyNDYuNzJ6IE0xOC4xOSwyNzcuNTUNCgkJYzAuOTIsMC4xNiwyLjMyLDAuMTYsMy42NywwLjE2YzguNjQsMC4wNSwxMy43Ny00LjcsMTMuNzctMTMuOTNjMC4wNS04LjA1LTQuNTktMTIuNjQtMTIuOTEtMTIuNjRjLTIuMTEsMC0zLjYyLDAuMTYtNC41NCwwLjM4DQoJCVYyNzcuNTV6Ii8+DQoJPHBhdGggZD0iTTU1LjU1LDI3MS4zNGMwLjE2LDQuNzUsMy44OSw2LjgsOC4xLDYuOGMzLjA4LDAsNS4yOS0wLjQzLDcuMjktMS4xOWwwLjk3LDQuNTljLTIuMjcsMC45Mi01LjQsMS42Mi05LjE4LDEuNjINCgkJYy04LjUzLDAtMTMuNTUtNS4yNC0xMy41NS0xMy4yOGMwLTcuMjksNC40My0xNC4xNSwxMi44NS0xNC4xNWM4LjUzLDAsMTEuMzQsNy4wMiwxMS4zNCwxMi44YzAsMS4yNC0wLjExLDIuMjEtMC4yMiwyLjgxSDU1LjU1eg0KCQkgTTY3LjExLDI2Ni43YzAuMDUtMi40My0xLjAzLTYuNDMtNS40NS02LjQzYy00LjEsMC01LjgzLDMuNzMtNi4xLDYuNDNINjcuMTF6Ii8+DQoJPHBhdGggZD0iTTg1LjQ3LDI1Ni4zM2w0LjI3LDEzLjM0YzAuNzYsMi4zMiwxLjMsNC40MywxLjc4LDYuNTloMC4xNmMwLjQ5LTIuMTYsMS4wOC00LjIxLDEuNzgtNi41OWw0LjE2LTEzLjM0aDcuMDJsLTEwLjA0LDI2LjMNCgkJaC02LjUzbC05Ljc3LTI2LjNIODUuNDd6Ii8+DQoJPHBhdGggZD0iTTEyNS44NiwyODIuNjNsLTAuNDMtMi45MmgtMC4xNmMtMS42MiwyLjA1LTQuMzcsMy41MS03Ljc4LDMuNTFjLTUuMjksMC04LjI2LTMuODMtOC4yNi03LjgzYzAtNi42NCw1Ljg5LTkuOTksMTUuNjEtOS45NA0KCQl2LTAuNDNjMC0xLjczLTAuNy00LjU5LTUuMzUtNC41OWMtMi41OSwwLTUuMjksMC44MS03LjA3LDEuOTRsLTEuMy00LjMyYzEuOTQtMS4xOSw1LjM1LTIuMzIsOS41LTIuMzINCgkJYzguNDIsMCwxMC44NSw1LjM1LDEwLjg1LDExLjA3djkuNWMwLDIuMzgsMC4xMSw0LjcsMC4zOCw2LjMySDEyNS44NnogTTEyNSwyNjkuNzhjLTQuNy0wLjExLTkuMTgsMC45Mi05LjE4LDQuOTENCgkJYzAsMi41OSwxLjY3LDMuNzgsMy43OCwzLjc4YzIuNjUsMCw0LjU5LTEuNzMsNS4xOC0zLjYyYzAuMTYtMC40OSwwLjIyLTEuMDMsMC4yMi0xLjQ2VjI2OS43OHoiLz4NCgk8cGF0aCBkPSJNMTQxLjIsMjY0LjE2YzAtMy4wMi0wLjA1LTUuNTYtMC4yMi03LjgzaDUuODNsMC4zMiwzLjk0aDAuMTZjMS4xMy0yLjA1LDQtNC41NCw4LjM3LTQuNTRjNC41OSwwLDkuMzQsMi45Nyw5LjM0LDExLjI5DQoJCXYxNS42MWgtNi42NHYtMTQuODVjMC0zLjc4LTEuNC02LjY0LTUuMDItNi42NGMtMi42NSwwLTQuNDgsMS44OS01LjE4LDMuODljLTAuMjIsMC41OS0wLjI3LDEuNC0wLjI3LDIuMTZ2MTUuNDRoLTYuN1YyNjQuMTZ6Ii8+DQoJPHBhdGggZD0iTTE3NC40NiwyNzYuNTNjMS41MSwwLjkyLDQuMzcsMS44OSw2Ljc1LDEuODljMi45MiwwLDQuMjEtMS4xOSw0LjIxLTIuOTJjMC0xLjc4LTEuMDgtMi43LTQuMzItMy44Mw0KCQljLTUuMTMtMS43OC03LjI5LTQuNTktNy4yNC03LjY3YzAtNC42NCwzLjgzLTguMjYsOS45NC04LjI2YzIuOTIsMCw1LjQ1LDAuNzYsNi45NywxLjU3bC0xLjMsNC43Yy0xLjEzLTAuNjUtMy4yNC0xLjUxLTUuNTYtMS41MQ0KCQljLTIuMzgsMC0zLjY3LDEuMTMtMy42NywyLjc1YzAsMS42NywxLjI0LDIuNDgsNC41OSwzLjY3YzQuNzUsMS43Myw2Ljk3LDQuMTYsNy4wMiw4LjA1YzAsNC43NS0zLjczLDguMjEtMTAuNjksOC4yMQ0KCQljLTMuMTksMC02LjA1LTAuNzYtNy45OS0xLjg0TDE3NC40NiwyNzYuNTN6Ii8+DQoJPHBhdGggZD0iTTIwMCwyNDQuMjloNi43djE1LjY2aDAuMTFjMC44MS0xLjI0LDEuODktMi4yNywzLjI5LTMuMDJjMS4zLTAuNzYsMi44Ni0xLjE5LDQuNTQtMS4xOWM0LjQ4LDAsOS4xOCwyLjk3LDkuMTgsMTEuMzl2MTUuNQ0KCQloLTYuNjR2LTE0Ljc0YzAtMy44My0xLjQtNi43LTUuMDgtNi43Yy0yLjU5LDAtNC40MywxLjczLTUuMTMsMy43M2MtMC4yMiwwLjU0LTAuMjcsMS4yNC0wLjI3LDJ2MTUuNzFIMjAwVjI0NC4yOXoiLz4NCgk8cGF0aCBkPSJNMjQ3Ljc0LDI0Ni4yM2g2LjY0djMwLjgzaDE0Ljk2djUuNTZoLTIxLjZWMjQ2LjIzeiIvPg0KCTxwYXRoIGQ9Ik0yOTEuNTksMjgyLjYzbC0wLjQzLTIuOTJoLTAuMTZjLTEuNjIsMi4wNS00LjM3LDMuNTEtNy43OCwzLjUxYy01LjI5LDAtOC4yNi0zLjgzLTguMjYtNy44M2MwLTYuNjQsNS44OS05Ljk5LDE1LjYxLTkuOTQNCgkJdi0wLjQzYzAtMS43My0wLjctNC41OS01LjM1LTQuNTljLTIuNTksMC01LjI5LDAuODEtNy4wNywxLjk0bC0xLjMtNC4zMmMxLjk0LTEuMTksNS4zNS0yLjMyLDkuNS0yLjMyDQoJCWM4LjQyLDAsMTAuODUsNS4zNSwxMC44NSwxMS4wN3Y5LjVjMCwyLjM4LDAuMTEsNC43LDAuMzgsNi4zMkgyOTEuNTl6IE0yOTAuNzIsMjY5Ljc4Yy00LjctMC4xMS05LjE4LDAuOTItOS4xOCw0LjkxDQoJCWMwLDIuNTksMS42NywzLjc4LDMuNzgsMy43OGMyLjY1LDAsNC41OS0xLjczLDUuMTgtMy42MmMwLjE2LTAuNDksMC4yMi0xLjAzLDAuMjItMS40NlYyNjkuNzh6Ii8+DQoJPHBhdGggZD0iTTMwNi43MSwyODIuNjNjMC4xMS0xLjc4LDAuMjItNC43LDAuMjItNy40di0zMC45NGg2LjY0djE1LjY2aDAuMTFjMS42Mi0yLjU0LDQuNDgtNC4yMSw4LjQyLTQuMjENCgkJYzYuNDMsMCwxMS4wMiw1LjM1LDEwLjk2LDEzLjM0YzAsOS40NS01Ljk5LDE0LjE1LTExLjkzLDE0LjE1Yy0zLjQsMC02LjQzLTEuMy04LjMyLTQuNTRoLTAuMTFsLTAuMzIsMy45NEgzMDYuNzF6IE0zMTMuNTYsMjcxLjc4DQoJCWMwLDAuNTQsMC4wNSwxLjA4LDAuMTYsMS41N2MwLjcsMi42NSwzLjAyLDQuNjQsNS44OSw0LjY0YzQuMTYsMCw2LjctMy4zNSw2LjctOC42NGMwLTQuNjQtMi4yMS04LjQyLTYuNjQtOC40Mg0KCQljLTIuNywwLTUuMTMsMS45NC01Ljg5LDQuODZjLTAuMTEsMC40OS0wLjIyLDEuMDgtMC4yMiwxLjczVjI3MS43OHoiLz4NCgk8cGF0aCBkPSJNMzU5LjMsMjgyLjYzbC04LjkxLTM2LjRoNy4wN2wzLjQ2LDE2LjUyYzAuOTIsNC40MywxLjc4LDkuMDcsMi4zOCwxMi42OWgwLjExYzAuNTktMy44MywxLjYyLTguMTUsMi42NS0xMi43NWwzLjk0LTE2LjQ3DQoJCWg2Ljk3bDMuNjIsMTYuNzRjMC45Miw0LjMyLDEuNjcsOC4zNywyLjIxLDEyLjMxaDAuMTFjMC42NS00LDEuNTEtOC4xNSwyLjQ4LTEyLjU4bDMuNzgtMTYuNDdoNi43NWwtOS43NywzNi40aC03LjEzbC0zLjc4LTE3LjEyDQoJCWMtMC45Mi00LjE2LTEuNTctNy42MS0yLTExLjU2aC0wLjExYy0wLjY1LDMuODktMS4zNSw3LjQtMi40MywxMS41NmwtNC4yMSwxNy4xMkgzNTkuM3oiLz4NCgk8cGF0aCBkPSJNNDA1LjQyLDI3MS4zNGMwLjE2LDQuNzUsMy44OSw2LjgsOC4xLDYuOGMzLjA4LDAsNS4yOS0wLjQzLDcuMjktMS4xOWwwLjk3LDQuNTljLTIuMjcsMC45Mi01LjQsMS42Mi05LjE4LDEuNjINCgkJYy04LjUzLDAtMTMuNTUtNS4yNC0xMy41NS0xMy4yOGMwLTcuMjksNC40My0xNC4xNSwxMi44NS0xNC4xNWM4LjUzLDAsMTEuMzQsNy4wMiwxMS4zNCwxMi44YzAsMS4yNC0wLjExLDIuMjEtMC4yMiwyLjgxSDQwNS40MnoNCgkJIE00MTYuOTcsMjY2LjdjMC4wNS0yLjQzLTEuMDMtNi40My01LjQ1LTYuNDNjLTQuMSwwLTUuODMsMy43My02LjEsNi40M0g0MTYuOTd6Ii8+DQoJPHBhdGggZD0iTTQzMS4yOCwyNjQuODFjMC0zLjU2LTAuMDUtNi4xLTAuMjItOC40OGg1Ljc4bDAuMjIsNS4wMmgwLjIyYzEuMy0zLjczLDQuMzctNS42Miw3LjE4LTUuNjJjMC42NSwwLDEuMDMsMC4wNSwxLjU3LDAuMTYNCgkJdjYuMjZjLTAuNTQtMC4xMS0xLjEzLTAuMjItMS45NC0wLjIyYy0zLjE5LDAtNS4zNSwyLjA1LTUuOTQsNS4wMmMtMC4xMSwwLjU5LTAuMjIsMS4zLTAuMjIsMi4wNXYxMy42MWgtNi42NFYyNjQuODF6Ii8+DQoJPHBhdGggZD0iTTQ1OS44NSwyNjcuODloMC4xMWMwLjY1LTEuMDMsMS40LTIuMTYsMi4xMS0zLjA4bDYuMzctOC40OGg3Ljk5bC05LjcyLDEwLjc1bDExLjEyLDE1LjU1aC04LjE1bC03LjU2LTExLjYxbC0yLjI3LDIuNjUNCgkJdjguOTZoLTYuNjR2LTM4LjM0aDYuNjRWMjY3Ljg5eiIvPg0KCTxwYXRoIGQ9Ik00ODMuMDcsMjc2LjUzYzEuNTEsMC45Miw0LjM3LDEuODksNi43NSwxLjg5YzIuOTIsMCw0LjIxLTEuMTksNC4yMS0yLjkyYzAtMS43OC0xLjA4LTIuNy00LjMyLTMuODMNCgkJYy01LjEzLTEuNzgtNy4yOS00LjU5LTcuMjQtNy42N2MwLTQuNjQsMy44My04LjI2LDkuOTQtOC4yNmMyLjkyLDAsNS40NSwwLjc2LDYuOTcsMS41N2wtMS4zLDQuN2MtMS4xMy0wLjY1LTMuMjQtMS41MS01LjU2LTEuNTENCgkJYy0yLjM4LDAtMy42NywxLjEzLTMuNjcsMi43NWMwLDEuNjcsMS4yNCwyLjQ4LDQuNTksMy42N2M0Ljc1LDEuNzMsNi45Nyw0LjE2LDcuMDIsOC4wNWMwLDQuNzUtMy43Myw4LjIxLTEwLjY5LDguMjENCgkJYy0zLjE5LDAtNi4wNS0wLjc2LTcuOTktMS44NEw0ODMuMDcsMjc2LjUzeiIvPg0KPC9nPg0KPC9zdmc+DQo="
+                                  alt="logo"
+                                />
+                              </div>
+                            </td>
+                            <td>
+                              <div class="cid_details">
+                                <span class="icon"
+                                  ><img
+                                    src="https://dlw-api.labsquire.com/img/map-pin.svg"
+                                    alt="map-pin"
+                                /></span>
+                                <p>
+                                  <span class="bold">CLIA ID:  01D2141620,</span>
+                                  Laboratory Director: Dr. Shamaladevi Nagarajarao, Ph.D <br />
+                                  234 Aquarius Drive, Suite 100, 111, Homewood, ALABAMA, 35209
+                                </p>
+                              </div>
+                              <div
+                                class="cid_details"
+                                style="padding-top: 10px"
+                              >
+                                <span class="icon"
+                                  ><img
+                                    src="https://dlw-api.labsquire.com/img/map-pin.svg"
+                                    alt="map-pin"
+                                /></span>
+                                <p>
+                                  <span class="bold">CLIA ID: 45D2289923,</span>
+                                  Laboratory Director: Dr.Shamaladevi Nagarajarao Ph.D <br />
+                                  2925 Skyway Cir N, Suite 140, Irving, TEXAS, 75038
+                                </p>
+                              </div>
+                            </td>
+                            <td style="width: 200px; padding-left: 10px">
+                              <div class="headerContactInformation">
+                                <ul>
+                                  <li>
+                                    <div class="images">
+                                      <img
+                                        src="https://dlw-api.labsquire.com/img/phone.svg"
+                                        alt="phone"
+                                      />
+                                      <span
+                                        ><a
+                                          class="fw-900"
+                                          href="tell:+1 2059948266"
+                                          >+1 2059948266</a
+                                        ></span
+                                      >
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="images">
+                                      <img
+                                        src="https://dlw-api.labsquire.com/img/fax.svg"
+                                        alt="phone"
+                                      />
+                                      <span
+                                        ><a
+                                          class="fw-900"
+                                          href="tell:205-201-4797"
+                                          >+1 2052014797</a
+                                        ></span
+                                      >
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="images">
+                                      <img
+                                        src="https://dlw-api.labsquire.com/img/mail.svg"
+                                        alt="mail"
+                                      />
+                                      <span
+                                        ><a
+                                          href="mailto:info@devlabwerks.com"
+                                          class=""
+                                          target="_blank"
+                                          >info@devlabwerks.com</a
+                                        ></span
+                                      >
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="images">
+                                      <img
+                                        src="https://dlw-api.labsquire.com/img/globe.svg"
+                                        alt="globe"
+                                      />
+                                      <span
+                                        ><a
+                                          href="https://devlabwerks.com/"
+                                          class=""
+                                          target="_blank"
+                                          >devlabwerks.com</a
+                                        ></span
+                                      >
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="patient-information">
+                      <table class="w-100">
+                        <tbody>
+                          <tr style="vertical-align: top">
+                            <td style="width: 33.33%">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td class="name">Patient :</td>
+                                    <td class="value">
+                                      <p>test patient</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Birth :</td>
+                                    <td class="value">
+                                      <p>02/03/1999</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Gender :</td>
+                                    <td class="value">
+                                      <p>MALE</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Age :</td>
+                                    <td class="value">
+                                      <p>26 years</p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td style="width: 33.33%">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td class="name">Organization :</td>
+                                    <td class="value">
+                                      <p>TESTING ORDERING FACILITY</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Doctor :</td>
+                                    <td class="value">
+                                      <p>Dr Venkatesh</p>
+                                    </td>
+                                  </tr>
+                                  
+                                    <tr>
+                                      <td class="name">NPI :</td>
+                                      <td class="value">
+                                        <p>1265494561</p>
+                                      </td>
+                                    </tr>
+                                  
+                                  
+                                    <tr>
+                                      <td class="name">Phone :</td>
+                                      <td class="value">
+                                        <p>(630)-099-4600</p>
+                                      </td>
+                                    </tr>
+                                  
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td style="width: 33.33%">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td class="name">Accession :</td>
+                                    <td class="value">
+                                      <p>TDC251113001</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Collection Date :</td>
+                                    <td class="value">
+                                      <p>11/13/2025, 3:24 PM</</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Received Date :</td>
+                                    <td class="value">
+                                      <p>11/13/2025, 3:24 PM</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name">Reported Date :</td>
+                                    <td class="value">
+                                      <p>11/13/2025, 4:28 AM</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="name"></td>
+                                    <td class="value"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    </div>
+                    <div class="empty-header"></div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div id="bodyContentStartHere">
+                    <div class="content">
+                      
+                  
+                    <div class="body-info">
+                      <div class="customTable">
+                        <!-- Non-Allergen Tests Table -->
+                        
+                          <table>
+                            <thead>
+                              <tr>
+                                <th style="width: 300px">Test Name</th>
+                                <th style="width: 150px">Result</th>
+                                <th style="width: 120px">Units</th>
+                                <th style="width: 120px">Flag</th>
+                                <th style="width: 200px">Reference Range</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              
+                                <tr>
+                                  <td colspan="5" style="padding: 0">
+                                    <table style="page-break-inside: avoid">
+                                      <tr class="noBorder">
+                                        <td style="padding: 0 10px">
+                                          <h5>Comprehensive Metabolic Panel</h5>
+                                        </td>
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Sodium
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">136 - 145</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Potassium
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">3.5 - 5.1</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Chloride
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">98 - 107</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              CO2
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">22 - 29</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Calcium
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">8.4 - 10.2</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Glucose
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">74 - 100</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              BUN
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">8.9 - 20.6</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Creatinine
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">0.60 - 1.20</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              BUN/Creatinine Ratio
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              eGFR
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Albumin
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">g/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">3.5 - 5.2</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              ALP
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">U/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">40 - 150</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              ALT
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">U/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">< 45</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              AST
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">U/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">11 - 34</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Total Bilirubin
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">0.20 - 1.20</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Total Protein
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">g/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">6.0 - 8.3</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Anion Gap
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Globulin
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <tr>
+                                  <td colspan="5" style="padding: 0">
+                                    <table style="page-break-inside: avoid">
+                                      <tr class="noBorder">
+                                        <td style="padding: 0 10px">
+                                          <h5>Lipid Panel</h5>
+                                        </td>
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              HDL
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">≥ 60</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              LDL
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"><100</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Total Cholesterol
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"><200</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Triglycerides
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"><150</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Chol/HDL (Cal)
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              LDL/HDL (Cal)
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">0.0 - 3.2</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              VLDL (Cal)
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">5 - 40</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Trig/HDL (Cal)
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <tr>
+                                  <td colspan="5" style="padding: 0">
+                                    <table style="page-break-inside: avoid">
+                                      <tr class="noBorder">
+                                        <td style="padding: 0 10px">
+                                          <h5>Hepatic Panel</h5>
+                                        </td>
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Albumin
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">g/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">3.5 - 5.2</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              ALP
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">U/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">40 - 150</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              ALT
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">U/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">< 45</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              AST
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">U/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">11 - 34</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Bilirubin - Direct
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">0.00 - 0.50</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Total Bilirubin
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">0.20 - 1.20</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Total Protein
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">g/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">6.0 - 8.3</p>
+                                          </td>
+                                        </tr>
+                                      
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <tr>
+                                  <td colspan="5" style="padding: 0">
+                                    <table style="page-break-inside: avoid">
+                                      <tr class="noBorder">
+                                        <td style="padding: 0 10px">
+                                          <h5>Basic Metabolic Panel</h5>
+                                        </td>
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Sodium
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">136 - 145</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Potassium
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">3.5 - 5.1</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Chloride
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">98 - 107</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              CO2
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mmol/L</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">22 - 29</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Glucose
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">74 - 100</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              BUN
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">8.9 - 20.6</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Creatinine
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">0.60 - 1.20</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              BUN/Creatinine Ratio
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              eGFR
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Anion Gap
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"></p>
+                                          </td>
+                                        </tr>
+                                      
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <tr>
+                                  <td colspan="5" style="padding: 0">
+                                    <table style="page-break-inside: avoid">
+                                      <tr class="noBorder">
+                                        <td style="padding: 0 10px">
+                                          <h5>Microalbumin and Creatinine Ratio,Urine</h5>
+                                        </td>
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Albumin / Creatinine Ratio
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/g</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">Normal:  0 -  29                                               Moderately increased: 30 - 300                                 Severely increased:  >300 </p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Urine Microalbumin
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange"><30.0</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Urine Creatinine
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value">mg/dL</p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">63 - 166</p>
+                                          </td>
+                                        </tr>
+                                      
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <tr>
+                                  <td colspan="5" style="padding: 0">
+                                    <table style="page-break-inside: avoid">
+                                      <tr class="noBorder">
+                                        <td style="padding: 0 10px">
+                                          <h5>Hepatitis</h5>
+                                        </td>
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Hepatitis B Core Antibody,IgM
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">Non-reactive  < 8.0                                        Inconclusive   ≥8 - ≤ 12                                Reactive  > 12.0</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Hepatitis C Virus Antibody
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">Non-reactive  < 8.0                                        Inconclusive   ≥8 - ≤ 12                                Reactive  > 12.0</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Hepatitis B Surface Antigen
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">NONREACTIVE  < 1.00                                             REACTIVE ≥ 1.00</p>
+                                          </td>
+                                        </tr>
+                                      
+                                        <tr>
+                                          <td class="textLeft" style="width: 300px">
+                                            
+                                              <div class="sub">
+                                            
+                                              Hepatitis A Antibody, IgM
+                                            </div>
+                                          </td>
+                                          
+                                            <td class="result-color-green" style="width: 150px">
+                                          
+                                            
+                                              <p class="sub_value">-</p>
+                                            
+                                          </td>
+                                          <td style="width: 120px">
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          
+                                            <td class="flag-result" style="width: 120px">
+                                          
+                                            <p class="sub_value"></p>
+                                          </td>
+                                          <td class="textLeft location_ref" style="width: 200px">
+                                            <p class="refRange">Non-reactive  < 0.80                                        Inconclusive               ≥0.8                              Reactive  > 1.21</p>
+                                          </td>
+                                        </tr>
+                                      
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                            </tbody>
+                          </table>
+                        
+
+                        <!-- Allergen Tests Table -->
+                        
+                      </div>
+                    </div>
+                  
+                    <div class="last-content" style="page-break-inside: avoid">
+                    <div class="comment_details">
+                      <span class="comment-heading">Comments :</span><span class="comment-content"></span>
+                      <!-- <h3 class="comment-heading">Comments :</h3>
+                      <h3 class="comment-des">
+                        
+                      </h3> -->
+                    </div>
+                
+                    <div class="Location_details">
+                      <h3 class="location-heading">Test Performed Location : </h3>
+                      <div class="location-des">
+                        <p>2925 Skyway Cir N, Suite 140, Irving, TEXAS, 75038, Phone: (205)-994-8266, devlabwerks.com,</p>
+                        <p>CLIA ID: 45D2289923, Laboratory Director: Dr.Shamaladevi Nagarajarao Ph.D</p>
+                      </div>
+                    </div>
+                    <div class="Disclaimer">
+                      <p style="text-align: justify;text-justify: inter-word;">
+                        Disclaimer: These tests were developed and characterized
+                        by Devansh Lab Werks Inc. The FDA has determined that
+                        such approval is not necessary, provided that the
+                        laboratory both (1) maintains its good standing as a
+                        clinical testing laboratory with all mandatory
+                        accrediting bodies, and (2) continually demonstrates
+                        that its testing protocols and procedures achieve a high
+                        degree of analytical accuracy.
+                      </p>
+                    </div>
+                  </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <div class="empty-footer"></div>
+                  <div class="footer">
+                    <div class="footer-inner">
+                      <table>
+                        <tr>
+                          <td>
+                            <p>
+                              Originally Reported On:
+                              <span>11/13/2025, 4:28 AM</span>
+                            </p>
+                          </td>
+                          <td></td>
+                          <td>
+                            <div class="footer_patient_details">
+                              <p>Accession: <span>TDC251113001</span></p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          </td>
+                          <td></td>
+                          <td>
+                            <p>Lab Results for: <span>test patient</span></p>
+                          </td>
+
+                        </tr>
+
+                        
+
+                        <tr>
+                          <td></td>
+                          <td>
+                            <p>STAT[S] Corrected [C] Amended [A]</p>
+                          </td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
