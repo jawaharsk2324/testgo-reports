@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      font-family: "Lato", sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      color: #0a1b4b;
+    }
+
+    .f-weight-500 {
+      font-weight: 500;
+    }
+
+    .f-weight-600 {
+      font-weight: 600;
+    }
+
+    .f-weight-700 {
+      font-weight: 700;
+    }
+
+    .body-fs {
+      font-size: 15px;
+    }
+
+    .page-break-after {
+      page-break-after: always;
+    }
+
+    @page {
+      size: A4 letter;
+      margin: 0;
+      border: none;
+    }
+
+    .main-table {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      border: none !important;
+    }
+
+    #defaultReportPage {
+      width: 1000px;
+      margin: 20px auto 0;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .header {
+      height: 130px;
+      width: calc(100% - 50px);
+      margin: 0 auto;
+      border: none;
+      position: relative;
+    }
+
+    .empty-header {
+      height: 140px;
+      display: none;
+    }
+
+    .footer {
+      height: 160px;
+      width: calc(100% - 50px);
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    .empty-footer {
+      height: 180px;
+      display: none;
+      background: #fff;
+    }
+
+    @media print {
+      .header {
+        position: fixed;
+        top: 20px;
+        left: 0px;
+        right: 0px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+      }
+
+      .content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 170px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+      }
+
+      .header .header-inner {
+        padding: 20px 0;
+      }
+
+      .header #header-information {
+        border-bottom: none;
+      }
+
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0px;
+        right: 0px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+      }
+
+      .footer .footer-inner {
+        padding: 20px 0;
+      }
+
+      .empty-header,
+      .empty-footer {
+        display: block;
+      }
+    }
+
+    .page-header {
+      display: table-header-group;
+    }
+
+    .page-footer {
+      display: table-footer-group;
+    }
+
+    #header-information {
+      padding-bottom: 0px;
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.25); */
+    }
+
+    #header-information .logo {
+      max-width: 150px;
+      float: right;
+    }
+
+    #header-information .report-name {
+      font-size: 1.95em;
+      font-weight: 500;
+      color: #333;
+      text-align: left;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    }
+
+    #header-information .address-information {
+      margin-top: 0;
+      position: relative;
+      text-align: left;
+      /* margin-bottom: 20px; */
+      text-align: center;
+    }
+
+
+    #header-information .address-information p {
+      margin: 0;
+      padding: 0;
+      font-weight: 400;
+      line-height: 22px;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      font-family: "Lato", sans-serif;
+      color: #000;
+      text-align: center;
+    }
+
+    #header-information .address-information .dot::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin: 0 5px 0px 3px;
+      margin-bottom: 2px;
+      display: inline-block;
+      background-color: black;
+      vertical-align: middle;
+    }
+
+    .patient-information {
+      border: 1px solid #c2c2c2;
+      background: #ecf7fa;
+      border-radius: 5px;
+    }
+
+
+    .patient-information {
+      border: 1px solid #c1d0d4;
+      background: #e1f2f7;
+      border-radius: 5px;
+    }
+
+    .patient-information td {
+      padding: 10px 10px !important;
+      vertical-align: top;
+    }
+
+    .patient-information td:not(:last-child) {
+      border-right: 1px solid #c2c2c2 !important;
+    }
+
+    .patient-information p {
+      margin: 0;
+      margin-bottom: 5px;
+      line-height: 20px;
+      color: #333;
+      font-size: 14px;
+      display: grid;
+      grid-template-columns: 120px auto;
+    }
+
+    .patient-information p .name {
+      display: inline-block;
+      position: relative;
+    }
+
+    .patient-information p .value {
+      display: inline-block;
+      position: relative;
+    }
+
+    .patient-information p .name:after {
+      content: ":";
+      position: absolute;
+      right: 10px;
+      top: 0;
+    }
+
+    .report-alert-copy {
+      text-align: center;
+      font-weight: 600;
+      padding: 0.5em 1em;
+      letter-spacing: 0.5px;
+      color: #242424;
+      background-color: #ffede9;
+      border-radius: 3px;
+      margin: 1em 0;
+    }
+
+    .message-copy {
+      margin-bottom: 20px;
+    }
+
+    .message-copy p {
+      padding-left: 5px;
+      font-size: 1.1em;
+      font-family: Georgia, serif;
+      margin: 0 0 3px;
+      letter-spacing: 0.005em;
+    }
+
+    .medication-table {
+      border: 1px solid #dedede;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+
+    .medication-table h4 {
+      margin: 0;
+      padding-bottom: 5px;
+      font-size: 1.15em;
+      font-weight: 600;
+    }
+
+    .medication-table p {
+      margin: 0;
+      font-size: 0.9em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .supplemental-information-table {
+      border: 1px solid #c5c9ff;
+      background-color: #f2f1fc;
+      padding: 10px 15px;
+      margin-top: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    .supplemental-information-table .content-box .each-row {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 250px 2px 1fr;
+      grid-template-columns: 250px 2px 1fr;
+      gap: 20px;
+      padding: 8px 0px;
+    }
+
+    .supplemental-information-table h4 {
+      margin: 0 -15px 5px;
+      padding: 0 15px 10px;
+      font-size: 1.15em;
+      font-weight: 600;
+      border-bottom: 1px solid #c5c9ff;
+    }
+
+    .supplemental-information-table p {
+      margin: 0;
+      font-size: 0.9em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .description {
+      margin-top: 0;
+    }
+
+    .footer .report-date {
+      font-size: 1.2em;
+      font-weight: 500;
+      background: #e5f5fb;
+      padding: 4px 10px;
+      color: #2b5e76;
+      margin-bottom: 0px !important;
+    }
+
+   .footer-table tr td:nth-child(1) {
+      width: 80%;
+    }
+
+    .footer-table tr td p {
+      line-height: 23px;
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    .footer-table tr td .footer-company-logo {
+      margin-left: 60px;
+    }
+
+    .footer-table tr td .footer-company-logo img {
+      width: 120px;
+    }
+
+    .footer-table tr td .footer-company-logo img {
+      width: 45px;
+      display: table;
+      margin: 0 0 0 auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  <section id="defaultReportPage">
+    <table class="main-table">
+      <thead>
+        <td>
+          <div class="header">
+            <div class="header-inner">
+              <div id="header-information">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td style="width: 50%">
+                        <h2 class="report-name">
+                          CLINICAL CHEMISTRY REPORT
+                        </h2>
+                      </td>
+                      <td style="width: 50%">
+                        <div class="logo" style="display: flex; align-items: center; gap: 30px; justify-content: end;">
+                          <img data-v-0e549244="" src="https://dev-api-services.labsquire.com/img/logos/microgen-v2-logo.svg" alt="logo"
+                            style="max-width:350px; max-height:60px; width: 100%;" />
+                            <img data-v-0e549244="" src="https://dev-api-services.labsquire.com/img/logos/DLW-logo_v1.svg" alt="logo"
+                            style="max-width:350px; max-height:60px; width: 100%;" />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table data-v-0e549244="" class="w-100 address-information">
+                  <tr data-v-0e549244="">
+                    <td data-v-0e549244="">
+                      <p data-v-0e549244="">
+                         Microgen Health &  DLW • Corp. Addr • 6600 paige rd, The Colony, TX 75056 • Phone:2059948266 • Fax: 2052014797 <br />
+                           • CLIA #: 49D2178444 • CLIA #: 45D2289923
+ • CLIA #: 01D2141620 • Laboratory Director: Dr. Shamaladevi Nagarajarao, Ph.D
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="empty-header"></div>
+        </td>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="content">
+              <div class="body-info">
+                <section class="patient-information">
+                  <table>
+                    <tr>
+                      <td style="width: 33.33%">
+                        <p>
+                          <span class="name">Patient</span>
+                          <span class="value">
+                            TESTTS, TSH
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Date of Birth</span><span class="value">
+                            Aug 13, 1976, 49y
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Sex</span><span class="value">
+                            FEMALE
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Phone</span><span class="value">
+                            8888888888
+                          </span>
+                        </p>
+                      </td>
+                      <td style="width: 33.33%">
+                        <p>
+                          <span class="name">Physician </span><span class="value">
+                            Dr KWANEI HOLLOWAY
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">NPI #</span><span class="value">
+                            1972345213
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Practice</span><span class="value">
+                            KJ CARES PLLC
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Phone</span><span class="value">
+                            (832)-968-7175
+                          </span>
+                        </p>
+                      </td>
+                      <td style="width: 33.33%">
+                        <p>
+                          <span class="name">Date Collected</span><span class="value">
+                            Jan 09, 2026, 03:56 AM
+                          </span>
+
+                        </p>
+                        <p>
+                          <span class="name">Date Received</span><span class="value">
+                            Jan 09, 2026, 03:56 AM
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Date Processed</span><span class="value">
+                            Jan 09, 2026
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">
+                            Specimen type <br />/Source </span><span class="value">
+                            Blood
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name">Sample ID</span><span class="value">
+                            TDC260109003
+                          </span>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+
+
+                <h4 class="report-alert-copy">*** FINAL WITH SUPPLEMENTAL REPORT ***</h4>
+
+
+                <section class="message-copy">
+
+                  
+                  <p>
+                  Test Performed by <span> TEST </span>
+                </p>
+                
+                  
+                  <p>Final Report Electronically signed by <span> prasad, manager </span> on <span> 01/09/2026 at 09:49 AM </span>
+                  </p>
+                  
+                </section>
+                <section class="supplemental-information-table page-break-after">
+                  <h4>Supplemental Information</h4>
+
+                  <div class="content-box">
+                    <div class="each-row">
+                      <span class="label">Report Name </span>
+                      <span>:</span>
+                      <span class="value" style="word-break: break-word;">
+                        DLW_Toxicology (1).pdf
+                      </span>
+                    </div>
+                    
+                    <div class="each-row">
+                      <span class="label">Added By</span>
+                      <span>:</span>
+                      <span class="value">
+                        prasad, manager
+                      </span>
+                    </div>
+                  
+                    <div class="each-row">
+                      <span class="label">Date and Time</span>
+                      <span>:</span>
+                      <span class="value">
+                        Jan 09, 2026, 09:49 AM
+                      </span>
+                    </div>
+                    <div class="each-row">
+                      <span class="label">Supplemental Notes</span>
+                      <span>:</span>
+                      <span class="value">
+                        
+                      </span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td>
+          <div class="empty-footer"></div>
+          <div class="footer">
+            <div class="footer-inner">
+              <div class="report-date">
+                TDC260109003 - TESTTS, TSH - Reported Jan 09, 2026, 09:49 AM
+              </div>
+              <table class="footer-table">
+    <tr style="vertical-align: middle">
+                  <td>
+                    <p>
+                      The information contained in this report is intended to
+                      be interpreted by a licensed physician or other licensed
+                      healthcare professional and not a substitute for
+                      professional medical advice, diagnosis, or treatment.
+                      Only a physician, pharmacist or other healthcare
+                      professional should advise a patient on the use of the
+                      medications prescribed.
+                    </p>
+                  </td>
+                  <td>
+                    <div class="footer-company-logo">
+                      <img data-v-0f780e61="" src="https://dev-dlw-api.labsquire.com/img/logos/new_labsquire_logo.png" width="120" />
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tfoot>
+
+    </table>
+  </section>
+</body>
+
+</html>
