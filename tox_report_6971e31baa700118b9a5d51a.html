@@ -1,0 +1,3438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>
+      TOXICOLOGY REPORT
+    </title>
+    <link rel="icon" href="/favicon.png">
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&amp;display=swap" rel="stylesheet">
+       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+      <style>
+        * {
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+        }
+  
+        body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 15px;
+          line-height: 1.5;
+          margin: 0;
+          padding: 0;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          overflow-x: hidden;
+          height: 100%;
+        }
+  
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: 'IBM Plex Sans Devanagari', sans-serif;
+          font-weight: 500;
+          margin: 0;
+          color: #0a1b4b;
+        }
+   @page:first { size: A4; margin: 110px 20px 70px 20px; }
+   @page { size: A4; margin: 70px 20px 70px 20px; }
+
+     table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        thead,
+        tbody,
+        tfoot {
+          border: none !important;
+        }
+        #defaultReportPage {
+          width: 900px;
+          margin: 0 auto !important;
+          position: relative;
+          overflow: hidden;
+          border: none;
+        }
+        .header {
+          height: 140px;
+          width: 100%;
+          border: none;
+          position: relative;
+        }
+        .empty-header {
+          height: 150px;
+          display: none;
+        }
+        .footer {
+          height: 80px;
+          width: 100%;
+          background: #fff;
+        }
+        .empty-footer {
+          height: 170px;
+          display: none;
+          background: #fff;
+        }
+        .page-header {
+          display: table-header-group;
+        }
+        .page-footer {
+          display: table-footer-group;
+        }  
+        .patient-information td {
+        padding:0 0 0 18px !important;
+        vertical-align: top;
+      }
+
+      .patient-information td{
+        border-left: 1px solid #000000 !important;
+      }
+
+      .patient-information p {
+        margin: 0;
+        min-height: 20px;
+        color: #000000;
+        font-size: 12px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        word-break: break-word;
+      }
+
+      .patient-information p .name {
+        width: 42%;
+        display: inline-block;
+        font-weight: 700;
+      }
+      .patient-information p .name,
+      .patient-information p .patient,
+      .patient-information p .dob,
+      .patient-information p .sex,
+      .patient-information p .id {
+        width: 32%;
+      }
+
+      .patient-information p .physician,
+      .patient-information p .npi,
+      .patient-information p .practice,
+      .patient-information p .phone {
+        width: 25%;
+      }
+
+      .patient-information p .collected,
+      .patient-information p .received,
+      .patient-information p .processed,
+      .patient-information p .specimen {
+        width: 38%;
+      }
+
+      .patient-information p .value.first {
+        display: inline-block;
+        width: 68%;
+        font-weight: 400;
+      }
+         .patient-information p .value.second {
+        display: inline-block;
+        width: 75%;
+        font-weight: 400;
+      }
+         .patient-information p .value.third {
+        display: inline-block;
+        width: 62%;
+        font-weight: 400;
+      }
+        .confirmation-positive .table-heading {
+          border: none !important;
+        }
+        thead tr td {
+          font-weight: 600;
+        }
+        .reportName{
+              font-family: 'IBM Plex Sans Devanagari', sans-serif;
+              font-size: 28px;
+              font-weight: 600;
+              color: #000;
+              margin: 0;
+              letter-spacing: 0.4px;
+              white-space: nowrap;
+        }
+        .testgoLogo {
+          margin: 10px 0px;
+          width: 230px;
+          height: 95px;
+          }
+          .testgoImage {
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+          }
+         .bodyContent .heading-block{
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+      }
+      .bodyContent .heading-block{
+        font-size: 16px;
+        color: #000000;
+        font-weight: 600;
+        font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+        .confirmation-positive .table-heading {
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding: 5px 15px;
+          margin: 0;
+          background: #e2ebf3;
+          color: #0058a7;
+          border: none;
+        }
+        .confirmation-result .table-heading {
+          background: #e3f5f9;
+          color: #184f68;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding: 5px 15px;
+          margin: 0;
+          border: none;
+        }
+        @media print {
+          .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 900px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          }
+          .header .header-inner {
+            padding: 20px 30px 0 30px;
+          }  
+          .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 900px;
+            margin: 0 auto;
+          }
+          .footer .footer-inner {
+            padding: 0 10px;
+          }
+          .content {
+            margin: 15px 20px;
+          }
+          .empty-header,
+          .empty-footer {
+            display: block;
+          }
+        }
+      </style>
+
+      <style>
+       .bodyContent {
+          padding: 10px 0;
+        }
+        .prescribed {
+          padding:10px;
+          background-color: #F3F3F3;
+          margin-bottom:2rem;
+        }
+        .prescribed p {
+          font-size: 14px;
+          line-height: 1.3;
+          font-weight: 700;
+          margin: 0;
+        }
+        .tableCOntainer {
+          column-count: 2;
+          -moz-column-count: 2;
+          -webkit-column-count: 2;
+        }  
+        .twoTables table tr {
+          page-break-inside: avoid;
+          border: 0.3px solid black;
+        }
+        .twoTables table th,
+        .twoTables table td {
+          font-size: 12px;
+          padding: 5px 2px;
+          text-align: left;
+          word-break: break-word;
+          line-height: 1.3;
+        }
+        table th {
+          font-weight: 600 !important;
+        }
+        .twoTables table .greyBackground {
+          background: #F3F3F3;
+          color: #000000;
+          font-weight: 600 !important;
+        }
+        .twoTables table .greyLightBackground {
+          background: #E5E5E5;
+        }  
+        .insideTable table tr:first-child {
+          border-top: none;
+        }
+        .twoTables table .textLeft {
+          text-align: left !important;
+          padding-left: 10px;
+        }
+        /* .twoTables table .red {
+          background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+          border-left: 1px solid #FD003A;
+          padding: 5px;
+        } */
+        .customTable li {
+          padding: 0 !important;
+          border: none !important;
+        }
+        .twoTables tbody tr:last-child table tr:last-child td {
+          border-bottom: none !important;
+        }
+        .customTable li tr td:nth-child(2),
+        .tableColumTwo {
+          width: 52px!important;
+        }
+        .customTable .inconsistent{
+          font-weight: bold;
+        }
+        .customTable .positive{
+          background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+          padding: 5px;
+          display: block;
+          position: relative;
+          width: 100%;
+        }
+      .customTable .positive::after{
+       content: "";
+      position: absolute;
+      background-color: #FD003A;
+      width: 1px;
+      height: 19.5px;
+      left: 0;
+      bottom: 0;
+        }
+        .customTable .positive-results{
+          background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+          border-left: 1px solid #FD003A;
+          padding: 5px;
+        }
+ .customTable .negative{
+          background: linear-gradient(270deg, rgba(186, 186, 186, 0) 0%, rgba(97, 97, 97, 0.2) 100%);
+          padding: 5px;
+          display: block;
+          position: relative;
+        }
+         .customTable .negative::after{
+       content: "";
+      position: absolute;
+      background-color: #919191;
+      width: 1px;
+      height: 19.5px;
+      left: 0;
+      bottom: 0;
+        }
+          .customTable .normal{
+          background: linear-gradient(270deg, rgba(54, 180, 74, 0) 0%, rgba(54, 180, 74, 0.2) 100%);
+          padding: 5px;
+          display: block;
+          position: relative;
+        }
+       .customTable .normal::after{
+       content: "";
+      position: absolute;
+      background-color: #33AC46;
+      width: 1px;
+      height: 19.5px;
+      left: 0;
+      bottom: 0;
+        }
+        .red {
+          color: #c4002b;
+          font-weight: 600;
+        }
+        .black {
+          color: #000000;
+          font-weight: 500;
+        }
+        .screening-results-section .tableColumTwo {
+          width: 80px !important;
+        }
+        .customTable li tr td:nth-child(3),
+        .tableColumThree {
+          width: 70px!important;
+        }
+        .screening-results-section .tableColumThree {
+          width: 90px !important;
+        }
+        .customTable li tr td:nth-child(4),
+        .tableColumFour {
+          width: 105px!important;
+        }
+        .customTable li tr td:nth-child(5),
+        .tableColumFive {
+          width: 91px!important;
+        }
+        .customTable {
+          column-count: 2;
+          margin: 0;
+          padding: 0;
+          gap: 10px;
+        }
+        .customTable li {
+          margin: 0;
+          display: grid;
+          grid-template-rows: 1fr auto;
+          break-inside: avoid;
+        }
+        #screening-results .customTable tr td:nth-child(1),
+        #screening-results .customTable tr th:nth-child(1) {
+          width: 125px;
+        }
+        #screening-results .customTable tr td:nth-child(2),
+        #screening-results .customTable tr th:nth-child(2) {
+          border: 0.3px solid black;
+          width: 100px!important;
+        }
+        #screening-results .customTable tr td:nth-child(3),
+        #screening-results .customTable tr th:nth-child(3) {
+          width: 80px!important;
+        }
+        #screening-results .customTable tr td:nth-child(4),
+        #screening-results .customTable tr th:nth-child(4) {
+          width: 60px!important;    
+          border-left: 0.3px solid black;
+        }
+        #screening-results .customTable tr td{
+          padding: 5px 0!important;
+          padding: 5px 6px !important;
+        }
+      
+        .confirmation-results-section th p {
+          margin: 0;
+          display: flex;
+        }
+        .screening-results-section .customTable li tr td:nth-child(4),
+        .screening-results-section .tableColumFour {
+          width: 65px;
+        }
+        .screening-results-section .customTable li tr td:nth-child(3),
+        .screening-results-section .tableColumThree {
+          width: 75px !important;
+        }
+        .screening-results-section .customTable li tr td:nth-child(2),
+        .screening-results-section .tableColumTwo {
+          width: 100px !important;
+        }
+
+        #confirmation-results .customTable tr td:nth-child(1),
+        #confirmation-results .customTable tr th:nth-child(1) {
+          border: 0.5px solid black;
+          width: 200px;
+          padding-left: 3px;
+        }
+        #confirmation-results .customTable tr td:nth-child(2),
+        #confirmation-results .customTable tr th:nth-child(2) {
+          width: 100px!important;
+        }
+        #confirmation-results .customTable tr td:nth-child(3),
+        #confirmation-results .customTable tr th:nth-child(3) {
+          border: 0.3px solid black;
+          width: 80px!important;
+        }
+        #confirmation-results .customTable tr td:nth-child(4),
+        #confirmation-results .customTable tr th:nth-child(4) {
+          width: 170px!important;
+        }
+          #confirmation-results .customTable tr td:nth-child(5),
+        #confirmation-results .customTable tr th:nth-child(5) {
+          width: 140px!important;
+          border: 0.3px solid black;
+        }
+      </style>
+
+      <style>
+   .progress-bar {
+      width: 350px;         
+      height: 16px;         
+      display: flex;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .progress-bar.w-150 {
+      width: 150px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .segment-1 {
+      width: 45%;        
+      background-color: #36B44A;
+    }
+    .segment-2 {
+      width: 25%;           
+      background-color: #A8DCB0;
+    }
+    .segment-3 {
+      width: 30%;          
+      background-color: #D7F2DB;
+    }
+    .summary-block{
+      padding: 0rem 1rem 1rem;
+      border: 1px solid #36B44A;
+      margin: 0;
+      position: relative;
+    }
+    .summary-header{
+      position: relative;
+      margin: 0;
+      padding: 0.2rem 0.5rem;
+      top: -16px;
+      width: fit-content;
+      background: #36B44A;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+      font-size: 18px;
+    }
+    
+    .Disclaimer {
+      background-color: #F3F3F3;
+      padding: 1rem 1rem 0;
+    }
+
+    .pb-1 {
+      padding-bottom: 1rem;
+    }
+    .pt-1 { 
+      padding-top: 1rem;
+    }
+    .p-2 {
+      padding: 6px !important;
+    }
+    .bold {
+      font-weight: bold;
+    }
+
+    .disclaimer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #ffffff;
+      padding: 5px;
+    }
+
+    .disclaimer-heading {
+      font-size: 12px;
+      color: #000000;
+      margin-bottom: 5px;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .disclimer-content {
+      font-size: 10px;
+      margin: 0px;
+      text-align: center;
+      line-height: 14px;
+      color: #000000;
+      font-weight: 400;
+      text-align: justify;
+
+    }
+    .clia-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 100%;
+    }
+    .clia-column {
+      flex: 1;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+    .clia-column p {
+      margin: 0 0 10px 0;
+    }
+    .clia-column strong {
+      font-weight: 700;
+    }
+     .report-performed-info {
+      border: 1px solid #36b44a;
+      background: #ffffff;
+      padding: 10px;
+    }
+    .report-performed-info .performed-details p {
+      margin: 0;
+    }
+    .report-performed-info .performed-details p .each-cell {
+      display: flex !important;
+      align-items: center;
+    }
+    .report-performed-info .performed-details p .each-cell .line-value {
+      align-self: flex-end;
+      position: relative;
+      font-size: 12px;
+      letter-spacing: -0.08px;
+      padding: 5px 0 5px 3px;
+    }
+    .report-performed-info .performed-details p .line-name {
+      display: inline-block;
+      position: relative;
+      font-size: 12px;
+      letter-spacing: -0.08px;
+      padding: 5px 0;
+      font-weight: 600;
+    }
+      .footer-inner-block{
+      position: absolute;
+      width: 100%;
+    }
+      .footer .footer-inner .footer-table .footer-inner-block ul{ 
+      display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    border-bottom: 1px solid #000;
+    margin: 0;
+    padding-left: 0;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul::after{
+      content: "";
+      background-color: #36B44A;
+      height: 8px;
+      width: 50px;
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block .disclimer-content{
+      font-size: 12px;
+      padding:10px 0;
+      margin: 0;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li{ 
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    column-gap: 5px;
+    }
+     .footer .footer-inner .footer-table .footer-inner-block ul li p{ 
+    margin: 0;
+    font-size: 12px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li img{
+      width: 14px;
+      height: 14px;
+    }
+    .footer .footer-inner .footer-table .footer-inner-block ul li a{ 
+      color:#000000!important;
+      font-size: 12px;
+      text-decoration: none!important;
+    }
+      .footer-inner-block .reserved-msg{
+      margin: 0;
+      font-size: 12px;
+      padding-top: 5px;
+    }
+          .info-strip {
+        background-color: #FCE3E3;
+        color: #D33B2C;
+        font-weight: 600;
+        padding: 5px;
+        text-align: center;
+        margin-top: 15px !important;
+        letter-spacing: 1px;
+      }
+          .revision-block p {
+        border: 1px solid #333333;
+        padding: 2px 10px !important;
+        margin-top: 5px !important;
+      }
+          .amendent-block{
+      border: 1px solid #FFD1DC;
+      margin: 2rem 0 1rem;
+      position: relative;
+        padding: 0rem 1rem 0;
+    }
+      .amendent-block p {
+      font-size: 12px;
+      margin: 0 0 10px;
+      color: #000000;
+    }
+     .amendent-header {
+      position: relative;
+      margin: 0;
+      padding: 0.2rem 0.5rem;
+      font-size: 14px;
+      font-weight: 600;
+      top: -16px;
+      width: fit-content;
+       background:#FFD1DC;
+      color: #000000;
+      letter-spacing: 0.8px;
+      font-family: 'IBM Plex Sans Devanagari', sans-serif;
+    }
+  </style>
+  <style>
+    .summary-block .newTable{
+         column-count: 2;
+          margin: 0;
+          padding: 0;
+          gap: 10px;
+    }
+    .summary-block .newTable li{ 
+        list-style-type:none;
+    }
+     .summary-block .newTable li table thead tr th{
+      border: 0.3px solid black;
+      padding: 5px 6px !important;
+      font-size: 12px;
+      text-align: left;
+      word-break: break-word;
+      line-height: 1.3;
+
+     }
+     .summary-block .newTable li table thead tr .greyLightBackground{
+      width: 150px;
+     }
+       .summary-block .newTable li table thead tr .greyLightBackground.tableColumTwo{
+      width: 60px!important;
+     }
+       .summary-block .newTable li table thead tr .greyLightBackground.tableColumThree{
+      width: 120px!important;
+     }
+       .summary-block .newTable li table thead tr .greyLightBackground.tableColumThree{
+      width: 120px!important;
+     }
+     .summary-block .newTable li table tbody tr td{
+      border: 0.3px solid black;
+      padding: 5px 6px !important;
+      font-size: 12px;
+      text-align: left;
+      word-break: break-word;
+      line-height: 1.3;
+     }
+     .summary-block .newTable li table tbody tr td:first-child{
+      width: 150px;
+     }
+     .summary-block .newTable li table tbody tr td:nth-child(2){
+      width: 60px;
+     }
+       .summary-block .newTable li table tbody tr td:nth-child(3){
+      width: 120px;
+     }
+        .summary-block .newTable .positive{
+        background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+        padding: 5px;
+        display: block;
+        position: relative;
+        width: 100%;
+      }
+      .summary-block .newTable .positive::after {
+    content: "";
+    position: absolute;
+    background-color: #FD003A;
+    width: 1px;
+    height: 19.5px;
+    left: 0;
+    bottom: 0;
+  }
+  </style>
+  </head>
+
+  <body class="covid-page ">
+    <noscript>
+      <strong>We're sorry but app.labsquire.com doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+      <div>
+        <section id="defaultReportPage" layout="div">
+          <div class="el-loading-mask" style="display: none;">
+            <div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular">
+                <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+              </svg>
+              <!---->
+            </div>
+          </div>
+          <table>
+            
+            <tbody>
+              <tr>
+                <td>
+                  <div id="bodyContentStartHere">
+                    <div class="progress-bar">
+                      <div class="segment-1"></div>
+                      <div class="segment-2"></div>
+                      <div class="segment-3"></div>
+                    </div>
+                  
+                    <section class="patient-information">
+                      <table class="w-100">
+                        <tbody>
+                          <tr>
+                            <td style="width: 33.33%">
+                              <p>
+                                <span class="name Patient">Name</span>
+                                <span class="value first">
+                                  TOXIC, TESTING CASE
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name dob">
+                                  Date of Birth</span>
+                                <span class="value first">
+                                  May 23, 2005, 20y
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name sex">Gender</span>
+                                <span class="value first">
+                                  FEMALE
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name id">Accession ID</span>
+                                <span class="value first">
+                                  DT260122002
+                                </span>
+                              </p>
+                            </td>
+                            <td style="width: 33.33%">
+                              <p>
+                                <span class="name physician">Physician</span>
+                                <span class="value second">
+                                  Dr Venkatesh
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name npi">NPI #</span>
+                                <span class="value second">
+                                  1265494561
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name practice">Practice</span>
+                                <span class="value second">
+                                  TESTING ORDERING FACILITY
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name phone">Phone</span>
+                                <span class="value second">
+                                  (630)-099-4600
+                                </span>
+                              </p>
+                            </td>
+                            <td style="width: 33.33%">
+                              <p>
+                                <span class="name collected">Collected Date</span>
+                                <span class="value third">
+                                  Jan 20, 2026, 02:09 PM
+                                </span>
+                              </p>
+                              <p>
+                                <span class="name received">Received Date</span>
+                                <span class="value third">
+                                  Jan 21, 2026, 02:09 PM
+                                </span>
+                              </p>
+                              
+                              <p>
+                                <span class="name processed">Reported Date</span>
+                                <span class="value third">
+                                  Jan 22, 2026, 02:53 AM
+                                </span>
+                              </p>
+                              
+                              <p>
+                                <span class="name specimen">
+                                  Specimen Type </span>
+                                <span class="value third">
+                                  Urine
+                                </span>
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
+                    
+                    <div class="bodyContent">
+                      <div class="heading-block">
+                        <div class="progress-bar w-150">
+                          <div class="segment-1"></div>
+                          <div class="segment-2"></div>
+                          <div class="segment-3"></div>
+                        </div>
+                        <p class="heading">Prescribed Medications</p>
+                      </div>
+                      <div class="prescribed">
+                        <p>
+                          AMOXICILLIN
+                        </p>
+                      </div>
+                     
+                      <div class="summary-block">
+                        <p class="summary-header">PATIENT TEST RESULTS SUMMARY</p>
+                      
+                        <section >
+                          <ul class="newTable">
+                            <li>
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th class="greyLightBackground">
+                                      <p>
+                                        Drug Class / Drugs
+                                      </p>
+                                    </th>
+                                    <th class="greyLightBackground tableColumTwo">
+                                    Results(ng/mL)
+                                  </th>
+                                  <th
+                                    class="greyLightBackground tableColumThree"
+                                  >
+                                    Interpretation
+                                  </th>
+                                  <th
+                                    class="greyLightBackground tableColumFour"
+                                  >
+                                    Test Outcome
+                                  </th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th class="greyLightBackground">
+                                      <p>
+                                        Drug Class / Drugs
+                                      </p>
+                                    </th>
+                                      <th class="greyLightBackground tableColumTwo">
+                                    Results(ng/mL)
+                                  </th>
+                                  <th
+                                    class="greyLightBackground tableColumThree"
+                                  >
+                                    Interpretation
+                                  </th>
+                                  <th
+                                    class="greyLightBackground tableColumFour"
+                                  >
+                                    Test Outcome
+                                  </th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </li>
+                          </ul>
+                          <ul class="newTable">
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      Naloxone
+                                    </td>
+                                    <td>
+                                      1574.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Amphetamine
+                                    </td>
+                                    <td>
+                                      1755.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Methamphetamine
+                                    </td>
+                                    <td>
+                                      1560.8
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Amitriptyline
+                                    </td>
+                                    <td>
+                                      759.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Nortriptyline
+                                    </td>
+                                    <td>
+                                      770.4
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Doxepin
+                                    </td>
+                                    <td>
+                                      787.1
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Imipramine
+                                    </td>
+                                    <td>
+                                      791.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Butalbital
+                                    </td>
+                                    <td>
+                                      3440.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Phenobarbital
+                                    </td>
+                                    <td>
+                                      3185.2
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Alpha-hydroxyalprazolam
+                                    </td>
+                                    <td>
+                                      317.1
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Alprazolam
+                                    </td>
+                                    <td>
+                                      1613.2
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Diazepam
+                                    </td>
+                                    <td>
+                                      806.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Flurazepam
+                                    </td>
+                                    <td>
+                                      678.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Nordiazepam
+                                    </td>
+                                    <td>
+                                      596.2
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      7-aminoclonazepam
+                                    </td>
+                                    <td>
+                                      747.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Clonazepam
+                                    </td>
+                                    <td>
+                                      789.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Flunitrazepam
+                                    </td>
+                                    <td>
+                                      852.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Lorazepam
+                                    </td>
+                                    <td>
+                                      646.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Oxazepam
+                                    </td>
+                                    <td>
+                                      759.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Temazepam
+                                    </td>
+                                    <td>
+                                      576.8
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Norbuprenorphine
+                                    </td>
+                                    <td>
+                                      293.8
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Buprenorphine
+                                    </td>
+                                    <td>
+                                      148.7
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      cTHC
+                                    </td>
+                                    <td>
+                                      308.6
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Benzoylecgonine
+                                    </td>
+                                    <td>
+                                      812.1
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Cotinine
+                                    </td>
+                                    <td>
+                                      3591.4
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Dextromethorphan
+                                    </td>
+                                    <td>
+                                      350.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Fentanyl
+                                    </td>
+                                    <td>
+                                      30.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Norfentanyl
+                                    </td>
+                                    <td>
+                                      30.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <td>
+                                      Gabapentin
+                                    </td>
+                                    <td>
+                                      3102.7
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      6-MAM
+                                    </td>
+                                    <td>
+                                      171.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Zolpidem
+                                    </td>
+                                    <td>
+                                      820.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Zolpidem Phenyl 4-COOH
+                                    </td>
+                                    <td>
+                                      1541.4
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      EDDP
+                                    </td>
+                                    <td>
+                                      1546.2
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Methadone
+                                    </td>
+                                    <td>
+                                      1720.2
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      MDMA
+                                    </td>
+                                    <td>
+                                      1669.2
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      MDA
+                                    </td>
+                                    <td>
+                                      1690.7
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Naltrexone
+                                    </td>
+                                    <td>
+                                      326.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Codeine
+                                    </td>
+                                    <td>
+                                      787.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Morphine
+                                    </td>
+                                    <td>
+                                      767.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Hydromorphone
+                                    </td>
+                                    <td>
+                                      826
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Hydrocodone
+                                    </td>
+                                    <td>
+                                      749
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Meperidine
+                                    </td>
+                                    <td>
+                                      1497.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Normeperidine
+                                    </td>
+                                    <td>
+                                      773.8
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Oxycodone
+                                    </td>
+                                    <td>
+                                      840.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Oxymorphone
+                                    </td>
+                                    <td>
+                                      807.8
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      PCP
+                                    </td>
+                                    <td>
+                                      156.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Pregabalin
+                                    </td>
+                                    <td>
+                                      1510.9
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Propoxyphene
+                                    </td>
+                                    <td>
+                                      1532.6
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Meprobamate
+                                    </td>
+                                    <td>
+                                      863.7
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Carisoprodol
+                                    </td>
+                                    <td>
+                                      1847.5
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Cyclobenzaprine
+                                    </td>
+                                    <td>
+                                      809.1
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      MDPV
+                                    </td>
+                                    <td>
+                                      1586
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Methylphenidate
+                                    </td>
+                                    <td>
+                                      933.1
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Tapentadol
+                                    </td>
+                                    <td>
+                                      750.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      O-Desmethyltramadol
+                                    </td>
+                                    <td>
+                                      1567.3
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      Tramadol
+                                    </td>
+                                    <td>
+                                      1588.6
+                                    </td>
+                                    <td>
+                                    <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                    </td>
+                                    <td>
+                                      <span style="padding: 1px 6px;" class="positive">
+                                        Positive
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </li>
+                          </ul>
+                        </section>
+                        </div>
+                  
+                     
+                      <div class="twoTables">
+                        <div class="tableOne">
+                        
+                          <section id="confirmation-results" class="confirmation-results-section">
+                            <div class="heading-block">
+                              <div class="progress-bar w-150">
+                                <div class="segment-1"></div>
+                                <div class="segment-2"></div>
+                                <div class="segment-3"></div>
+                              </div>
+                              <p class="heading">Confirmation RESULTS</p>
+                            </div>
+                            <ul class="customTable customTableHeading">
+                              <li>
+                                <table>
+                                  <thead style="vertical-align: top;">
+                                    <tr>
+                                      <th class="greyLightBackground">
+                                        <p>
+                                          Drug Class / Drugs
+                                        </p>
+                                      </th>
+                                      <th class="greyLightBackground tableColumTwo">
+                                        <span>
+                                          Cutoff Level
+                                          <span style="display: block;">(ng/mL)</span>
+                                        </span>
+                                      </th>
+                                      <th class="greyLightBackground tableColumThree">
+                                        <span>
+                                          Results
+                                          <span>(ng/mL)</span>
+                                        </span>
+                                      </th>
+                                      <th class="greyLightBackground tableColumFour">Interpretation</th>
+                                      <th class="greyLightBackground tableColumFive">
+                                        Outcome</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <thead style="vertical-align: top;">
+                                    <tr>
+                                      <th class="greyLightBackground">
+                                        <p>
+                                          Drug Class / Drugs
+                                        </p>
+                                      </th>
+                                      <th class="greyLightBackground tableColumTwo">
+                                        <span>
+                                          Cutoff <br> Level
+                                          <span style="display: block;">(ng/mL)</span>
+                                        </span>
+                                      </th>
+                                      <th class="greyLightBackground tableColumThree">
+                                        <span>
+                                          Results
+                                          <span>(ng/mL)</span>
+                                        </span>
+                                      </th>
+                                      <th class="greyLightBackground tableColumFour">Interpretation</th>
+                                      <th class="greyLightBackground tableColumFive">
+                                        Outcome</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </li>
+                              
+                            </ul>
+                            <ul class="customTable">
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Alkaloids
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Naloxone
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1574.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Amphetamines
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Amphetamine
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1755.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Methamphetamine
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1560.8
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Antidepressants(TCAs)
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Amitriptyline
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        759.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Doxepin
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        787.1
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Imipramine
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        791.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Nortriptyline
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        770.4
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Barbiturates
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Butalbital
+                                      </td>
+                                      <td>
+                                        200
+                                      </td>
+                                      <td>
+                                        3440.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Phenobarbital
+                                      </td>
+                                      <td>
+                                        200
+                                      </td>
+                                      <td>
+                                        3185.2
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Benzodiazepine
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        7-aminoclonazepam
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        747.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Alpha-hydroxyalprazolam
+                                      </td>
+                                      <td>
+                                        20
+                                      </td>
+                                      <td>
+                                        317.1
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Alprazolam
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1613.2
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Clonazepam
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        789.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Diazepam
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        806.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Flunitrazepam
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        852.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Flurazepam
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        678.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Lorazepam
+                                      </td>
+                                      <td>
+                                        40
+                                      </td>
+                                      <td>
+                                        646.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Nordiazepam
+                                      </td>
+                                      <td>
+                                        40
+                                      </td>
+                                      <td>
+                                        596.2
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Oxazepam
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        759.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Temazepam
+                                      </td>
+                                      <td>
+                                        40
+                                      </td>
+                                      <td>
+                                        576.8
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Buprenorphine
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Buprenorphine
+                                      </td>
+                                      <td>
+                                        10
+                                      </td>
+                                      <td>
+                                        148.7
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Norbuprenorphine
+                                      </td>
+                                      <td>
+                                        20
+                                      </td>
+                                      <td>
+                                        293.8
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Cannabinoids,Natural
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        cTHC
+                                      </td>
+                                     
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Dextromethorphan
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Cotinine
+                                      </td>
+                                      <td>
+                                        200
+                                      </td>
+                                      <td>
+                                        3591.4
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Dextromethorphan
+                                      </td>
+                                      <td>
+                                        25
+                                      </td>
+                                      <td>
+                                        350.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Fentanyl
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Fentanyl
+                                      </td>
+                                      <td>
+                                        2
+                                      </td>
+                                      <td>
+                                        30.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Norfentanyl
+                                      </td>
+                                      <td>
+                                        2
+                                      </td>
+                                      <td>
+                                        30.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Gabapentin
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Gabapentin
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        3102.7
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Heroin Metabolite
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        6-MAM
+                                      </td>
+                                      <td>
+                                        10
+                                      </td>
+                                      <td>
+                                        171.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Hypnotics
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Zolpidem
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        820.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Zolpidem Phenyl 4-COOH
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1541.4
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Methadone
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        EDDP
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1546.2
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Methadone
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1720.2
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Methylenedioxy-amphetamines
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        MDA
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1690.7
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        MDMA
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1669.2
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                         Not Otherwise specified
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Naltrexone
+                                      </td>
+                                      <td>
+                                        20
+                                      </td>
+                                      <td>
+                                        326.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Opiates
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Codeine
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        787.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Morphine
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        767.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Opioids and Opiate Analogs
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Hydrocodone
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        749
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Hydromorphone
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        826
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Meperidine
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1497.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Normeperidine
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        773.8
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Oxycodone
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Oxycodone
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        840.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Oxymorphone
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        807.8
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        PCP
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        PCP
+                                      </td>
+                                      <td>
+                                        10
+                                      </td>
+                                      <td>
+                                        156.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Pregabalin
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Pregabalin
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1510.9
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Propoxyphene
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Propoxyphene
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1532.6
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Skeletal Muscle Relaxants
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Carisoprodol
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1847.5
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Cyclobenzaprine
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        809.1
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Meprobamate
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        863.7
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Stimulants
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        MDPV
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1586
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Methylphenidate
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        933.1
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Tapentadol
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        Tapentadol
+                                      </td>
+                                      <td>
+                                        50
+                                      </td>
+                                      <td>
+                                        750.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                              <li>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="5" class="greyBackground textLeft">
+                                        Tramadol
+                                      </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                      <td>
+                                        O-Desmethyltramadol
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1567.3
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>
+                                        Tramadol
+                                      </td>
+                                      <td>
+                                        100
+                                      </td>
+                                      <td>
+                                        1588.6
+                                      </td>
+                                      <td >
+                                      <span class="positive" style="padding: 2px 6px;">Inconsistent</span>
+                                      </td>
+                                      <td>
+                                        <span style="padding: 2px 6px;" class="positive">Positive</span>
+                                      </td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                              </li>
+                              
+                            </ul>
+                            
+                          </section>
+                          <section id="confirmation-results">
+                            
+                          </section>
+                          <section id="screening-results" class="screening-results-section" style="page-break-inside: avoid;">
+                            
+                          </section>
+                        </div>
+                      </div>
+                      <div class="last-content pt-1">
+                      <div style="page-break-inside: avoid">
+                        <div class="Disclaimer">
+                          <div class="disclaimer-inner">
+                            <p class="disclaimer-heading">Regulatory Status and Test Development</p>
+                            <p class="disclimer-content">
+                              The confirmatory methods used by TestGo - Homewood were developed and validated by the laboratory,
+                              and their performance characteristics have been determined internally. These methods have not been cleared or approved by the U.S. Food and Drug
+                              Administration (FDA). The laboratory is certified under the Clinical Laboratory Improvement Amendments (CLIA) to perform high-complexity testing.
+                              These tests are intended for clinical use and should not be considered investigational or research.
+                            </p>
+                          </div>
+                        </div>
+                          <div class="Disclaimer pb-1">
+                          <div class="disclaimer-inner">
+                            <p class="disclaimer-heading">Disclaimer</p>
+                            <p class="disclimer-content">
+                              The information contained in this report is intended for interpretation by a 
+                              licensed physician or other qualified healthcare professional and does not 
+                              replace professional medical advice, diagnosis, or treatment. All decisions 
+                              regarding patient care, including medication selection and dosing, must be made 
+                              solely by a licensed physician, pharmacist, or other authorized healthcare professional
+                              based on the patient’s complete clinical information.
+                            </p>
+                          </div>
+                          </div>
+                        </div>
+                        <div class="report-performed-info" style="margin:1rem 0; page-break-inside: avoid;">
+                          <table class="performed-details">
+                            <tbody>
+                            <tr>
+                                <td style="width: 45%">
+                                        <p>
+                                            <span class="each-cell">
+                                              <span class="line-name">Test Performed: </span><span class="line-value"> TestGo - Homewood</span>
+                                            </span>
+                                        </p>
+                                          <p>                                    
+                                          <span class="each-cell">
+                                              <span class="line-name">CLIA: </span><span class="line-value"> 01D2141620</span>
+                                          </p>
+                                        </td>
+                                        <td style="width: 55%">
+                                        
+                                        <p>
+                                            <span class="each-cell">
+                                              <span class="line-name">Report Finalized: </span><span class="line-value"> madhavi manager </span>
+                                            </span>
+                                        </p>
+                                      
+                                          <p>
+                                            <span class="each-cell">
+                                              <span class="line-name">Lab Director: </span><span class="line-value">Dr. Shamaladevi Nagarajarao, Ph.D</span>
+                                            </span>
+                                        </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                          </table>
+                        </div>
+                      <div class="clia-container" style="page-break-inside: avoid">
+                        <div class="clia-column">
+                          <p>CLIA <strong>01D2141620</strong><br>
+                            234 Aquarius Dr, Ste 100 &amp; 111,<br>
+                            Homewood, AL 35209</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>04D2307358</strong><br>
+                            10912 Colonel Glenn Rd, Ste 1000,<br>
+                            Little Rock, AR 72204</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>04D307358</strong><br>
+                            16310 Tomball Pkwy, Ste 601,<br>
+                            Houston, TX 77064</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>45D2289923</strong><br>
+                            2925 Skyway Cir N, Ste 140,<br>
+                            Irving, TX 75038</p>
+                        </div>
+                        <div class="clia-column">
+                          <p>CLIA <strong>49D2178444</strong><br>
+                            14225 Sullyfield Cir, Ste E,<br>
+                            Chantilly, VA 20151</p>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
+
+</html>

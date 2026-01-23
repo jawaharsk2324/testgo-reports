@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">  <!-- E-Requisition Template -->  
-
-<head>    
-    <meta charset="UTF-8">    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>      Clinical Chemistry    
-    </title>    <style>
+<html lang="en"> 
+    <!-- E-Requisition Template -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Clinical Chemistry </title>
+    <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
         * {
@@ -77,7 +78,7 @@
         }
 
         .report-header .logo {
-            max-width: 120px;
+            max-width: 180px;
             margin-bottom: 0;
             padding-right: 6px;
         }
@@ -177,6 +178,8 @@
             text-align: center;
             border-radius: 4px;
         }
+
+
 
         #print-container .each-step .step-title {
             font-weight: 500;
@@ -343,7 +346,7 @@
             /* font-weight: 500; */
             line-height: 22px;
             /* word-spacing: 5px; */
-            /* display: flex;      flex-wrap: wrap; */
+            /* display: flex;      flex-wrap: wrap; */
         }
 
         #print-container .each-step.test-information .value span {
@@ -568,9 +571,9 @@
             font-size: 12px !important;
             padding: 5px 10px !important;
         }
-    </style>    <style>
+    </style>
+    <style>
         /* Styles go here */
-        .page-header,
         .page-header-space {
             height: 185px;
         }
@@ -659,7 +662,8 @@
         .payment-information h5 {
             padding-left: 5px;
         }
-    </style>    <style>
+    </style>
+    <style>
         .black-and-white #print-container .each-step .step-title {
             background: #bcbcbc;
             color: #333;
@@ -747,7 +751,9 @@
             margin: -1px -1px 0 -1px;
             transform: rotate(45deg) translate(-50%, -50%);
             z-index: 2;
-    </style>    <style>
+        }
+    </style>
+    <style>
         .each-item ul {
             list-style: none;
             padding-left: 0;
@@ -761,326 +767,297 @@
             margin-right: 5px;
             /* Optional: Adjust spacing between bullet and text */
         }
-    </style>  
-</head>  
+    </style>
+</head>
 
-<body class="">    <section class="e-requisition" id="print-container">      <table>        <thead>          <tr>      
-                         <td>              <div class="page-header">                <div class="report-header">        
-                                         <table>                    <tbody>                      <tr
-                                            class="header-part">                        <td>                          
-                                                <div class="logo-part" style="width: 100%">                            
-                                                    <div class="logo">                              <img
-                                                            data-v-0e549244=""
+<body class="">
+    <section class="e-requisition" id="print-container">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <div class="page-header">
+                            <div class="report-header">
+                                <table>
+                                    <tbody>
+                                        <tr class="header-part">
+                                            <td>
+                                                <div class="logo-part" style="width: 100%">
+                                                    <div class="logo"> <img data-v-0e549244=""
                                                             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTIuNjkgMjMuMTIiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMzN2IzNGE7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgZmlsbDogIzBjMzgyYjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj4KICAgIDxnPgogICAgICA8Zz4KICAgICAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iNDIuMTYgNi45MiAzNi40OCA2LjkyIDM2LjQ4IDIxLjggMzMuMjQgMjEuOCAzMy4yNCA2LjkyIDI3LjU2IDYuOTIgMjcuNTYgMy45MSA0Mi4xNiAzLjkxIDQyLjE2IDYuOTIiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik01My4zNywxNi4wM2gtMTAuMzVjLjI2LDIuMjIsMS43NiwzLjQ1LDQuMDEsMy40NSwxLjUxLDAsMi43OS0uNTYsMy44Ni0xLjg3bDIuMTUsMS42NGMtMS4zOCwxLjg3LTMuNSwyLjg2LTYuMDYsMi44Ni00LjI0LDAtNy4wMy0yLjc2LTcuMDMtNi43NXMyLjkxLTYuOTUsNy4wMS02Ljk1YzMuODEsMCw2LjQ5LDIuNTEsNi40OSw2LjQ3LDAsLjQxLS4wMy43Ny0uMDgsMS4xNU00My4xNywxMy43M2g3LjE4Yy0uMzMtMS44NC0xLjU5LTIuNzQtMy40My0yLjc0cy0zLjI3Ljk3LTMuNzYsMi43NCIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTUzLjksMjAuMTlsMS41OS0yLjNjMS4zNSwxLjA1LDIuOTEsMS41OSw0LjMyLDEuNTlzMi4yNS0uNTksMi4yNS0xLjQxYzAtLjYxLS40Ni0xLjA3LTEuODItMS4zOGwtMi4yOC0uNTRjLTIuNjMtLjYxLTMuNzEtMS43Ni0zLjcxLTMuNTgsMC0yLjQ4LDEuOTktNC4xNyw1LjI0LTQuMTcsMi4xNSwwLDQuMTIuNzIsNS40MiwxLjkybC0xLjY2LDIuMTdjLTEuMjMtLjk3LTIuNTYtMS40Ni0zLjg5LTEuNDZzLTIuMS41NC0yLjEsMS4zM2MwLC41OS40MS45NSwxLjgyLDEuMjhsMi4yOC41NGMyLjY2LjYxLDMuNzMsMS44MiwzLjczLDMuNjgsMCwyLjU2LTEuOTcsNC4yNC01LjM5LDQuMjQtMi4yNSwwLTQuNDItLjc0LTUuOC0xLjkyIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNzUuNjMsMjEuNDdjLS44OS40MS0xLjkyLjU5LTIuOTkuNTktMy4xMiwwLTQuNzMtMS41OS00LjczLTUuMDl2LTUuNTdoLTIuNjh2LTIuNjhoMi42OHYtMy4xMmgzLjA3djMuMTJoNC4xN3YyLjY4aC00LjE3djUuMjJjMCwxLjg0LjcyLDIuNjMsMi4yMiwyLjYzLjU2LDAsMS4yOC0uMTMsMS45OS0uMzZsLjQzLDIuNThaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNOTIuOSwxMS40djguMWMtMi4xLDEuNjktNC44MSwyLjYxLTcuNTksMi42MS01LjU1LDAtOS40Ni0zLjc4LTkuNDYtOS4xOHM0LjA3LTkuMzMsOS4yOC05LjMzYzIuOTEsMCw1LjU3LDEuMjMsNy4zMSwzLjQ4bC0yLjcxLDEuNzljLTEuMDctMS40Ni0yLjc2LTIuMjItNC42My0yLjIyLTMuMzcsMC01LjkzLDIuNDMtNS45Myw2LjI2czIuNDgsNi4xNiw2LjI0LDYuMTZjMS42NCwwLDMuMTctLjQxLDQuNDUtMS4ydi0zLjY2aC00LjE5di0yLjgxaDcuMjRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNOTQuMjYsMTIuODZjMC01LjM5LDQuMDctOS4yNiw5LjIzLTkuMjZzOS4yLDMuODYsOS4yLDkuMjYtNC4wNiw5LjI2LTkuMiw5LjI2LTkuMjMtMy44Ni05LjIzLTkuMjZNMTA5LjM3LDEyLjg2YzAtMy43Ni0yLjU2LTYuMjEtNS44OC02LjIxcy01LjkxLDIuNDUtNS45MSw2LjIxLDIuNTYsNi4yMSw1LjkxLDYuMjEsNS44OC0yLjQ1LDUuODgtNi4yMSIvPgogICAgICA8L2c+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE4Ljg3LDUuNTF2MTcuNjFINi4zTDE4Ljg3LDUuNTFaTTMuOCw0LjI1Yy0yLjEsMC0zLjgsMS43LTMuOCwzLjh2OC43NEwxNy41Nyw0LjI1SDMuOFpNMTkuMDcuMTVjLS4xMywwLS4yOS4wNS0uMzguMTQtLjkzLjkyLTEuODYsMS44NC0yLjg5LDIuODgsMS41MiwwLDIuODkuMDIsNC4yOC4wMmwuMDMsNC4yNmMxLjAzLTEuMDMsMS45Ni0xLjk1LDIuODgtMi44OS4wOS0uMDkuMTItLjI2LjEzLS4zOC4wNS0xLjM2LjEtMi43My4xNC00LjE3LTEuNDYuMDUtMi44Mi4wOS00LjE5LjE1Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4="
-                                                            alt="logo"                              
-                                                             style="max-width:350px; max-height:60px; width: 100%;">    
-                                                                               </div>                          
-                                                </div>  
-                                                                     
-                                            </td>                        <td>                  
-                                                       <div class="address-part">                            <div
-                                                        class="address">                              <p
-                                                            data-v-5293112a="" class="address-line"
-                                                            style="padding-bottom: 3px;">                              
-                                                             Laboratory Director :                                Dr.
-                                                            Shamaladevi Nagarajarao, Ph.D                              
-                                                             <span
-                                                                style="word-wrap: break-word; display: inline-block;"></span>
-                                                                                           <br>                        
-                                                                   <span class="icon"><img
-                                                                    src="http://localhost:3001/img/map-pin.svg"        
-                                                                                             
-                                                                     alt="location icon" /></span>                      
-                                                                     <b>#CLIA ID:01D2141620,</b> 234 Aquarius Dr,  Suite
-                                                            100, 111, Homewood, AL, 35209                              
-                                                        </p>                              <p data-v-5293112a=""
-                                                            class="address-line">                                <span
-                                                                class="icon"><img
-                                                                    src="http://localhost:3001/img/map-pin.svg"        
-                                                                                             
-                                                                     alt="location icon" /></span>                      
-                                                                      <b>#CLIA ID:49D2178444,</b> 14225 Sullyfield
-                                                            Circle,  Ste E, Chantilly, VA, 20151, , AL, 20151          
-                                                                                 <br>                              
-                                                             <span class="icon"><img
-                                                                    src="http://localhost:3001/img/map-pin.svg"        
-                                                                                             
-                                                                     alt="location icon" /></span>                      
-                                                                      <b>#CLIA ID:45D2289923,</b> 2925 Skyway Cir N,
-                                                             Ste 140, Irving, TX, 75038                              
-                                                        </p>                              <p data-v-5293112a=""
-                                                            class="sub-line">                                Website:  
-                                                                                         <a data-v-5293112a=""
+                                                            alt="logo"
+                                                            style="max-width:100%; max-height:60px; width: 100%;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="address-part">
+                                                    <div class="address">
+                                                                <p> Laboratory Director : Dr.Shamaladevi Nagarajarao, Ph.D</p>
+
+                                                                <div style="display: grid;column-gap: 2rem; grid-template-columns: 1fr 1fr 1fr; margin: 0.6rem 0;">
+                                                                    <div>
+                                                                        <p>CLIA <b>1D2141620</b></p>
+                                                                        <p>234 Aquarius Dr, Suite 100, 111,</p>
+                                                                        <p>Homewood, AL, 35209</p>
+                                                                    </div>
+                                                                    <div >
+                                                                        <p>CLIA <b>49D2178444</b></p>
+                                                                        <p>14225 Sullyfield Circle, Ste E,</p>
+                                                                        <p>Chantilly, VA, 20151, , AL, 20151</p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>CLIA <b>45D2289923</b></p>
+                                                                    <p>2925 Skyway Cir N, Ste 140, Irving,</p>
+                                                                    <p>TX, 75038</p>
+                                                    </div>
+                                                </div>
+                                                  <p> Website: <a
                                                                 href="https://testgo.com"
-                                                                target="_blank">https://testgo.com</a> |                
-                                                                           Phone:                                <a
-                                                                data-v-5293112a="" href="tel:+1 571-775-1973"> +1      
-                                                                                           2059948266</a> | Fax:        
-                                                                                   <a data-v-5293112a=""
-                                                                href="tel:2059948266">2052014797</a>                    
-                                                                     </p>                            
-                                                         <!-- <p data-v-5293112a="" class="sub-line">                                                                CLIA # 45D2289923 | Laboratory Director : Shaohan ZHAO Ph.D.                                                            </p> -->
-                                                                                   </div>                          
-                                                </div>                        </td>                        <td>        
-                                                                 <div class="order-part">                            
-                                                    <table data-v-2f0381d8="" class="steps-inner-form mb-05">          
-                                                                           <tbody>                                <tr
-                                                                data-v-2f0381d8="" class="form-input-view">            
-                                                                                                                       
-                                                                                                 <td data-v-2f0381d8=""
-                                                                    class="label">                                  
-                                                                     Accession ID</td>                                  
-                                                                <td data-v-2f0381d8="" class="divider">:                
-                                                                                     </td>                              
-                                                                   <td data-v-2f0381d8="" class="value">                
-                                                                                       TDC260119154                    
-                                                                                 </td>                                  
-                                                                                               
-                                                            </tr>                    
-                                                                       <tr data-v-2f0381d8="" class="form-input-view">  
-                                                                                               <td data-v-2f0381d8=""
-                                                                    class="label">Patient                              
-                                                                       </td>                                  <td
-                                                                    data-v-2f0381d8="" class="divider">:                
-                                                                                     </td>                              
-                                                                   <td data-v-2f0381d8="" class="value">                
-                                                                                       AMY KC                          
-                                                                           </td>                                </tr>  
-                                                                                         <tr data-v-2f0381d8=""
-                                                                class="form-input-view">                                
-                                                                 <td data-v-2f0381d8="" class="label">DOB              
-                                                                                       </td>                            
-                                                                     <td data-v-2f0381d8="" class="divider">:          
-                                                                                           </td>                        
-                                                                         <td data-v-2f0381d8="" class="value">          
-                                                                                             04/13/1975                
-                                                                                     </td>                              
-                                                                 </tr>                                <tr
-                                                                data-v-2f0381d8="" class="form-input-view">            
-                                                                                     <td data-v-2f0381d8=""
-                                                                    class="label">Gender                                
-                                                                     </td>                                  <td
-                                                                    data-v-2f0381d8="" class="divider">:                
-                                                                                     </td>                              
-                                                                   <td data-v-2f0381d8="" class="value">                
-                                                                                       FEMALE                          
-                                                                           </td>                                </tr>  
-                                                                                         <tr data-v-2f0381d8=""
-                                                                class="form-input-view">                                
-                                                                 <td data-v-2f0381d8="" class="label">State            
-                                                                                         </td>                          
-                                                                       <td data-v-2f0381d8="" class="divider">:        
-                                                                                             </td>                      
-                                                                           <td data-v-2f0381d8="" class="value">        
-                                                                                               Texas                    
-                                                                                 </td>                                
-                                                            </tr>                              </tbody>                
-                                                                   </table>                          
-                                                </div>            
-                                                           </td>                      </tr>                      <tr>  
-                                                                 <td colspan="2">                          <h1
-                                                    class="page-title">                            Clinical Chemistry  
-                                                                           </h1>                        </td>          
-                                                       </tr>                    </tbody>                  </table>      
-                                         </div>              </div>            
-                               <div class="page-header-space">
-                        </div>            </td>          </tr>        </thead>        <tbody>          <tr>            
-                    <td>              <div class="each-step patient-information">                <table>                
-                                 <tbody>                    <tr>                      <td colspan="4">                  
-                                                 <h3 class="step-title">Patient Information</h3>                      
-                                        </td>                    </tr>                    <tr>                      <td>
-                                                                   <div class="each-item">                        
-                                                 <span class="name">First Name                          </span>        
-                                                                 <span class="value">                            AMY    
-                                                                         </span>                        </div>          
-                                                         <div class="each-item">                          <span
-                                                    class="name">Mobile Number                          </span>        
-                                                                 <span class="value">                          
-                                                     214-463-3079                          </span>                      
-                                                 </div>                        <div class="each-item">                  
-                                                       <span class="name">City                          </span>        
-                                                                 <span class="value">                          
-                                                     Waxahachie                          </span>                        
-                                            </div>                      </td>                      <td>                
-                                                   <div class="each-item">                          <span
-                                                    class="name">Middle Name                          </span>          
-                                                               <span class="value">                                    
-                                                                     </span>                        </div>              
-                                                     <div class="each-item">                          <span
-                                                    class="name">Email Address                          </span>        
-                                                                 <span class="value">                          
-                                                     <!--email_off-->                                                  
-                                                         <!--/email_off-->                          </span>            
-                                                           </div>                        <div class="each-item">        
-                                                                 <span class="name">State                        
-                                                     </span>                          <span class="value">              
-                                                                 Texas                          </span>                
-                                                       </div>                      </td>                      <td>      
-                                                             <div class="each-item">                          <span
-                                                    class="name">Last Name                          </span>            
-                                                             <span class="value">                            KC        
-                                                                     </span>                        </div>              
-                                                     <div class="each-item">                          <span
-                                                    class="name">Address                          </span>              
-                                                           <span class="value">                            105 SAVANNAH
-                                                    ST                          </span>                        </div>  
-                                                                 <div class="each-item">                          <span
-                                                    class="name">Zip                          </span>                  
-                                                       <span class="value">                            75165            
-                                                                 </span>                        </div>                  
-                                               </td>                      <td>                        <div
-                                                class="each-item">                          <span class="name">Date Of
-                                                    Birth                          </span>                        
-                                                 <span class="value">                            04/13/1975            
-                                                                 </span>                        </div>                  
-                                                 <div class="each-item">                          <span
-                                                    class="name">Gender                          </span>                
-                                                         <span class="value">                            FEMALE        
-                                                                     </span>                        </div>              
-                                                   </td>                    </tr>                  </tbody>            
-                                   </table>              </div>              <div
-                            class="each-step facility-information">                <table>                  <tbody>    
-                                                   <tr>                      <td colspan="3">                        <h3
-                                                class="step-title">Practice Information</h3>                      </td>
-                                                           </tr>                    <tr>                      <td>      
-                                                             <div class="each-item">                          <span
-                                                    class="name">Practice Name                          </span>        
-                                                                 <span class="value">                            CRYSTAL
-                                                    CARE HOME HEALTH SERVICES INC                          </span>      
-                                                                 </div>                      </td>                      
-                                        <td>                        <div class="each-item">                        
-                                                 <span class="name">Practice Address                          </span>  
-                                                                       <span class="value" style="max-width: 85%;">    
-                                                                           1675 REPUBLIC PKWY,,#200,TEXAS,75150        
-                                                                     </span>                        </div>              
-                                                   </td>                    
-                                    </tr>                    <tr>              
-                                               <td>                        <div class="each-item">                      
-                                                   <span class="name">Ordering Physician                        
-                                                     </span>                          <span class="value">              
-                                                                 Dr MUHAMMAD KHAN                          </span>      
-                                                                 </div>                      </td>                      
-                                        <td>                        <div class="each-item">                        
-                                                 <span class="name">Ordering Physician NPI                        
-                                                     </span>                          <span class="value">              
-                                                                 1396700043                          </span>            
-                                                           </div>                      </td>                    
-                                    </tr>  
-                                                   </tbody>                </table>              </div>                
-                                   <div class="each-step facility-information sample-information">                <h3
-                                class="step-title">Sample Information</h3>                <table>                  
-                                <tbody>                    <tr>                                            <td>        
-                                                           <div class="each-item">                          <span
-                                                    class="name">Collection Date                          </span>      
-                                                                   <span class="value">                          
-                                                     01/19/2026                          </span>                        
-                                            </div>                                                                      
-                                             </td>                                                                      
-                                        <td>                        <div class="each-item">                        
-                                                 <span class="name">Collection Time                          </span>    
-                                                                     <span class="value">                          
-                                                     08:59 PM                          </span>                        
-                                            </div>                      </td>                                          
-                                         <td>                          <div class="each-item">                          
-                                                   <span class="name">Specimen Type                              </span>
-                                                                             <span class="value">                      
-                                                               Blood                              </span>              
-                                                           </div>                      </td>                      <td>  
-                                                                                         </td>            <td>          
-                                                           </td>                                                    
-                                    </tr>                                    </tbody>                                
-                            </table>                            </div>                                        <div
-                            class="each-step facility-information sample-information">                          </div>  
-                                                                                                     <div
-                            class="each-step test-information">              <h3 class="step-title">Test Information
-                            </h3>                                                                                      
-                                                 <div class="each-item">                                                
-                                           <span class="name pb-10">                                                    
-                                               Clinical Chemistry                                                      
-                                         </span>                                                            <span
-                                    class="name pb-10">                                                                
-                                                                                                </span>                
-                                                                                           <div class="each-item-value">
-                                                     <div class="name">                    Basic Metabolic Panel        
-                                                 </div>                  <div class="value">                            
-                                                   <span>                      Anion Gap                    </span>    
-                                                                           <span>                      BUN              
-                                                 </span>                                        <span>                  
-                                               BUN/Crea Ratio                    </span>                                
-                                               <span>                      CO2                    </span>              
-                                                                 <span>                      Chloride                  
-                                             </span>                                        <span>                    
-                                             Creatinine                    </span>                                      
-                                         <span>                      Glucose                    </span>                
-                                                               <span>                      Potassium                  
-                                             </span>                                        <span>                    
-                                             Sodium                    </span>                                      
-                                         <span>                      eGFR                    </span>                    
-                                                                                                           </div>      
-                                                                                             </div>                    
-                                                                                           <div class="each-item-value">
-                                                     <div class="name">                    All Tests                  
-                                    </div>                  <div class="value">                                      
-                                         <span>                      CBC w/Automated Diff                    </span>    
-                                                                           <span>                      CK              
-                                                 </span>                                        <span>                  
-                                               ESR                    </span>                                      
-                                         <span>                      hsCRP                    </span>                  
-                                                                                                             </div>    
-                                                                                               </div>                  
-                                                                                               </div>                  
-                                           </div>                <div class="each-step icd-information">                
-                             <table>                    <tbody>                      <tr>                        <td>  
-                                                                   <h3 class="step-title">ICD 1O CODES</h3>            
-                                                       </td>                      </tr>                      <tr>      
-                                                         <td>                          <div class="each-item">          
-                                                                 <div class="value">                            
-                                                     T84.54XA, 36415                            </div>                  
-                                                       </div>                        </td>                      </tr>  
-                                                     </tbody>                  </table>                </div>          
-                                                                                     <div
-                            class="each-step payment-information">                                                      
-                                 <h3 class="step-title">Payment Information</h3>                                        
-                                               <div class="insurance-state">                                            
-                                                                   <p>Insurance - <span class="yes">YES</span></p>      
-                                                       </div>                            <div class="gird_1">          
-                                     <table>                  <tbody>                    <tr>                      <td
-                                                colspan="4">                        <h5>Primary Insurance</h5>          
-                                                           </td>                    </tr>                    <tr>      
-                                                           <td>                        <div class="each-item">          
-                                                                   <span class="name">Payor Name                        
-                                                         </span>                          <div class="value">          
-                                                                         MOLINA HEALTHCARE                          
-                                                    </div>                        </div>                      </td>    
-                                                             <td>                        <div class="each-item">        
-                                                                     <span class="name">Policyholder                    
-                                                               Name                          </span>                    
-                                                         <div class="value">                            AMY KC          
-                                                                       </div>                        </div>            
-                                                         </td>                      <td>                        <div
-                                                    class="each-item">                          <span
-                                                        class="name">Policy ID                          </span>        
-                                                                     <div class="value">                          
-                                                         515643928                          </div>                      
-                                                     </div>                      </td>                      <td>        
-                                                               <div class="each-item">                          <span
-                                                        class="name">Relationship                          </span>      
-                                                                       <div class="value">                          
-                                                         Self                          </div>                        
-                                                </div>                      </td>                    </tr>              
-                                           </tbody>                </table>              </div>                        
-                                                         </div>                                                        
-                                                                                                                       
-                                                                                                                       
-                                   <section id="patient-acknowledgment-signature">              <div
-                                class="each-step disclaimer">                <table>                  <tbody>          
-                                                 <tr>                      <td>                        <h3
-                                                    class="step-title">                          Patient                
-                                                             Acknowledgment                        </h3>                
-                                                     </td>                    </tr>                    <tr>            
-                                                     <td>                        <div class="each-item">                
-                                                             <span class="value">                            <p> The
-                                                            specimen identified on this form is my own. I have not
+                                                                target="_blank">https://testgo.com</a> | Phone: <a
+                                                                href="tel:+1 571-775-1973"> +1
+                                                                2059948266</a> | Fax: <a 
+                                                                href="tel:2059948266">2052014797</a> <span> | Accesion ID: <b>TDC260119154</b> </span> </p>
+                                            </td>
+                                            <!-- <td>
+                                                <div class="order-part">
+                                                    <table data-v-2f0381d8="" class="steps-inner-form mb-05">
+                                                        <tbody>
+                                                            <tr data-v-2f0381d8="" class="form-input-view">
+                                                                <td data-v-2f0381d8="" class="label"> Accession ID</td>
+                                                                <td data-v-2f0381d8="" class="divider">: </td>
+                                                                <td data-v-2f0381d8="" class="value"> TDC260119154 </td>
+                                                            </tr>
+                                                            <tr data-v-2f0381d8="" class="form-input-view">
+                                                                <td data-v-2f0381d8="" class="label">Patient </td>
+                                                                <td data-v-2f0381d8="" class="divider">: </td>
+                                                                <td data-v-2f0381d8="" class="value"> AMY KC </td>
+                                                            </tr>
+                                                            <tr data-v-2f0381d8="" class="form-input-view">
+                                                                <td data-v-2f0381d8="" class="label">DOB </td>
+                                                                <td data-v-2f0381d8="" class="divider">: </td>
+                                                                <td data-v-2f0381d8="" class="value"> 04/13/1975 </td>
+                                                            </tr>
+                                                            <tr data-v-2f0381d8="" class="form-input-view">
+                                                                <td data-v-2f0381d8="" class="label">Gender </td>
+                                                                <td data-v-2f0381d8="" class="divider">: </td>
+                                                                <td data-v-2f0381d8="" class="value"> FEMALE </td>
+                                                            </tr>
+                                                            <tr data-v-2f0381d8="" class="form-input-view">
+                                                                <td data-v-2f0381d8="" class="label">State </td>
+                                                                <td data-v-2f0381d8="" class="divider">: </td>
+                                                                <td data-v-2f0381d8="" class="value"> Texas </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td> -->
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <h1 class="page-title"> Clinical Chemistry </h1>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!--place holder for the fixed-position header-->
+                        <div class="page-header-space"></div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="each-step patient-information">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4">
+                                            <h3 class="step-title">Patient Information</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="each-item"> <span class="name">First Name </span> <span
+                                                    class="value"> AMY </span> </div>
+                                            <div class="each-item"> <span class="name">Mobile Number </span> <span
+                                                    class="value"> 214-463-3079 </span> </div>
+                                            <div class="each-item"> <span class="name">City </span> <span class="value">
+                                                    Waxahachie </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Middle Name </span> <span
+                                                    class="value"> </span> </div>
+                                            <div class="each-item"> <span class="name">Email Address </span> <span
+                                                    class="value"> <!--email_off--> <!--/email_off--> </span> </div>
+                                            <div class="each-item"> <span class="name">State </span> <span
+                                                    class="value"> Texas </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Last Name </span> <span
+                                                    class="value"> KC </span> </div>
+                                            <div class="each-item"> <span class="name">Address </span> <span
+                                                    class="value"> 105 SAVANNAH ST </span> </div>
+                                            <div class="each-item"> <span class="name">Zip </span> <span class="value">
+                                                    75165 </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Date Of Birth </span> <span
+                                                    class="value"> 04/13/1975 </span> </div>
+                                            <div class="each-item"> <span class="name">Gender </span> <span
+                                                    class="value"> FEMALE </span> </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="each-step facility-information">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3">
+                                            <h3 class="step-title">Practice Information</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Practice Name </span> <span
+                                                    class="value"> CRYSTAL CARE HOME HEALTH SERVICES INC </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Practice Address </span> <span
+                                                    class="value" style="max-width: 85%;"> 1675 REPUBLIC
+                                                    PKWY,,#200,TEXAS,75150 </span> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Ordering Physician </span> <span
+                                                    class="value"> Dr MUHAMMAD KHAN </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Ordering Physician NPI </span>
+                                                <span class="value"> 1396700043 </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="each-step facility-information sample-information">
+                            <h3 class="step-title">Sample Information</h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Collection Date </span> <span
+                                                    class="value"> 01/19/2026 </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Collection Time </span> <span
+                                                    class="value"> 08:59 PM </span> </div>
+                                        </td>
+                                        <td>
+                                            <div class="each-item"> <span class="name">Specimen Type </span> <span
+                                                    class="value"> Blood </span> </div>
+                                        </td>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="each-step facility-information sample-information"> </div>
+                        <div class="each-step test-information">
+                            <h3 class="step-title">Test Information</h3>
+                            <div class="each-item"> <span class="name pb-10"> Clinical Chemistry </span> <span
+                                    class="name pb-10"> </span>
+                                <div class="each-item-value">
+                                    <div class="name"> Basic Metabolic Panel </div>
+                                    <div class="value"> <span> Anion Gap </span> <span> BUN </span> <span> BUN/Crea
+                                            Ratio </span> <span> CO2 </span> <span> Chloride </span> <span> Creatinine
+                                        </span> <span> Glucose </span> <span> Potassium </span> <span> Sodium </span>
+                                        <span> eGFR </span>
+                                    </div>
+                                </div>
+                                <div class="each-item-value">
+                                    <div class="name"> All Tests </div>
+                                    <div class="value"> <span> CBC w/Automated Diff </span> <span> CK </span> <span> ESR
+                                        </span> <span> hsCRP </span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="each-step icd-information">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3 class="step-title">ICD 1O CODES</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="each-item">
+                                                <div class="value"> T84.54XA, 36415 </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="each-step payment-information">
+                            <h3 class="step-title">Payment Information</h3>
+                            <div class="insurance-state">
+                                <p>Insurance - <span class="yes">YES</span></p>
+                            </div>
+                            <div class="gird_1">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4">
+                                                <h5>Primary Insurance</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="each-item"> <span class="name">Payor Name </span>
+                                                    <div class="value"> MOLINA HEALTHCARE </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="each-item"> <span class="name">Policyholder Name </span>
+                                                    <div class="value"> AMY KC </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="each-item"> <span class="name">Policy ID </span>
+                                                    <div class="value"> 515643928 </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="each-item"> <span class="name">Relationship </span>
+                                                    <div class="value"> Self </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <section id="patient-acknowledgment-signature">
+                            <div class="each-step disclaimer">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h3 class="step-title"> Patient Acknowledgment </h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="each-item"> <span class="value">
+                                                        <p> The specimen identified on this form is my own. I have not
                                                             adulterated it in any way. I am voluntarily submitting this
                                                             specimen for analysis by my physician and/or Devansh Lab
                                                             Werks. I authorize Devansh Lab Werks to release the results
@@ -1117,76 +1094,94 @@
                                                             de-identified pursuant to law.</p>
                                                         <p> <input type='checkbox' disabled='disabled'> I would like to
                                                             opt out of giving my sample for Devansh Lab Werks research
-                                                            and development purpose. </p>                          
-                                                    </span>                        </div>                      </td>    
-                                                           </tr>                  </tbody>                </table>      
-                                       </div>              <div class="each-step signature-step">                <table>
-                                                     <tbody>                    <tr>                      <td>          
-                                                             <div class="each">                          <div
-                                                        class="signature  ">                                            
-                                                                 </div>                          <h5>Patient            
-                                                                       Signature                          </h5>        
-                                                                   </div>                        <div
-                                                    class="each-check-box" style="margin-top: 20px;">                  
-                                                           <form action="">                            <div
-                                                            class="form-group">                              <input
-                                                                type="checkbox" disabled id="html">                    
-                                                                     <label for="html">By                              
-                                                                 Checking                                this          
-                                                                                     box,                              
-                                                                 the                                ordering            
-                                                                                   provider                            
-                                                                   certifies                                that        
-                                                                                       the                              
-                                                                 patient                                cannot          
-                                                                                     physically                        
-                                                                       Sign                                the          
-                                                                                     Release                            
-                                                                   and                                Consent</label>  
-                                                                                     </div>                          
-                                                    </form>                        </div>                        <div
-                                                    class="each" style="margin-top: 10px;">                          
-                                                    <div class="signature  ">                                          
-                                                                   </div>                          <h5>Parent/Guardian  
-                                                                                 signature                          
-                                                    </h5>                        
-                                                </div>                      </td>      
-                                                         </tr>                  </tbody>                </table>        
-                                     </div>            </section>            <section id="ordering-physician-signature">
-                                         <div class="each-step disclaimer">                <table>                  
-                                    <tbody>                    <tr>                      <td>                        <h3
-                                                    class="step-title">                          Ordering              
-                                                               Physician                          Consent              
-                                                             </h3>                      </td>                    </tr>  
-                                                         <tr>                      <td>                        <div
-                                                    class="each-item">                          <span class="value">    
-                                                                               <p>I acknowledge that documentation to
-                                                            support medical necessity for all tests ordered is recorded
-                                                            in the patient’s chart. If not signed, Authorized Healthcare
-                                                            Provider affirms that test orders are placed in patient file
-                                                            with provider signature and will be available upon request.
-                                                            The Office of the Inspector General requires documentation
-                                                            in patient medical chart including date of service, tests
-                                                            ordered and documentation to support medical necessity</p>
-                                                        <span class='name'>Statement of Medical Necessity </span>
+                                                            and development purpose. </p>
+                                                    </span> </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="each-step signature-step">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="each">
+                                                    <div class="signature  "> </div>
+                                                    <h5>Patient Signature </h5>
+                                                </div>
+                                                <div class="each-check-box" style="margin-top: 20px;">
+                                                    <form action="">
+                                                        <div class="form-group"> <input type="checkbox" disabled
+                                                                id="html"> <label for="html">By Checking this box, the
+                                                                ordering provider certifies that the patient cannot
+                                                                physically Sign the Release and Consent</label> </div>
+                                                    </form>
+                                                </div>
+                                                <div class="each" style="margin-top: 10px;">
+                                                    <div class="signature  "> </div>
+                                                    <h5>Parent/Guardian signature </h5>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section id="ordering-physician-signature">
+                            <div class="each-step disclaimer">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h3 class="step-title"> Ordering Physician Consent </h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="each-item"> <span class="value">
+                                                        <p>I acknowledge that documentation to support medical necessity
+                                                            for all tests ordered is recorded in the patient’s chart. If
+                                                            not signed, Authorized Healthcare Provider affirms that test
+                                                            orders are placed in patient file with provider signature
+                                                            and will be available upon request. The Office of the
+                                                            Inspector General requires documentation in patient medical
+                                                            chart including date of service, tests ordered and
+                                                            documentation to support medical necessity</p><span
+                                                            class='name'>Statement of Medical Necessity </span>
                                                         <p>By signing below, I, the ordering Medical Provider, confirm
                                                             that testing is medically necessary and that test results
-                                                            may impact medical management for the patient.</p>          
-                                                                       
-                                                    </span>                        </div>                      </td>    
-                                                           </tr>                  </tbody>                
-                                </table>      
-                                       </div>              <div class="each-step signature-step">                <table>
-                                                     <tbody>                    <tr>                      <td>          
-                                                             <div class="each">                          <div
-                                                        class="signature ">                                            
-                                                                 </div>                        </div>                  
-                                                      <h5>                         Electronically Signed By: Dr MUHAMMAD
-                                                    KHAN,                          MD                                  
-                                                                 </h5>                      </td>                    
-                                        </tr>                  </tbody>                </table>              </div>    
-                                   </section>                      
-                </tr>        </tbody>      </table>      </div>      
-        </td>      </tr>      </tbody>      </table>    </section>  </body>
+                                                            may impact medical management for the patient.</p>
+                                                    </span> </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="each-step signature-step">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="each">
+                                                    <div class="signature "> </div>
+                                                </div>
+                                                <h5> Electronically Signed By: Dr MUHAMMAD KHAN, MD </h5>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </section>
+</body>
 
 </html>
