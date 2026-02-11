@@ -36,19 +36,20 @@
     }
 
     .section-title {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 15px;
+      color: #000000;
+      margin-bottom: 8px;
       padding-bottom: 10px;
-      border-bottom: 2px solid #e5e7eb;
+      /* border-bottom: 2px solid #e5e7eb; */
     }
 
     .highlight-section {
-      background-color: #fef3c7;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid #f59e0b;
+      border-radius: 24px;
+      border: 1px solid rgba(231, 165, 0, 0.20);
+      background: #FEFAEE;
+      padding: 20px 0;
+      box-shadow: 0 4px 24.6px 0 rgba(231, 165, 0, 0.30);
     }
 
     .highlight-section .section-title {
@@ -61,28 +62,25 @@
       border-collapse: collapse;
       background-color: white;
       font-size: 14px;
-      border-radius: 6px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .orders-table thead {
-      background-color: #f3f4f6;
+      text-transform: uppercase;
+      box-shadow: 0 4px 24.6px 0 rgba(0, 0, 0, 0.10);
     }
 
     .orders-table th {
       padding: 12px 10px;
       text-align: left;
       font-weight: 600;
-      color: #374151;
-      font-size: 13px;
+      color: #1A372C;
+      font-size: 16px!important;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border-bottom: 2px solid #e5e7eb;
+      border-bottom: 2px solid #E7E8EE;
     }
 
     .orders-table tbody tr {
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #E7E8EE;
       transition: background-color 0.2s ease;
     }
 
@@ -136,15 +134,16 @@
 <div class="email-container" style="max-width: 1200px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
 
   <!-- Header -->
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: linear-gradient(135deg, #4169E1 0%, #1E40AF 100%); background-color: red;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#4EAB581A;">
     <tr>
+      
       <td style="padding: 30px; text-align: center;">
-        <div style="font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; color: #ffffff;">TEST ORDERING FACILITY</div>
-        <div style="font-size: 18px; font-weight: 500; margin-bottom: 8px; color: #ffffff;">ASMA KHATOON</div>
-        <div style="font-size: 14px; font-weight: 300; color: #ffffff;">
-          , 
+        <div><img src="https://services-api.labsquire.com/img/logos/TestGo.svg" alt="logo"
+                                    class="testgoImage"></div>
+        <div style="font-size: 36px; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px; color: #1A372C;">TEST ORDERING FACILITY</div>
+        <!-- <div style="font-size: 18px; font-weight: 400; margin-bottom: 8px; color:#1A372C80;">ASMA KHATOON, 
           GADSDEN, 
-          ALABAMA 75244
+          ALABAMA 75244</div> -->
         </div>
       </td>
     </tr>
@@ -159,14 +158,13 @@
       <table class="orders-table">
         <thead>
           <tr>
-            <th>Order ID</th>
-            <th>Patient Name</th>
-            <th>DOB</th>
-            <th>Status</th>
-            <th>Scheduled Time</th>
-            <th>Tests Ordered</th>
-            <th>Provider</th>
-            <th>Notes</th>
+            <th style="width: 12%;">Order ID</th>
+            <th style="width: 15%;">Patient Name</th>
+            <th style="width: 10%;">DOB</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 15%;">Scheduled Time</th>
+           <th style="width: 23%;">Notes</th>
+            <th style="width: 15%;">Provider</th>
           </tr>
         </thead>
         <tbody>
@@ -179,7 +177,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+     
     </tr>
   
     <tr>
@@ -190,7 +188,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+      
     </tr>
   
     <tr>
@@ -201,7 +199,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+    
     </tr>
   
     <tr>
@@ -212,7 +210,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+  
     </tr>
   
     <tr>
@@ -223,7 +221,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+
     </tr>
   
     <tr>
@@ -234,7 +232,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+    
     </tr>
   
     <tr>
@@ -245,7 +243,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+
     </tr>
   
     <tr>
@@ -256,7 +254,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+     
     </tr>
   
     <tr>
@@ -267,7 +265,7 @@
       <td></td>
       <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
       <td>Asma Khatoon</td>
-      <td>-</td>
+  
     </tr>
   
         </tbody>
@@ -282,20 +280,21 @@
       <table class="orders-table">
         <thead>
           <tr>
-            <th>Order ID</th>
-            <th>Patient Name</th>
-            <th>DOB</th>
-            <th>Status</th>
-            <th>Scheduled Time</th>
-            <th>Tests Ordered</th>
-            <th>Provider</th>
-            <th>Notes</th>
+
+            <th style="width: 12%;">Order ID</th>
+            <th style="width: 15%;">Patient Name</th>
+            <th style="width: 10%;">DOB</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 15%;">Scheduled Time</th>
+           <th style="width: 23%;">Notes</th>
+            <th style="width: 15%;">Provider</th>
           </tr>
+
         </thead>
         <tbody>
           
       <tr>
-        <td colspan="8" style="text-align:center;padding:12px;">
+        <td colspan="7" style="text-align:center;padding:12px;">
           No records found
         </td>
       </tr>
@@ -309,26 +308,35 @@
     
     <div class="section highlight-section">
       <div class="section-title">Requires Attention</div>
-      <table class="orders-table">
-        <thead>
+      <table class="orders-table" style="border-radius: 0;background-color: #F7F5F6!important; border-bottom: none !important">
+        <thead style="background-color: #F7F5F6!important;">
           <tr>
-            <th>Order ID</th>
-            <th>Patient Name</th>
-            <th>DOB</th>
-            <th>Status</th>
-            <th>Scheduled Time</th>
-            <th>Tests Ordered</th>
-            <th>Provider</th>
-            <th>Notes</th>
+            <th style="width: 12%;">Order ID</th>
+            <th style="width: 15%;">Patient Name</th>
+            <th style="width: 10%;">DOB</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 15%;">Scheduled Time</th>
+           <th style="width: 23%;">Notes</th>
+            <th style="width: 15%;">Provider</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="background-color: transparent !important;">
           
-      <tr>
-        <td colspan="8" style="text-align:center;padding:12px;">
+      <!-- <tr style="background-color: transparent !important;">
+        <td colspan="7" style="text-align:center;padding:12px;background-color: transparent;">
           No records found
         </td>
-      </tr>
+      </tr> -->
+          <tr style="background-color: #FEFAEE !important;">
+      <td>MLX260128367</td>
+      <td>AKHILA SAMALA</td>
+      <td>01/01/1991</td>
+      <td>PENDING</td>
+      <td></td>
+      <td>CBCW DIFF PERIPHERAL, CMP, LIPID PANEL, HGBA1C, URINALYSIS, HEPATIC PANEL, (PT) MIXING STUDY</td>
+      <td>Asma Khatoon</td>
+     
+    </tr>
     
         </tbody>
       </table>

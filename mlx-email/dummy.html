@@ -1,0 +1,391 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color:#f5f5f5;
+      padding: 0!important;
+      line-height: 1.6;
+    }
+
+.email-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.email-container::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 17%;
+    width: 500px;
+    height: 100px;
+    background-image: url(/mlx-email/Frame\ 57.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.2;
+    z-index: 1;
+}
+       @media (max-width: 768px) {
+       .email-container {
+  max-width: 100%!important;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+      .email-container::after {
+        display: none!important;
+      } 
+        .header-table .header-content{
+        flex-direction: column;
+        text-align: center;
+        gap:0;}
+
+         .header-table .header-content .facility-name{
+          padding-left:0!important;
+          font-size: 22px!important;
+          }
+       }
+
+       .header-table{
+        background-color: #4EAB581A;
+        width:100%;
+        position: relative;
+        }
+  
+       .header-table .header-content{
+        display: flex;
+        align-items: center;
+        justify-content: left;  
+        gap:1rem;
+        }
+        .header-table .header-content .facility-name{
+          font-size: 28px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          letter-spacing: 0.5px;
+          color: #1A372C;padding-left:16px;}
+
+    .content {
+      padding: 30px;
+    }
+      .testgoImage {
+        width: 250px;
+        height: auto;
+        }
+
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 8px;
+      padding-bottom: 10px;
+    }
+
+     @media (max-width: 768px) {
+     .section-title {
+     font-size: 18px !important;}
+     }
+
+    .highlight-section {
+      border-radius: 24px;
+      border: 1px solid rgba(231, 165, 0, 0.20);
+      background: #FEFAEE;
+      padding: 20px 0;
+      box-shadow: 0 4px 24.6px 0 rgba(231, 165, 0, 0.30);
+    }
+      .highlight-section .orders-table{
+          border-radius: 0px;
+          box-shadow: none;
+          }
+           .highlight-section table tbody tr td:first-child{
+           padding-left: 20px;
+           }
+
+    .highlight-section .orders-table thead{
+         background-color: #F7F5F6;
+      }
+      .highlight-section .orders-table tbody{
+          background-color: #FEFAEE;
+      }
+
+      .highlight-section .orders-table thead th{
+      border-bottom :none!important;
+      }
+    .highlight-section .section-title {
+      color: #92400e;
+      border-bottom-color: #fbbf24;
+    }
+
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      font-size: 14px;
+      border-radius: 24px;
+      overflow: hidden;
+       text-transform: uppercase;
+      box-shadow: 0 4px 24.6px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    /* Status pill styling (colors applied inline for email client compatibility) */
+    .status-pill {
+      display: inline-block;
+      border-radius: 9999px;
+      padding: 6px 12px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.3px;
+    }
+
+
+    .orders-table th {
+      padding: 12px 10px;
+      text-align: left;
+      font-weight: 600;
+      color: #1A372C;
+      font-size: 16px!important;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #E7E8EE;
+    }
+
+    .orders-table tbody tr {
+      border-bottom: 1px solid #E7E8EE;
+      transition: background-color 0.2s ease;
+    }
+
+    .orders-table tbody tr:hover {
+      background-color: #f9fafb;
+    }
+
+    .orders-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .orders-table td {
+      padding: 12px 10px;
+      color: #4b5563;
+      vertical-align: top;
+    }
+
+    .orders-table td:first-child {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+
+      .email-container {
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .orders-table {
+        font-size: 12px!important;
+        overflow-x: auto;
+      }
+
+      .orders-table th,
+      .orders-table td {
+        padding: 8px 6px;
+      }
+
+      .content {
+        padding: 10px!important;
+        overflow-x: auto;
+      }
+        .highlight-section{
+        overflow-x: scroll;
+        }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f5f5; line-height: 1.6;">
+<div class="email-container" style="max-width: 1200px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+
+  <!-- Header -->
+  <table cellpadding="0" cellspacing="0" border="0" class="header-table">
+    <tr>
+      <td style="padding:0 30px; text-align: center;">
+      <div class="header-content">
+       <div><img src="https://services-api.labsquire.com/img/logos/TestGo.svg" alt="logo" class="testgoImage"></div>
+        <p class="facility-name">DESOTO HEALTHCARE CLINIC </p>
+       </div>
+      </td>
+    </tr>
+    <tr>
+<td style="padding:0;">
+<img
+src="./ellipse.png"
+width="100%"
+style="display:block;    position: absolute; bottom: 0%; width: 100%;
+">
+</td>
+</tr>
+  </table>
+
+  <div class="content" style="padding: 30px;">
+
+    <!-- Today's Orders -->
+    
+
+    <!-- Previous / Follow-up Orders -->
+    
+
+    <!-- Requires Attention -->
+    
+    <div class="section highlight-section">
+      
+      <!-- Section Header -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 12px;">
+        <tr>
+          
+            <td style="width:40px;padding-right:10px;vertical-align:middle;">
+              <img
+                src="https://dev-api-mlx.labsquire.com/images/summaryEmail/requires-attention.svg"
+                width="24"
+                height="24"
+                style="display:block;"
+                alt=""
+              />
+            </td>
+          
+
+          <td style="vertical-align:middle;">
+            <div class="section-title" style="margin:0;">
+              Requires Attention
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Orders Table -->
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th style="width: 12%;">Order ID</th>
+            <th style="width: 15%;">Patient Name</th>
+            <th style="width: 10%;">DOB</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 15%;">Provider</th>
+            <th style="width: 23%;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td>MLX260210001</td>
+      <td>SAI CHARAN</td>
+      <td>06/06/2001</td>
+      <td><span class="status-pill" style="background-color:#FEF3C7; color:#92400E;">ON HOLD</span></td>
+      <td>Naureen Salim</td>
+      <td>-</td>
+     
+    </tr>
+  
+        </tbody>
+      </table>
+
+    </div>
+  
+
+
+  </div>
+
+  <!-- Footer -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #1A372C; color: #ffffff; padding: 0; margin: 0;">
+    <tr>
+      <td style="padding: 30px; text-align: center;">
+        <!-- Logo Section -->
+        <div>
+          <img
+            src="https://dev-api-mlx.labsquire.com/images/summaryEmail/white-testgotri.svg"
+            width="120"
+            height="40"
+          />
+        </div>
+        
+        <!-- Contact Icons and Details -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; margin: 0 auto;">
+          <tr>
+            <td style="padding: 10px; text-align: center;">
+              <div style="display: inline-block; margin: 0 15px;">
+                <span style="font-size: 14px; color: #ffffff;">
+                <img
+                  src="https://dev-api-mlx.labsquire.com/images/summaryEmail/white-call.svg"
+                  width="16"
+                  height="16"
+                  style="display:inline-block;vertical-align:middle;margin-right:6px;"
+                />
+                91344353535</span>
+              </div>
+              <div style="display: inline-block; margin: 0 15px;">
+                <span style="font-size: 14px; color: #ffffff;">
+                <img
+                  src="https://dev-api-mlx.labsquire.com/images/summaryEmail/white-email.svg"
+                  width="16"
+                  height="16"
+                  style="display:inline-block;vertical-align:middle;margin-right:6px;"
+                />orders@testgo.com</span>
+              </div>
+              <div style="display: inline-block; margin: 0 15px;">
+                <span style="font-size: 14px; color: #ffffff;">
+                <img
+                  src="https://dev-api-mlx.labsquire.com/images/summaryEmail/white-web.svg"
+                  alt="web"
+                  width="16"
+                  height="16"
+                  style="display:inline-block;vertical-align:middle;margin-right:6px;"
+                />
+                mlx.testgo.com</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+          <td>
+            <p style="font-size: 12px; color: #ffffff; margin-top: 10px;">All Rights Reserved. © 2026 TestGo.</p>
+          </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</div>
+</body>
+</html>
