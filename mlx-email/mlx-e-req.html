@@ -1,4 +1,4 @@
-export const eRequisition = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -79,23 +79,14 @@ td {
     line-height: 1.3;
 }
 
-.label {
-    font-weight: bold;
-    color: #444;
-    width: 120px;
-}
-
-.value {
-    color: #111;
-}
 
 .signature-row {
     display: flex;
     justify-content: space-between;
-    margin-top: 25px;
+    margin-top: 10px;
     border-top: 1px solid #F4F8F4;
     padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #F4F8F4;
 }
 
@@ -117,6 +108,42 @@ td {
     color: #666;
 }
 </style>
+<style>
+.field {
+  display: flex;
+  vertical-align: top;
+  gap: 6px;
+}
+
+.field p {
+  margin: 0;
+}
+
+.label {
+  font-weight: 600;
+  color: #000000;
+}
+
+.value {
+  color: #000000;
+  font-weight: 400;
+}
+
+.w-100 { min-width: 100px;width: 100px; }
+.w-110 { min-width: 110px;width: 110px; }
+.w-120 { min-width: 120px;width: 120px; }
+.w-130 { min-width: 130px;width: 130px; }
+.w-140 { min-width: 140px;width: 140px; }
+.w-150 { min-width: 150px;width: 150px; }
+.w-160 { min-width: 160px;width: 160px; }
+.w-170 { min-width: 170px;width: 170px; }
+.w-180 { min-width: 180px;width: 180px; }
+.w-190 { min-width: 190px;width: 190px; }
+.w-200 { min-width: 200px;width: 200px; }
+.w-70{ min-width: 80px;width: 80px; }
+
+</style>
+
 </head>
 
 <body>
@@ -140,121 +167,214 @@ td {
 
 <!-- Patient Information -->
 <div class="section-title">Patient Information</div>
-
 <table>
 <tr>
-<td class="label">Name:</td>
-<td class="value">HARI KUMAR TESTING</td>
-<td class="label">Gender:</td>
-<td class="value">MALE</td>
-<td class="label">Date of Birth:</td>
-<td class="value">05-19-1992</td>
-</tr>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-70">Name</p>
+<p class="value">HARI KUMAR TESTING</p>
+</div>
+</td>
 
-<tr>
-<td class="label">Address:</td>
-<td colspan="5" class="value">
-SUITE 456, TEXAS SCHENECTADY NEW YORK 12345
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-70">Gender</p>
+<p class="value">MALE</p>
+</div>
+</td>
+
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-70">Date of Birth</p>
+<p class="value">05-19-1992</p>
+</div>
 </td>
 </tr>
 
 <tr>
-<td class="label">Urgency:</td>
-<td class="value">ROUTINE</td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-70">Address</p>
+<p class="value">SUITE 456, TEXAS SCHENECTADY NEW YORK 12345</p>
+</div>
+</td>
+<td style="width:33.33%"> 
+    <div class="field">
+<p class="label w-70">Urgency</p>
+<p class="value">ROUTINE</p>
+</div></td>
+<td style="width:33.33%"></td>
 </tr>
 </table>
+
 
 <!-- Billing -->
 <div class="section-title">Billing Information</div>
-
-<div style="margin-bottom:10px;">
-<span class="label">Billing Type:</span>
-<span class="value">PATIENT</span>
-</div>
-
-<table style="table-layout:fixed;">
+<table>
 <tr>
-<td class="label">Primary:</td>
-<td class="value"></td>
-<td class="label">Primary Policy No:</td>
-<td class="value"></td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Billing Type</p>
+<p class="value">PATIENT</p>
+</div>
+</td>
+<td></td>
+<td></td>
 </tr>
 
 <tr>
-<td class="label">Secondary:</td>
-<td class="value"></td>
-<td class="label">Secondary Policy No:</td>
-<td class="value"></td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Primary</p>
+<p class="value"></p>
+</div>
+</td>
+
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-120">Primary Policy No</p>
+<p class="value"></p>
+</div>
+</td>
+
+<td></td>
+</tr>
+
+<tr>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Secondary</p>
+<p class="value"></p>
+</div>
+</td>
+
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-120">Secondary Policy No</p>
+<p class="value"></p>
+</div>
+</td>
+
+<td></td>
 </tr>
 </table>
+
 
 <!-- Provider -->
 <div class="section-title">Ordering Provider & Client Information</div>
-
 <table>
 <tr>
-<td class="label">Ordering Provider:</td>
-<td class="value">Tester Physicians</td>
-<td class="label">NPI:</td>
-<td class="value">1053336354</td>
-</tr>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-110">Ordering Provider</p>
+<p class="value">Tester Physicians</p>
+</div>
+</td>
 
-<tr>
-<td class="label">Client Name:</td>
-<td colspan="3" class="value">
-TESTING ORDERING FACILITY
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-70">NPI</p>
+<p class="value">1053336354</p>
+</div>
+</td>
+
+<td style="width:33.33%">
+    <div class="field">
+<p class="label w-100">Client Name</p>
+<p class="value">TESTING ORDERING FACILITY</p>
+</div>
 </td>
 </tr>
+
 </table>
+
 
 <!-- Technician -->
 <div class="section-title">Technician Information</div>
-
 <table>
 <tr>
-<td class="label">Technician Name:</td>
-<td class="value"></td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Technician Name</p>
+<p class="value"></p>
+</div>
+</td>
 
-<td class="label">Cell Phone:</td>
-<td class="value"></td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Cell Phone</p>
+<p class="value"></p>
+</div>
+</td>
 
-<td class="label">Collection Date:</td>
-<td class="value">02/11/2026 05:15 AM</td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Collection Date</p>
+<p class="value">02/11/2026 05:15 AM</p>
+</div>
+</td>
 </tr>
 
 <tr>
-<td class="label">Collection Notes:</td>
-<td colspan="5" class="value"></td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Collection Notes</p>
+<p class="value"></p>
+</div>
+</td>
+
+<td></td>
+<td></td>
 </tr>
 </table>
+
 
 <!-- Diagnosis -->
 <div class="section-title">Diagnosis & Required Tubes</div>
-
 <table>
 <tr>
-<td class="label">Diagnosis Code:</td>
-<td class="value">A24.1</td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Diagnosis Code</p>
+<p class="value">A24.1</p>
+</div>
+</td>
 
-<td class="label">Req Tubes:</td>
-<td class="value">URINE x1</td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-70">Req Tubes</p>
+<p class="value">URINE x1</p>
+</div>
+</td>
+
+<td></td>
 </tr>
 </table>
+
 
 <!-- Lab -->
 <div class="section-title">Lab & Test Details</div>
-
 <table>
 <tr>
-<td class="label">Lab Name:</td>
-<td class="value">Test Go</td>
-</tr>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-100">Lab Name</p>
+<p class="value">Test Go</p>
+</div>
+</td>
 
-<tr>
-<td class="label">Test Name/Panel:</td>
-<td class="value">URINALYSIS</td>
+<td style="width:33.33%">
+<div class="field">
+<p class="label w-120">Test Name/Panel</p>
+<p class="value">URINALYSIS</p>
+</div>
+</td>
+
+<td></td>
 </tr>
 </table>
+
+
 
 <!-- Signatures -->
 <div class="signature-row">
@@ -279,4 +399,4 @@ Powered by TestGO. Accurate Results. Trusted Care.
 
 </div>
 </body>
-</html>`;
+</html>
