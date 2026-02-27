@@ -1,0 +1,933 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>TestGo E-Requistion</title>
+    <link rel="icon" href="https://dev-app.labsquire.com/favicon.png">
+    <link href="./Toxicology Report_files/css2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            height: 100%;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            margin: 0;
+            color: #0a1b4b;
+        }
+
+        .f-weight-500 {
+            font-weight: 500;
+        }
+
+        .f-weight-600 {
+            font-weight: 600;
+        }
+
+        .f-weight-700 {
+            font-weight: 700;
+        }
+
+        .body-fs {
+            font-size: 15px;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+            border: none;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        thead,
+        tbody,
+        tfoot {
+            border: none !important;
+        }
+
+        tbody {
+            vertical-align: top;
+        }
+
+        #defaultReportPage {
+            width: 1000px;
+            margin: 0 auto !important;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .header {
+            height: 60px;
+            width: 100%;
+            border: none;
+            position: relative;
+        }
+
+        .empty-header {
+            height: 70px;
+            display: none;
+        }
+
+        .footer {
+            height: 80px;
+            width: 100%;
+            background: #fff;
+        }
+
+        .empty-footer {
+            height: 100px;
+            display: none;
+            background: #fff;
+        }
+
+        @media print {
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 1000px;
+                margin: 0 auto;
+            }
+
+            .header .header-inner {
+                padding: 20px 30px 0 30px;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 960px;
+                margin: 0 auto !important;
+            }
+
+            .content {
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 80px;
+                width: calc(100% - 40px);
+                margin: 0 auto;
+            }
+
+            .empty-header,
+            .empty-footer {
+                display: block;
+            }
+        }
+
+
+        .page-header {
+            display: table-header-group;
+        }
+
+        .page-footer {
+            display: table-footer-group;
+        }
+
+
+        #header-information .logo {
+            max-width: 200px;
+            float: left;
+            width: 100%;
+        }
+
+        .header #header-information {
+            border-bottom: 1px solid #C9C8CB;
+        }
+
+        .patient-information {
+            margin-top: 0.5rem;
+        }
+
+        .patient-information td {
+            vertical-align: top;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #C9C8CB;
+        }
+
+        .patient-information p {
+            margin: 0;
+            min-height: 20px;
+            color: #000000;
+            font-size: 12px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            word-break: break-word;
+        }
+
+        .patient-information h3 {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .patient-information p .name {
+            font-weight: 600;
+            color: #000000;
+            text-transform: uppercase;
+            width: 160px;
+        }
+
+        .patient-information p .value {
+            color: #000000;
+            font-weight: 400;
+            padding-left: 5px;
+            flex: 1;
+        }
+
+        thead tr td {
+            font-weight: 600;
+        }
+
+        @media print {
+            .footer-info .footer-heading {
+                margin-top: 20px !important;
+            }
+        }
+    </style>
+    <style>
+        .testgoLogo {
+            width: 120px;
+            height: 40px;
+            margin-bottom: 0.5rem;
+        }
+
+        .testgoImage {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .print-watermark {
+            display: none;
+        }
+
+        .print-watermark img {
+            width: 200px;
+            height: 205px;
+            object-fit: contain;
+        }
+
+        .pb-1 {
+            padding-bottom: 1rem;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .w-100 {
+            width: 100px !important;
+        }
+
+        .main-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            row-gap: 5px;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #C9C8CB;
+        }
+
+        .main-heading h1 {
+            font-size: 18px;
+            color: #000000;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-heading p {
+            font-size: 14px;
+            color: #000000;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-heading p span {
+            font-weight: 400;
+        }
+
+        .test-info-block {
+            margin-top: 10px;
+        }
+
+        .test-info-block h3 {
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .test-info-block ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .test-info-block ul li {
+            padding: 5px 5px 5px 10px;
+            border: 1px solid #000000;
+            border-bottom: none;
+        }
+
+        .test-info-block ul li:last-child {
+            border-bottom: 1px solid #000000;
+        }
+
+        .test-info-block ul li div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .test-info-block ul li div .case-type {
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .test-info-block ul li div .panel_tests {
+            margin-bottom: 5px;
+            row-gap: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .test-info-block ul li div .panel {
+            font-weight: 600;
+            color: #000000;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .test-info-block ul li div .tests {
+            font-weight: 400;
+            color: #000000;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .signature-block p {
+            color: #000000;
+            font-weight: 600;
+            font-size: 12px;
+            margin: 0;
+            padding-bottom: 0.5rem;
+                display: flex;
+                    flex-direction: column;
+                    row-gap: 5px;
+                     width: fit-content;
+            margin-top: 1rem;
+                }
+           
+        
+        .signature-block p span{
+            font-weight: 400;
+        }
+
+        .footer-inner-block {
+            position: absolute;
+            width: 100%;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+            border-bottom: 1px solid #000;
+            margin: 0;
+            padding-left: 0;
+            padding-bottom: 5px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li {
+            display: flex;
+            align-items: center;
+            column-gap: 5px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li a {
+            color: #000000 !important;
+            font-size: 12px;
+            text-decoration: none !important;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block .copy-right-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-top: 5px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block .copy-right-block p {
+            margin: 0;
+            font-size: 12px;
+            color: #000000;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block .copy-right-block .patient-details-bottom {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block .copy-right-block .patient-details-bottom p {
+            margin: 0;
+            font-size: 12px;
+            color: #000000;
+        }
+    </style>
+    <style>
+        .test-information-block {
+            margin-top: 10px;
+        }
+
+        .test-information-block table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #C9C8CB;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .test-information-block table thead tr th {
+            text-align: left;
+            font-weight: 600;
+            color: #000000;
+            padding: 10px 12px;
+            border-bottom: 1px solid #C9C8CB;
+            background-color: #F6F6F6;
+        }
+
+        .test-information-block table thead tr th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .test-information-block table thead tr th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .test-information-block table tbody tr td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #C9C8CB;
+            font-size: 14px;
+            color: #000000;
+            vertical-align: top;
+        }
+
+        .test-information-block table tbody tr td:first-child {
+            border-right: 1px solid #C9C8CB;
+            width: 15%;
+            min-width: 150px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .test-information-block table tbody tr td:last-child {
+            width: 85%;
+        }
+
+        .test-information-block table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .test-information-block .panel-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+            column-gap: 5px;
+        }
+
+        .test-information-block .panel-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .test-information-block .panel-item .panel-name {
+            margin: 0;
+            font-weight: 600;
+            font-size: 12px;
+            color: #000000;
+            width: fit-content;
+        }
+
+        .test-information-block .panel-item .test-names {
+            margin: 2px 0 0;
+            font-size: 12px;
+            color: #000000;
+            line-height: 1.4;
+        }
+
+        @media print {
+            .print-watermark {
+                display: block;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            .header,
+            .content,
+            .footer {
+                z-index: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="covid-page">
+    <noscript>
+        <strong>We're sorry but app.labsquire.com doesn't work properly without
+            JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+        <div>
+            <section id="defaultReportPage" layout="div">
+                <div class="print-watermark">
+                    <img src="../logo-testgo-action.svg" alt="TestGo Watermark">
+                </div>
+                <div class="el-loading-mask" style="display: none">
+                    <div class="el-loading-spinner">
+                        <svg viewBox="25 25 50 50" class="circular">
+                            <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                        </svg>
+                        <!---->
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                <div class="header">
+                                    <div class="header-inner">
+                                        <div id="header-information">
+                                            <div style="width:100%;">
+                                                <table style="width:100%; border-collapse:collapse;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td
+                                                                style="display:flex; justify-content:flex-end; padding:0;">
+                                                                <div class="testgoLogo">
+                                                                    <img src="../testgo-normal.svg" alt="logo"
+                                                                        class="testgoImage">
+                                                                </div>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="empty-header"></div>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="content" style="display: block;">
+                                    <div class="body-info">
+                                        <div class="main-heading">
+                                            <h1>VENDOR ORDER</h1>
+                                            <p>Order ID: <span>D-HEPHZIBAH-91655379-KdOC</span></p>
+                                        </div>
+                                        <section class="patient-information">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <!-- Patient Information -->
+                                                        <td style="width: 35%">
+                                                            <h3>Patient information</h3>
+                                                            <p>
+                                                                <span class="name">Name:</span>
+                                                                <span class="value first">Test emr uncollected</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">DOB:</span>
+                                                                <span class="value first">05/19/1994</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Gender:</span>
+                                                                <span class="value first">M</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Address:</span>
+                                                                <span class="value first">Texas, EL PASO, TEXAS,
+                                                                    79999.</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Payment Preference:</span>
+                                                                <span class="value first">PATIENT</span>
+                                                            </p>
+                                                        </td>
+
+                                                        <!-- Requesting Provider Information -->
+                                                        <td style="width: 35%;padding-left: 10px;">
+                                                            <h3>Client information</h3>
+                                                            <p>
+                                                                <span class="name">Practice:</span>
+                                                                <span class="value second">HILL SIDE PRIMARY CARE
+                                                                    ONE</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Provider Name:</span>
+                                                                <span class="value second">Dr RACHEL CASTRO</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Account Number:</span>
+                                                                <span class="value second">1316809668</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">NPI:</span>
+                                                                <span class="value second">167998879</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Phone:</span>
+                                                                <span class="value second">7188020666</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Address:</span>
+                                                                <span class="value second">
+                                                                    285 LIVINGSTON ST, BROOKLYN, NEW YORK, 11217.
+                                                                </span>
+                                                            </p>
+                                                        </td>
+
+                                                        <!-- Responsible Party / Guarantor -->
+                                                        <td style="width: 30%;padding-left: 10px;">
+                                                            <h3>Sample Information</h3>
+                                                            <p>
+                                                                <span class="name">Collection Date:</span>
+                                                                <span class="value third">08/22/2025</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Collection Time:</span>
+                                                                <span class="value third">03:16 PM</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name">Priority:</span>
+                                                                <span class="value third">Routine</span>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <!-- Sample Information -->
+                                                        <td style="width: 35%">
+                                                            <h3 style="padding-top: 0.5rem;">Primary Insurance</h3>
+                                                            <p>
+                                                                <span class="name w-100">Name:</span>
+                                                                <span class="value first">James Minor</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">POLICY #:</span>
+                                                                <span class="value first">518952606</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">ADDRESS:</span>
+                                                                <span class="value first">1642 SHADY GLEN LN DALLAS,
+                                                                    Texas </span>
+                                                            </p>
+                                                        </td>
+
+                                                        <!-- Primary Insurance -->
+                                                        <td style="width: 35%;padding-left: 10px;">
+                                                            <h3 style="padding-top: 0.5rem;">Secondary Insurance</h3>
+                                                            <p>
+                                                                <span class="name w-100">Name:</span>
+                                                                <span class="value second">JASON SMITH</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">Policy:</span>
+                                                                <span class="value second">ZGJ804457480</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">Address:</span>
+                                                                <span class="value second">
+                                                                    3703 BLACKSMITH RD AUBREY, Texas, 76227
+                                                                </span>
+                                                            </p>
+
+                                                        </td>
+
+                                                        <td style="width: 30%;padding-left: 10px;">
+                                                            <h3 style="padding-top: 0.5rem;">Guarantor Information</h3>
+                                                            <p>
+                                                                <span class="name w-100">Name:</span>
+                                                                <span class="value second">JASON SMITH</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">Relation:</span>
+                                                                <span class="value second">ZGJ804457480</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">Phone:</span>
+                                                                <span class="value second">ZGJ804457480</span>
+                                                            </p>
+                                                            <p>
+                                                                <span class="name w-100">Address:</span>
+                                                                <span class="value second">
+                                                                    3703 BLACKSMITH RD AUBREY, Texas, 76227
+                                                                </span>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="border-bottom: 0;padding-bottom: 0;">
+                                                            <h3 style="padding-top: 0.5rem;margin-bottom: 0">ICD Codes:
+                                                            </h3>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </section>
+                                        <section class="test-information-block">
+                                            <table>
+                                                <colgroup>
+                                                    <col style="width: 15%;">
+                                                    <col style="width: 85%;">
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">TEST INFORMATION</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>CLINICAL CHEMISTRY</td>
+                                                        <td>
+                                                            <div class="panel-item">
+                                                                <p class="panel-name">Panels:</p>
+                                                                <p class="test-names">Comp Metabolic Panel | Hepatitis | Lipid Panel
+                                                                </p>
+                                                            </div>
+                                                             <div class="panel-item">
+                                                                <p class="panel-name">Other Tests:</p>
+                                                                <p class="test-names">CBC w/Automated Diff | Folate | Free
+                                                                    T4 | HgbA1C | Iron Profile | proBNPII | TSH | Vitamin D
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>URINALYSIS</td>
+                                                        <td>
+                                                            <div class="panel-item">
+                                                               
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>UTI</td>
+                                                        <td>
+                                                            <div class="panel-item">
+                                                                <p class="panel-name">Fungi:</p>
+                                                                <p class="test-names">candida Albicans | Candida glabrata | Candida parapsilosis | Candida tropicalis | Pichia kudriavzevii</p>
+                                                            </div>
+                                                             <div class="panel-item">
+                                                                <p class="panel-name">Bacteria:</p>
+                                                                <p class="test-names">Acinetobacter baumannii | Citrobacter freundii | Citrobacter koseri | Enterobacter cloacae | Enterococcus faecalis | Enterococcus faecium
+| Klebsiella oxytoca | Klebsiella pneumoniae | Morganella morganii | Proteus mirabilis |Pseudomonas aeruginosa | Serratia marcescens
+| Staphylococcus epidermidis | Stenotrophomonas maltophilia | Streptococcus agalactiae (Group B Strep) | Streptococcus pyogenes (Group A Strep)
+| Escherichia coli | Staphylococcus aureus</p>
+                                                            </div>
+                                                             <div class="panel-item">
+                                                                <p class="panel-name">Antibiotic Resistance:</p>
+                                                                <p class="test-names">AmpC | CTX-M | ErmA/B/C | KPC | MCR-1 | MecA | NDM | OXA-23 | OXA-48 | QnrA | QnrB | TetM | VIM | VanA/B/C</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>STI</td>
+                                                        <td>
+                                                            <div class="panel-item">
+                                                                <!-- <p class="panel-name">STI Panel</p> -->
+                                                                <p class="test-names">Chlamydia trachomatis | Gardnerella vaginalis | HSV1 (Herpes Simplex Virus Type 1) | HSV2 (Herpes Simplex Virus Type 2) | Mycoplasma genitalium
+| Neisseria gonorrhoeae | Treponema Pallidum | Trichomonas vaginalis | Ureaplasma urealyticum</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </section>
+                                    </div>
+                                    <!-- <div class="test-info-block">
+                                        <h3>Test Information</h3>
+                                        <div class="test-info-inner-block">
+                                            <ul>
+                                                <li>
+                                                    <div>
+                                                        <h5 class="case-type">Clinical Chemistry</h5>
+                                                        <div class="panel_tests">
+                                                            <p class="panel">All Tests</p>
+                                                            <div class="tests">CBC w/Automated Diff, Folate, Free T4,
+                                                                HgbA1C, Iron Profile, proBNPII, TSH, Vitamin D.</div>
+                                                        </div>
+                                                        <div class="panel_tests">
+                                                            <p class="panel">Comp Metabolic Panel</p>
+                                                            <div class="tests">ALT, AST, Albumin, Alk Phos, Anion Gap,
+                                                                BUN, BUN/Crea Ratio, CO2, Calcium, Chloride, Creatinine,
+                                                                Globulin, Glucose, Potassium, Sodium, Total Protein,
+                                                                eGFR, Bilirubin, Total.</div>
+                                                        </div>
+                                                        <div class="panel_tests">
+                                                            <p class="panel">Lipid Panel</p>
+                                                            <div class="tests">HDL, LDL, Total Cholesterol,
+                                                                Triglycerides, Trig/HDL, VLDL (calc), LDL/HDL, Chol/HDL
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5 class="case-type">Urinalysis</h5>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5 class="case-type">PCR-Wound</h5>
+                                                        <div class="panel_tests">
+                                                            <p class="panel">Wound Pathogens</p>
+                                                            <div class="tests">Acinetobacter baumannii, Actinotignum
+                                                                schaalii, Aerococcus urinae, Bacteroides fragilis,
+                                                                Candida Albicans, Candida auris, Citrobacter
+                                                                freundii/braakii/koseri, Enterobacter cloacae,
+                                                                Enterococcus faecalis, Enterococcus faecium,
+                                                                Epidermophyton floccosum, Escherichia coli, Klebsiella
+                                                                aerogenes, Klebsiella oxytoca, Klebsiella pneumoniae,
+                                                                Morganella morganii, Prevotella bivia, Proteus
+                                                                mirabilis, Pseudomonas aeruginosa, Serratia marcescens,
+                                                                Staphylococcus aureus, Streptococcus agalactiae,
+                                                                Streptococcus pyogenes, Trichophyton rubrum, Candida
+                                                                glabrata, Candida parapsilosis, Candida tropicalis,
+                                                                Proteus vulgaris, Staphylococcus Haemolyticus,
+                                                                Staphylococcus saprophyticus.</div>
+                                                        </div>
+                                                        <div class="panel_tests">
+                                                            <p class="panel">Resistance</p>
+                                                            <div class="tests">Beta Lactamase (CTX-M-Grp1), Beta
+                                                                Lactamase (SHV), Beta Lactamase (TEM), Carbapenem (NDM),
+                                                                Carbapenem (OXA), Fluoroquinolone Resistance (gyrA),
+                                                                Fluoroquinolone Resistance (qnr), Methicillin Resistance
+                                                                (MecA), Sulfonamide (Sul1), Tetracycline (tetB),
+                                                                Tetracycline (tetM), Trimethoprim Resistance (DfrA1),
+                                                                Vancomycin (VanA), Vancomycin (VanB), Vancomycin
+                                                                Resistance (VanM).</div>
+                                                        </div>
+
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div> -->
+                                    <div class="signature-block">
+                                        <p>Electronically Signed By: <span>Dr RACHEL CASTRO , Social Worker,
+                                                Clinical</span></p>
+                                    </div>
+
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <div class="empty-footer"></div>
+                                <div class="footer">
+                                    <div class="footer-inner">
+                                        <table class="footer-table">
+                                            <tbody>
+                                                <tr style="vertical-align: middle">
+                                                    <td>
+                                                        <div class="footer-inner-block">
+                                                            <ul>
+                                                                <!-- <li>
+                                                                    <p>01/30/2026</p>
+                                                                </li>
+                                                                <li>
+                                                                    <p>17:16:32</p>
+                                                                </li> -->
+                                                            </ul>
+                                                            <div class="copy-right-block">
+                                                                <p>Order generated by TestGO (www.testgo.com)</p>
+                                                                <div class="patient-details-bottom">
+                                                                    <p>Test emr uncollected,</p>
+                                                                    <p>M,</p>
+                                                                    <p>05/19/1994</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
