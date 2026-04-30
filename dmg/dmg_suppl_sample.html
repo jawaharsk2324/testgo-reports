@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      height: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #0a1b4b;
+    }
+
+    .page-break-after {
+      page-break-after: always;
+    }
+
+    @page {
+      size: A4 letter;
+      margin: 0;
+      border: none;
+    }
+
+    .main-table {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      border: none !important;
+    }
+
+    #defaultReportPage {
+      width: 900px;
+      margin: 0 auto !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .header {
+      height: 100px;
+      width: 100%;
+      border: none;
+      position: relative;
+    }
+
+    .empty-header {
+      height: 120px;
+      display: none;
+    }
+
+    .footer {
+      height: 100px;
+      width: 100%;
+      background: #fff;
+    }
+
+    .empty-footer {
+      height: 110px;
+      display: none;
+      background: #fff;
+    }
+
+    @media print {
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 900px;
+        margin: 0 auto;
+      }
+
+      .header .header-inner {
+        padding: 0px 0px 0 0px;
+      }
+
+      .content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 100px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+      }
+
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 860px;
+        margin: 0 auto !important;
+      }
+
+      .footer .footer-inner {
+        padding: 20px 0;
+      }
+
+      .empty-header,
+      .empty-footer {
+        display: block;
+      }
+    }
+
+    .page-header {
+      display: table-header-group;
+    }
+
+    .page-footer {
+      display: table-footer-group;
+    }
+
+    .patient-information td {
+      padding: 0 0 0 18px !important;
+      vertical-align: top;
+    }
+
+    .patient-information td {
+      border-left: 1px solid #000000 !important;
+    }
+
+    .patient-information p {
+      margin: 0;
+      min-height: 20px;
+      color: #000000;
+      font-size: 12px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      word-break: break-word;
+    }
+
+    .patient-information p .name {
+      width: 42%;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .patient-information p .name,
+    .patient-information p .patient,
+    .patient-information p .dob,
+    .patient-information p .sex,
+    .patient-information p .id {
+      width: 32%;
+    }
+
+    .patient-information p .physician,
+    .patient-information p .npi,
+    .patient-information p .practice,
+    .patient-information p .phone {
+      width: 25%;
+    }
+
+    .patient-information p .collected,
+    .patient-information p .received,
+    .patient-information p .processed,
+    .patient-information p .specimen {
+      width: 38%;
+    }
+
+    .patient-information p .value.first {
+      display: inline-block;
+      width: 68%;
+      font-weight: 400;
+    }
+
+    .patient-information p .value.second {
+      display: inline-block;
+      width: 75%;
+      font-weight: 400;
+    }
+
+    .patient-information p .value.thrid {
+      display: inline-block;
+      width: 62%;
+      font-weight: 400;
+    }
+
+    .report-alert-copy {
+      text-align: center;
+      font-weight: 600;
+      padding: 0.5em 1em;
+      letter-spacing: 0.5px;
+      color: #242424;
+      background-color: #ffede9;
+      border-radius: 3px;
+      font-family: "IBM Plex Sans Devanagari", sans-serif !important;
+      margin: 1em 0;
+    }
+  </style>
+  <style>
+    .reportName {
+      font-family: "IBM Plex Sans Devanagari", sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #000;
+      margin: 0;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+
+    .testgoLogo {
+      margin: 10px 0px;
+      width: 250px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      row-gap: 1rem;
+    }
+
+    .dmglogoImage {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    .progress-bar {
+      width: 350px;
+      height: 16px;
+      display: flex;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar.w-150 {
+      width: 150px;
+      margin-top: 0;
+    }
+
+    .segment-1 {
+      width: 45%;
+      background-color: #36b44a;
+    }
+
+    .segment-2 {
+      width: 25%;
+      background-color: #a8dcb0;
+    }
+
+    .segment-3 {
+      width: 30%;
+      background-color: #d7f2db;
+    }
+
+    .Disclaimer {
+      background-color: #f3f3f3;
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .disclaimer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #ffffff;
+      padding: 5px;
+    }
+
+    .disclaimer-heading {
+      font-size: 12px;
+      color: #000000;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .disclimer-content {
+      font-size: 12px;
+      margin: 0px;
+      line-height: 18px;
+      color: #000000;
+      font-weight: 400;
+      text-align: justify;
+    }
+
+    .report-performed-info {
+      border: 1px solid #C7C7C7;
+      background: #ffffff;
+    }
+
+    .footer-inner-block {
+      position: absolute;
+      width: 100%;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+      border-bottom: 1px solid #0000004D;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    /* .footer .footer-inner .footer-table .footer-inner-block ul::after {
+        content: "";
+        background-color: #36b44a;
+        height: 8px;
+        width: 50px;
+        position: absolute;
+        right: 0;
+      bottom: 15px;
+      } */
+    .footer .footer-inner .footer-table .footer-inner-block .disclimer-content {
+      font-size: 12px;
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+      column-gap: 5px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li img {
+      width: 14px;
+      height: 14px;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block ul li a {
+      color: #000000 !important;
+      font-size: 12px;
+      text-decoration: none !important;
+    }
+
+    .footer .footer-inner .footer-table .footer-inner-block .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 5px;
+    }
+
+    .footer-inner-block .reserved-msg {
+      margin: 0;
+      font-size: 12px;
+      padding-top: 5px;
+    }
+
+    .footer-inner-block .reported-msg {
+      margin: 0;
+      font-size: 12px;
+      padding-top: 5px;
+    }
+  </style>
+  <style>
+    #header-information .header-right-block-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.4;
+
+    }
+
+    #header-information .header-right-block-details p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="defaultReportPage">
+    <table class="main-table">
+      <thead>
+        <tr>
+          <td>
+            <div class="header">
+              <div class="header-inner">
+                <div id="header-information">
+                  <div style="width:100%;">
+                    <table style="width:100%; border-collapse:collapse;">
+                      <tbody>
+                        <tr>
+                          <td
+                            style="display:flex; align-items:center; justify-content: space-between; column-gap:2rem; padding:10px 30px ;background-color: #052609;">
+                            <div class="testgoLogo">
+                              <img src="../dmg_white.svg" alt="logo" class="dmglogoImage">
+                            </div>
+
+
+                            <div class="header-right-block-details">
+                              <p>Lab Director: Dr Sarah Chen, MD, PHD </p>
+                              <p>CLIA# 99D2167891</p>
+                            </div>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="empty-header"></div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="content">
+              <div class="body-info">
+                <div class="progress-bar">
+                  <div class="segment-1"
+                    style="width: 45%; height: 16px; min-height: 16px; background-color: #36B44A !important; flex-shrink: 0;">
+                  </div>
+                  <div class="segment-2"
+                    style="width: 25%; height: 16px; min-height: 16px; background-color: #A8DCB0 !important; flex-shrink: 0;">
+                  </div>
+                  <div class="segment-3"
+                    style="width: 30%; height: 16px; min-height: 16px; background-color: #D7F2DB !important; flex-shrink: 0;">
+                  </div>
+                </div>
+                <p class="reportName">
+                  UTI INTERPRETATION REPORT
+                </p>
+                <section class="patient-information">
+                  <table>
+                    <tr>
+                      <td style="width: 33.33%">
+                        <p>
+                          <span class="name Patient">Name</span>
+                          <span class="value first">
+                            BOY, TEST
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name dob">Date of Birth</span>
+                          <span class="value first">
+                            Dec 12, 1932, 93y
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name sex">Gender</span>
+                          <span class="value first">
+                            MALE
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name id">Accession ID</span>
+                          <span class="value first">
+                            DY260318004
+                          </span>
+                        </p>
+                      </td>
+                      <td style="width: 33.33%">
+                        <p>
+                          <span class="name physician">Physician</span>
+                          <span class="value second">
+                            FNP NAUREEN SALIM
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name npi">NPI #</span>
+                          <span class="value second">
+                            1881281905
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name practice">Practice</span>
+                          <span class="value second">
+                            DESOTO HEALTHCARE CLINIC
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name phone">Phone</span>
+                          <span class="value second">
+                            (214)-777-2703
+                          </span>
+                        </p>
+                      </td>
+                      <td style="width: 33.33%">
+                        <p>
+                          <span class="name collected">Collected Date</span>
+                          <span class="value thrid">
+                            Mar 15, 2026, 04:09 PM
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name received">Received Date</span>
+                          <span class="value thrid">
+                            Mar 17, 2026, 04:09 PM
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name processed">Reported Date</span>
+                          <span class="value thrid">
+                            Mar 23, 2026, 08:04 AM
+                          </span>
+                        </p>
+                        <p>
+                          <span class="name specimen">Specimen Type</span>
+                          <span class="value thrid">
+                            Urine
+                          </span>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+
+                <div class="Disclaimer">
+                  <div class="disclaimer-inner">
+                    <p class="disclaimer-heading">Disclaimer</p>
+                    <p class="disclimer-content">
+                      The information contained in this report is intended for interpretation by a
+                      licensed physician or other qualified healthcare professional and does not
+                      replace professional medical advice, diagnosis, or treatment. All decisions
+                      regarding patient care, including medication selection and dosing, must be made
+                      solely by a licensed physician, pharmacist, or other authorized healthcare professional
+                      based on the patient’s complete clinical information.
+                    </p>
+                  </div>
+                  <div class="Disclaimer" style="    padding: 1rem 0rem 0;margin: 0;">
+                  <div class="disclaimer-inner">
+                    <p class="disclaimer-heading">ABC</p>
+                    <p class="disclimer-content">
+                      I hereby certify that I have personally reviewed and interpreted all laboratory results contained within this report, including microbial targets, quantitative findings, and antimicrobial resistance markers. These findings have been assessed in the context of the patient’s clinical condition, history, and presenting symptoms. Any diagnostic conclusions and therapeutic recommendations are based on my independent medical judgment and in accordance with applicable clinical guidelines and standards of care.
+                    </p>
+                  </div>
+                  </div>
+                </div>
+                <div class="report-performed-info" style="margin:1rem 0;">
+                  <p style="background-color: #D1E5D3; padding:5px 15px; font-size: 14px; font-weight: 700; color: #000000; margin: 0;">
+                    REPORT AUTHORIZATION
+                  </p>
+                  <div style="font-size: 12px; padding:5px 15px;">
+                    <p style="margin: 5px 0; font-weight: 600;">Dr. Amanda Torres</p>
+                    <p style="margin: 5px 0;">Clinical Microbiology & Infectious Disease</p>
+                    <p style="margin: 5px 0;">DLW Medical Group</p>
+                    <p style="margin: 5px 0;">NPI# 9876543210</p>
+                    <p style="margin: 5px 0;">Date: 01/18/2025</p>
+                    <p style="margin: 10px 0 0 0; font-weight: 600;">Electronic Signature on File</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <div class="empty-footer"></div>
+            <div class="footer">
+              <div class="footer-inner">
+                <table class="footer-table">
+                  <tbody>
+                    <tr style="vertical-align: middle">
+                      <td>
+                        <div class="footer-inner-block">
+                          <ul>
+                            <li>
+                              <img src="https://services-api.labsquire.com/img/logos/phone_testgo.svg"
+                                alt="footer logo">
+                              <p>+1 205-994-8266</p>
+                            </li>
+                            <li>
+                              <img src="https://services-api.labsquire.com/img/logos/fax_testgo.svg" alt="footer logo">
+                              <p>205-201-4797</p>
+                            </li>
+                            <li>
+                              <img src="https://services-api.labsquire.com/img/logos/mail_testgo.svg" alt="footer logo">
+                              <a href="mailto:info@dlwmedgroup.com" target="_blank" rel="noopener noreferrer">
+                                info@dlwmedgroup.com
+                              </a>
+                            </li>
+                            <li>
+                              <img src="https://services-api.labsquire.com/img/logos/globe_testgo.svg"
+                                alt="footer logo">
+                              <a href="https://dlwmedicalgroup.com" target="_blank" rel="noopener noreferrer">
+                                dlwmedicalgroup.com
+                              </a>
+                            </li>
+                          </ul>
+                          <div class="footer-bottom">
+                            <p class="reserved-msg">4200 Health Sciences Blvd, Suite 300, San Diego, CA 92121</p>
+                            <p class="reported-msg">Reported: 01/18/2025, 3:42 PM PST</p>
+                          </div>
+
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+</body>
+
+</html>
