@@ -284,8 +284,7 @@
              there are. This fix is dynamic and scales with any row count. */
       .summary-block {
         -webkit-box-decoration-break: clone;
-        box-decoration-break: clone;
-      }
+        box-decoration-break: clone;      }
 
       /* summary-header has top:-16px (relative) which keeps 16px ghost
              space in the flow. Use margin-top instead so the layout height
@@ -300,6 +299,23 @@
              inside the border box at the end of the summary-block. */
       .summary-block .inconsistent-results {
         padding-bottom: 0 !important;
+        break-before: auto !important;
+        page-break-before: auto !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+
+      /* Take singleTable out of multi-column context so page breaks
+         work naturally when content spans multiple pages. */
+      .summary-block .customTable.singleTable {
+        column-count: unset !important;
+        display: block !important;
+      }
+
+      .summary-block .customTable.singleTable li {
+        display: block !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
       }
     }
   </style>
@@ -548,6 +564,11 @@
       display: grid;
       grid-template-rows: 1fr auto;
       break-inside: avoid;
+    }
+
+    .customTable.singleTable li {
+      display: block;
+      break-inside: auto;
     }
 
     .page-break-before-always {

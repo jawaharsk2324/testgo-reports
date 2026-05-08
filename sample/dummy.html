@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Microgen Pharmacy Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @page: first {
+            size: A4;
+            margin: 110px 20px 70px 20px;
+        }
+
+        @page {
+            size: A4;
+            margin: 50px 20px 70px 20px;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Alkatra:wght@400..700&display=swap");
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            border: none !important;
+        }
+
+        tbody {
+            border: none !important;
+        }
+
+        tfoot {
+            border: none !important;
+            display: table-footer-group;
+        }
+
+        td,
+        tr {
+            padding: 0;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        body {
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            position: relative;
+            font-size: 11px;
+        }
+
+        @media print {
+            body.duplicate:before {
+                content: "Provisional";
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 100px;
+                transform: rotate(-40deg);
+                opacity: 0.2;
+                font-weight: 600;
+                z-index: 1;
+            }
+        }
+
+        @media print {
+            .ai-scan-block {
+                padding: 5px !important;
+                background-color: #F3F3F3 !important;
+                display: grid !important;
+                grid-template-columns: 60% 40% !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                margin: 0.35rem 0 !important;
+                position: fixed;
+                bottom: 10px; /* Adjust based on your footer height */
+                left: 0;
+                right: 0;
+            }
+
+            .ai-scan-block:not(:first-of-type) {
+                display: none !important;
+            }
+        }
+
+        @media print {
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 900px;
+                margin: 0 auto;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 500;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .mb-1 {
+            margin-bottom: 1.1rem;
+        }
+
+        .mb-half {
+            margin-bottom: 0.5rem;
+        }
+
+        #defaultReportPage {
+            width: 1000px;
+            margin: 0 auto !important;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .header {
+            height: 85px;
+            width: 100%;
+            margin: 0 auto;
+            border: none;
+            position: relative;
+        }
+
+        .empty-header {
+            height: 110px;
+            display: none;
+        }
+
+        .footer {
+            height: 44px;
+            width: 100%;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        .empty-footer {
+            height: 70px;
+            display: none;
+            background: #fff;
+        }
+
+        p {
+            page-break-after: auto;
+            page-break-before: auto;
+        }
+
+        blockquote {
+            page-break-after: auto;
+            page-break-before: auto;
+            f
+        }
+
+        /* organisms + scores two-column wrapper */
+        .organisms-scores-wrapper {
+            width: 100%;
+            margin: 6px 0;
+            border-collapse: collapse;
+        }
+
+        .organisms-scores-wrapper .organismsDetected {
+            padding: 0;
+            width: 65%;
+            vertical-align: top;
+        }
+
+        .organismsDetected .organismsDetected-table {
+            padding: 0;
+            background: none;
+            border-radius: 0;
+        }
+
+        .organismsDetected .organismsDetected-table table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            height: 100%;
+        }
+
+        .organismsDetected .organismsDetected-table table tbody tr {
+            border-bottom: 0.7px solid #0000004d;
+            vertical-align: top;
+        }
+
+        .organismsDetected .organismsDetected-table table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .organismsDetected .organismsDetected-table table tbody tr .label {
+            font-weight: 400;
+            font-size: 11px;
+            color: #000000;
+            padding: 0.35rem 0.85rem;
+            white-space: nowrap;
+            width: 10%;
+        }
+
+        .organismsDetected .organismsDetected-table table tbody tr .value {
+            font-size: 11px;
+            font-weight: 500;
+            color: #000000;
+            padding: 0.35rem 0.85rem;
+            width: 52%;
+        }
+
+        /* score cards right column */
+        .scoreCardsContainer {
+            border-left: 0.7px solid #0000004d;
+        }
+
+        .scoreCard {
+            padding: 0.35rem 0.85rem;
+            border-bottom: 0.7px solid #0000004d;
+        }
+
+        .scoreCard:last-child {
+            border-bottom: none;
+        }
+
+        .scoreCard-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+            column-gap: 0.35rem;
+        }
+
+        .scoreCard-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000000;
+            letter-spacing: 0.3px;
+            flex: 1;
+        }
+
+        .scoreCard-badge {
+            display: inline-flex;
+            align-items: unset;
+            background-color: #FF2B3A1A;
+            border: 1px solid #AD17181A;
+            color: #FF2E39;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 5px 7px;
+            border-radius: 5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .scoreCard-badge .score-denom {
+            font-size: 9px;
+            font-weight: 600;
+            color: #00000080;
+        }
+
+        .scoreCard-desc {
+            font-size: 9px;
+            color: #000000;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        .subHeader {
+            font-size: 11px;
+            color: #000000;
+            font-weight: 600;
+            padding: 0.35rem 0;
+        }
+
+        .containerPara {
+            font-size: 11px;
+            color: #000000;
+            padding-top: 0px;
+            font-weight: 600;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .specialPara {
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 15px;
+        }
+
+        .organismsDetected-table {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* First Choice Card */
+        .firstChoiceCard {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            background: url('https://dev-api-services.labsquire.com/img/first-choice.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 12px;
+            margin: 0.6rem 0 0.4rem;
+            overflow: hidden;
+            min-height: 68px;
+        }
+
+        .firstChoiceCard .fc-left {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 0.4rem;
+            gap: 0;
+        }
+
+        .firstChoiceCard .fc-right {
+            display: flex;
+            align-items: center;
+            padding: 0.4rem;
+        }
+
+        .firstChoiceCard .fc-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 4px;
+            border-radius: 5px;
+            padding: 10px;
+            height: fit-content;
+            flex-shrink: 0;
+            background: linear-gradient(180deg, #149E53 0%, #07381D 100%);
+        }
+
+        .firstChoiceCard .fc-label .fc-first {
+            font-family: "Alkatra", serif;
+            font-style: italic;
+            font-size: 15px;
+            font-weight: 500;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .firstChoiceCard .fc-label .fc-choice {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .firstChoiceCard .fc-drug {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            flex-shrink: 0;
+            border-right: 1px solid #ffffff4d;
+        }
+
+        .firstChoiceCard .fc-drug span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            text-wrap: auto;
+            max-width: 180px;
+        }
+
+        .firstChoiceCard .fc-details {
+            display: grid;
+            grid-template-columns: 210px repeat(2, 1fr);
+            align-items: center;
+            gap: 10px;
+            padding: 0 10px;
+        }
+
+        .firstChoiceCard .fc-detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .firstChoiceCard .fc-detail-item .fc-detail-label {
+            font-size: 8px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.45px;
+            margin-bottom: 1px;
+        }
+
+        .firstChoiceCard .fc-detail-item .fc-detail-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .firstChoiceCard .fc-score-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 8px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .firstChoiceCard .fc-score-card .fc-score-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            column-gap: 6px;
+        }
+
+        .firstChoiceCard .fc-score-card .fc-score-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000000;
+            letter-spacing: 0.3px;
+        }
+
+        .firstChoiceCard .fc-score-card .fc-score-badge {
+            display: inline-flex;
+            align-items: unset;
+            background-color: #D3BA141A;
+            border: 1px solid #E9CD194D;
+            color: #EBBF0C;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 7px;
+            border-radius: 5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .firstChoiceCard .fc-score-card .fc-score-badge .fc-score-denom {
+            font-size: 8px;
+            font-weight: 600;
+            color: #00000080;
+        }
+
+        .firstChoiceCard .fc-score-card .fc-score-desc {
+            font-size: 9px;
+            color: #000000;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        .alternativeContainer .subHeader {
+            font-size: 13px;
+            color: #000000;
+            font-weight: 600;
+            padding-top: 0;
+        }
+
+        .alternativeContainer .medication-table {
+            border: 1px solid #0000004D;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
+        .alternativeContainer .medication-table table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .alternativeContainer .medication-table table thead tr th {
+            font-size: 11px;
+            text-align: left;
+            font-weight: 600;
+            padding: 0.5rem 0.85rem;
+            border-bottom: 1px solid #0000004D;
+        }
+
+        .alternativeContainer .medication-table table tbody tr {
+            border-bottom: 1px solid #0000004D;
+        }
+
+        .alternativeContainer .medication-table table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .alternativeContainer .medication-table table tbody tr td {
+            font-size: 11px;
+            text-align: left;
+            font-weight: 500;
+            padding: 0.4rem 0.85rem;
+        }
+    </style>
+    <style>
+        .reportName {
+            font-family: 'IBM Plex Sans Devanagari', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #000;
+            margin: 0;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .testgoLogo {
+            margin: 8px 0px 0;
+            width: 195px;
+            height: 68px;
+        }
+
+        .testgoImage {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 13px;
+            display: flex;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-bar.w-150 {
+            width: 125px;
+            margin-bottom: 0;
+        }
+
+        .segment-1 {
+            width: 45%;
+            background-color: #36B44A;
+        }
+
+        .segment-2 {
+            width: 25%;
+            background-color: #A8DCB0;
+        }
+
+        .segment-3 {
+            width: 30%;
+            background-color: #D7F2DB;
+        }
+
+        .patient-information td {
+            padding: 0 0 0 14px !important;
+            vertical-align: top;
+            border-left: 1px solid #000000 !important;
+        }
+
+        .patient-information p {
+            margin: 0;
+            min-height: 17px;
+            color: #000000;
+            font-size: 11px;
+            display: flex;
+        }
+
+        .patient-information p .name {
+            width: 42%;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .patient-information p .name,
+        .patient-information p .patient,
+        .patient-information p .dob,
+        .patient-information p .sex,
+        .patient-information p .id {
+            width: 32%;
+        }
+
+        .patient-information p .physician,
+        .patient-information p .npi,
+        .patient-information p .practice,
+        .patient-information p .phone {
+            width: 25%;
+        }
+
+        .patient-information p .collected,
+        .patient-information p .received,
+        .patient-information p .processed,
+        .patient-information p .specimen {
+            width: 38%;
+        }
+
+        .patient-information p .value.first {
+            display: inline-block;
+            width: 68%;
+            font-weight: 400;
+        }
+
+        .patient-information p .value.second {
+            display: inline-block;
+            width: 75%;
+            font-weight: 400;
+        }
+
+        .patient-information p .value.third {
+            display: inline-block;
+            width: 62%;
+            font-weight: 400;
+        }
+
+        .summary-block {
+            padding: 0rem 0.85rem 0;
+            border: 1px solid #36B44A;
+            margin: 1.4rem 0 0rem;
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .summary-block p {
+            font-size: 11px;
+            margin: 0 0 7px;
+            color: #000000;
+        }
+
+        .summary-header {
+            position: relative;
+            margin: 0;
+            padding: 0.17rem 0.45rem;
+            font-size: 11px;
+            font-weight: 500;
+            top: -14px;
+            width: fit-content;
+            background: #36B44A;
+            color: #ffffff;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        }
+
+        .heading-block {
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+            margin: 0.4rem 0 0.4rem 0;
+        }
+
+        .heading {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            font-size: 15px;
+            color: #000000;
+            font-weight: 600;
+            font-family: 'IBM Plex Sans Devanagari', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .ai-scan-block {
+            padding: 0.45rem 0.85rem;
+            background-color: #F3F3F3;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.45rem 0;
+        }
+
+        .ai-scan-block .ai-disclaimer-inner {
+            width: 90%;
+        }
+
+        .ai-scan-inner {
+            display: flex;
+            align-items: center;
+            column-gap: 0.85rem;
+        }
+
+        .ai-scan-block .ai-scan-inner .scan-img {
+            height: 70px;
+        }
+
+        .ai-scan-block .ai-scan-inner .scan-img:last-child {
+            height: 70px;
+            width: 200px;
+        }
+
+        .ai-scan-block .ai-scan-inner .scan-img img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .Disclaimer {
+            background-color: #F3F3F3;
+            padding: 0.85rem 0.85rem 0;
+        }
+
+        .pb-1 {
+            padding-bottom: 0.85rem;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .disclaimer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: #ffffff;
+            padding: 5px;
+        }
+
+        .disclaimer-heading {
+            font-size: 11px;
+            color: #000000;
+            margin-bottom: 0.17rem;
+            font-weight: 700;
+        }
+
+        .disclimer-content {
+            font-size: 11px;
+            margin: 0px;
+            line-height: 15px;
+            color: #000000;
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .clia-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: space-between;
+            gap: 16px;
+            max-width: 100%;
+        }
+
+        .clia-column {
+            font-size: 11px;
+            font-weight: normal;
+            line-height: 1.35;
+        }
+
+        .clia-column p {
+            margin: 0 0 7px 0;
+        }
+
+        .clia-column strong {
+            font-weight: 700;
+        }
+
+        .report-performed-info {
+            border: 1px solid #36b44a;
+            background: #ffffff;
+            padding: 8px;
+        }
+
+        .report-performed-info .performed-details p {
+            margin: 0;
+        }
+
+        .report-performed-info .performed-details p .each-cell {
+            display: flex !important;
+            align-items: center;
+        }
+
+        .report-performed-info .performed-details p .each-cell .line-value {
+            align-self: flex-end;
+            position: relative;
+            font-size: 11px;
+            letter-spacing: -0.08px;
+            padding: 4px 0 4px 2px;
+        }
+
+        .report-performed-info .performed-details p .line-name {
+            display: inline-block;
+            position: relative;
+            font-size: 11px;
+            letter-spacing: -0.08px;
+            padding: 4px 0;
+            font-weight: 600;
+        }
+
+        .footer-inner-block {
+            position: absolute;
+            width: 100%;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul {
+            display: flex;
+            align-items: center;
+            column-gap: 0.85rem;
+            border-bottom: 1px solid #000;
+            margin: 0;
+            padding-left: 0;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul::after {
+            content: "";
+            background-color: #36B44A;
+            height: 7px;
+            width: 44px;
+            position: absolute;
+            right: 0;
+            bottom: -3.5px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block .disclimer-content {
+            font-size: 11px;
+            padding: 7px 0;
+            margin: 0;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li {
+            display: flex;
+            align-items: center;
+            padding: 0.35rem 0;
+            column-gap: 4px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li p {
+            margin: 0;
+            font-size: 11px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li img {
+            width: 12px;
+            height: 12px;
+        }
+
+        .footer .footer-inner .footer-table .footer-inner-block ul li a {
+            color: #000000 !important;
+            font-size: 11px;
+            text-decoration: none !important;
+        }
+    </style>
+    <style>
+        .cru-equivalents {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr 1fr;
+            align-items: center;
+        }
+
+        .cru-equivalents .blockTwo {
+            background: linear-gradient(90deg, rgba(57, 155, 247, 0.15) 0%, rgba(57, 155, 247, 0) 100%);
+            color: #000000;
+            padding: 1rem;
+            font-size: 12px;
+        }
+
+        .cru-equivalents .blockThree {
+            background: linear-gradient(90deg, rgba(247, 152, 57, 0.15) 0%, rgba(247, 152, 57, 0) 100%);
+            color: #000000;
+            padding: 1rem;
+            font-size: 12px;
+        }
+
+        .cru-equivalents .blockFour {
+            background: linear-gradient(90deg, rgba(236, 33, 37, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+            color: #000000;
+            padding: 1rem;
+            font-size: 12px;
+        }
+
+        .positive-negative-table table {
+            border-collapse: collapse;
+        }
+
+        .positive-negative-table thead {
+            background-color: #E5E5E5;
+        }
+
+        .positive-negative-table thead tr td {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 5px;
+        }
+
+        .positive-negative-table tr td table tbody tr td {
+            padding: 5px !important;
+            font-size: 12px;
+        }
+
+        .positive-negative-table td table tr:nth-child(even) {
+            background: #f3f3f3;
+        }
+
+        .positive-negative-table .assay-vlaues-level {
+            width: 30%;
+            padding: 8px 5px;
+        }
+
+        .positive-negative-table .assay-vlaues-level .Low {
+            background: linear-gradient(270deg, rgba(54, 104, 180, 0) 0%, rgba(54, 104, 180, 0.2) 100%);
+            display: block;
+            padding: 2px 0 2px 10px;
+            position: relative;
+        }
+
+        .positive-negative-table .assay-vlaues-level .Low::after {
+            content: "";
+            position: absolute;
+            background-color: #3668B4;
+            width: 1px;
+            height: 22px;
+            left: 0;
+            bottom: 0;
+        }
+
+        .positive-negative-table .assay-vlaues-level .Med {
+            background: linear-gradient(270deg, rgba(236, 114, 0, 0) 0%, rgba(236, 114, 0, 0.2) 100%);
+            display: block;
+            padding: 2px 0 2px 10px;
+            position: relative;
+        }
+
+        .positive-negative-table .assay-vlaues-level .Med::after {
+            content: "";
+            position: absolute;
+            background-color: #EC7200;
+            width: 1px;
+            height: 21.5px;
+            left: 0;
+            bottom: 0;
+        }
+
+        .positive-negative-table .assay-vlaues-level .High {
+            background: linear-gradient(270deg, rgba(253, 0, 58, 0) 0%, rgba(253, 0, 58, 0.2) 100%);
+            display: block;
+            padding: 2px 0 2px 10px;
+            position: relative;
+        }
+
+        .positive-negative-table .assay-vlaues-level .High::after {
+            content: "";
+            position: absolute;
+            background-color: #FD003A;
+            width: 1px;
+            height: 22px;
+            left: 0;
+            bottom: 0;
+        }
+
+        .positive-negative-table .assay-vlaues-name {
+            width: 70%;
+            text-align: left;
+        }
+
+        .positive-negative-table td:nth-child(odd) p {
+            margin-right: 10px;
+        }
+
+        .positive-negative-table p {
+            margin-top: 0;
+            background: #eedcdb;
+            padding: 0 2px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .positive-negative-table p span {
+            padding: 0 3px;
+        }
+
+        .ResultArrayPara {
+            font-size: 13px;
+        }
+
+        .amendent-block {
+            border: 1px solid #FFD1DC;
+            margin: 2rem 0 1rem;
+            position: relative;
+            padding: 0rem 1rem 0;
+        }
+
+        .amendent-block p {
+            font-size: 12px;
+            margin: 0 0 10px;
+            color: #000000;
+        }
+
+        .amendent-header {
+            position: relative;
+            margin: 0;
+            padding: 0.2rem 0.5rem;
+            font-size: 14px;
+            font-weight: 600;
+            top: -16px;
+            width: fit-content;
+            background: #FFD1DC;
+            color: #000000;
+            letter-spacing: 0.8px;
+            font-family: 'IBM Plex Sans Devanagari', sans-serif;
+        }
+
+        .assay-vlaues-name.Detected {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="defaultReportPage" layout="div">
+        <div class="overall-border">
+            <table class="overall-table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="themeBody">
+                                <div class="progress-bar">
+                                    <div class="segment-1"></div>
+                                    <div class="segment-2"></div>
+                                    <div class="segment-3"></div>
+                                </div>
+                                <section class="patient-information">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 33.33%">
+                                                    <p> <span class="name Patient">Name</span> <span
+                                                            class="value first"> PATIENT, TEST </span> </p>
+                                                    <p> <span class="name dob">Date of Birth</span> <span
+                                                            class="value first"> May 07, 2001, 25y </span> </p>
+                                                    <p> <span class="name sex">Gender</span><span class="value first">
+                                                            MALE </span> </p>
+                                                    <p> <span class="name id">Accession ID</span><span
+                                                            class="value first"> MU260507001 </span> </p>
+                                                </td>
+                                                <td style="width: 33.33%">
+                                                    <p> <span class="name physician">Physician</span><span
+                                                            class="value second"> DNU </span> </p>
+                                                    <p> <span class="name npi">NPI #</span><span class="value second">
+                                                            1122334455 </span> </p>
+                                                    <p> <span class="name practice">Practice</span><span
+                                                            class="value second"> DNU </span> </p>
+                                                    <p> <span class="name phone">Phone</span><span class="value second">
+                                                            (111)-111-1 </span> </p>
+                                                </td>
+                                                <td style="width: 33.33%">
+                                                    <p> <span class="name collected">Collected Date</span><span
+                                                            class="value third"> May 07, 2026, 06:12 AM </span> </p>
+                                                    <p> <span class="name received">Received Date</span><span
+                                                            class="value third"> May 07, 2026, 09:00 AM </span> </p>
+                                                    <p> <span class="name specimen">Specimen Type </span><span
+                                                            class="value third"> Urine </span> </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <div class="summary-block">
+                                    <h3 class="summary-header">Disclaimer</h3>
+                                    <p> Therapy recommendations are based on High detections only. Medium and Low-level
+                                        organisms are treated as colonizers and excluded. Final treatment decisions
+                                        require physician review. </p>
+                                </div>
+                                <div class="heading-block">
+                                    <div class="progress-bar w-150">
+                                        <div class="segment-1"></div>
+                                        <div class="segment-2"></div>
+                                        <div class="segment-3"></div>
+                                    </div>
+                                    <p class="heading">Organisms and resistance detected</p>
+                                </div>
+                                <table class="organisms-scores-wrapper">
+                                    <tbody>
+                                        <tr>
+                                            <td class="organismsDetected">
+                                                <div class="organismsDetected-table">
+                                                    <table class="w-100">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="label">Organisms Detected</td>
+                                                                <td class="value">Acinetobacter Baumannii, Citrobacter
+                                                                    Freundii/ Koseri, Enterobacter Cloacae, Enterococcus
+                                                                    Faecalis/ Faecium, Escherichia Coli, Klebsiella
+                                                                    Oxytoca, Klebsiella Pneumoniae, Morganella Morganii,
+                                                                    Proteus Mirabilis, Pseudomonas Aeruginosa, Serratia
+                                                                    Marcescens, Staphylococcus Aureus, Staphylococcus
+                                                                    Epidermidis, Stenotrophomonas Maltophilia,
+                                                                    Streptococcus Agalactiae, Streptococcus Pyogenes,
+                                                                    Chlamydia Trachomatis, Gardnerella Vaginalis, HSV-1,
+                                                                    HSV-2, Mycoplasma Genitalium, Neisseria Gonorrhoeae,
+                                                                    Treponema Pallidum, Trichomonas Vaginalis,
+                                                                    Ureaplasma Urealyticum, Candida Albicans, Candida
+                                                                    Glabrata, Candida Parapsilosis, Candida Tropicalis,
+                                                                    Pichia Kudriavzevii/Candida Krusei</td>
+                                                                <td>
+                                                                    <div class="scoreCard">
+                                                                        <div class="scoreCard-header"> <span
+                                                                                class="scoreCard-title">Infection
+                                                                                Complexity Score</span> <span
+                                                                                class="scoreCard-badge">5<span
+                                                                                    class="score-denom">/5</span></span>
+                                                                        </div>
+                                                                        <p class="scoreCard-desc">Based on identified
+                                                                            resistance genes and their impact on
+                                                                            antibiotic effectiveness.</p>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="label">Resistance Detected</td>
+                                                                <td class="value">AmpC, CTX-M, ErmA/B/C, KPC, MCR-1,
+                                                                    MecA, NDM, OXA-23, OXA-48, QnrA, QnrB, TetM, VIM,
+                                                                    VanA/B/C</td>
+                                                                <td>
+                                                                    <div class="scoreCard">
+                                                                        <div class="scoreCard-header"> <span
+                                                                                class="scoreCard-title">Resistance
+                                                                                Score</span> <span
+                                                                                class="scoreCard-badge">5<span
+                                                                                    class="score-denom">/5</span></span>
+                                                                        </div>
+                                                                        <p class="scoreCard-desc">Based on identified
+                                                                            resistance genes and their impact on
+                                                                            antibiotic effectiveness.</p>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="label">Allergies Reported</td>
+                                                                <td class="value">No Allergies Reported</td>
+                                                                <td>
+                                                                    <div class="scoreCard">
+                                                                        <div class="scoreCard-header"> <span
+                                                                                class="scoreCard-title">Adverse Reaction
+                                                                                Score</span> <span
+                                                                                class="scoreCard-badge">2<span
+                                                                                    class="score-denom">/5</span></span>
+                                                                        </div>
+                                                                        <p class="scoreCard-desc">Reflects the risk of
+                                                                            drug-related side effects, adjusted for
+                                                                            patient-specific factors.</p>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="firstChoiceCard">
+                                    <div class="fc-left">
+                                        <div class="fc-label"> <span class="fc-first">first</span> <span
+                                                class="fc-choice">Choice</span> </div>
+                                        <div class="fc-drug"> <span>Trimethoprim-sulfamethoxazole</span> </div>
+                                        <div class="fc-details">
+                                            <div class="fc-detail-item"> <span class="fc-detail-label">Dose</span> <span
+                                                    class="fc-detail-value">1 double-strength (160/800 mg) tablet PO BID
+                                                    PO</span> </div>
+                                            <div class="fc-detail-item"> <span class="fc-detail-label">Frequency</span>
+                                                <span class="fc-detail-value">BID</span> </div>
+                                            <div class="fc-detail-item"> <span class="fc-detail-label">Duration</span>
+                                                <span class="fc-detail-value">3 days</span> </div>
+                                        </div>
+                                    </div>
+                                    <div class="fc-right">
+                                        <div class="fc-score-card">
+                                            <div class="fc-score-header"> <span class="fc-score-title">Stewardship
+                                                    Score</span> <span class="fc-score-badge">4<span
+                                                        class="fc-score-denom">/5</span></span> </div>
+                                            <p class="fc-score-desc">Assesses the suitability of antibiotic selection
+                                                for safe and appropriate use.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alternativeContainer">
+                                    <div class="heading-block">
+                                        <div class="progress-bar w-150">
+                                            <div class="segment-1"></div>
+                                            <div class="segment-2"></div>
+                                            <div class="segment-3"></div>
+                                        </div>
+                                        <p class="heading">Alternative Choices</p>
+                                    </div>
+                                    <div class="medication-table mb-1">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th width="20%">Medication</th>
+                                                    <th width="45%">Dosage/Route/Frequency</th>
+                                                    <th width="15%">Duration</th>
+                                                    <th width="20%" style="text-align: center;">Stewardship Score</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Fosfomycin</td>
+                                                    <td>3 gm PO in a single dose (mixed in water) </td>
+                                                    <td>1 day</td>
+                                                    <td style="text-align: center;">4.5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nitrofurantoin</td>
+                                                    <td>100 mg PO BID (as monohydrate/macrocrystals - Macrobid) </td>
+                                                    <td>5 days</td>
+                                                    <td style="text-align: center;">5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Flucytosine</td>
+                                                    <td>25-37.5 mg/kg PO every 6 hours </td>
+                                                    <td>Varies</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Linezolid</td>
+                                                    <td>600 mg PO or IV BID </td>
+                                                    <td>10-14 days</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Daptomycin</td>
+                                                    <td>4-6 mg/kg IV once daily </td>
+                                                    <td>7-14 days</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="defaultContainer">
+                                    <h3 class="subHeader">Additional Information</h3>
+                                    <p class="specialPara"> Detected organisms include Acinetobacter Baumannii,
+                                        Chlamydia trachomatis, Citrobacter Freundii/ Koseri, and others. Resistance
+                                        genes AmpC, CTX-M, and others were identified. Trimethoprim-sulfamethoxazole is
+                                        selected for its targeted activity. Fosfomycin and nitrofurantoin offer oral
+                                        alternatives. IV options like linezolid and daptomycin address resistance
+                                        patterns. </p>
+                                </div>
+                                <div class="defaultContainer">
+                                    <h3 class="subHeader">Treatment Timing Guidelines</h3>
+                                    <p class="specialPara"> Detection of BV-associated organisms does not always
+                                        indicate active infection. BV treatment typically involves 5-7 days of oral or
+                                        vaginal metronidazole/clindamycin per CDC guidelines. Mixed infections may
+                                        require combination therapy and extended duration of 10-14 days. Resistance
+                                        genes detected may necessitate extended treatment and combination therapy. </p>
+                                </div>
+                                <div class="defaultContainer mb-half">
+                                    <h3 class="subHeader">Special Considerations</h3>
+                                    <p class="specialPara"> Vaginal microbiome composition varies; detection of BV
+                                        markers should be interpreted with symptoms like discharge and odor. Resistance
+                                        genes indicate possible treatment limitations but do not guarantee resistance.
+                                        Antimicrobials should be used carefully, as treatment failure may occur. </p>
+                                </div>
+                            </div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="ai-scan-block">
+                                                <div class="ai-disclaimer-inner">
+                                                    <p class="disclimer-content"> <span class="bold">Disclaimer:</span>
+                                                        Treatment guidance is based on lab data and common resistance
+                                                        patterns only. It doesn't replace a full medical evaluation.
+                                                        Final diagnosis and treatment must be made by the treating
+                                                        physician, and recommendations may need adjustment based on
+                                                        clinical judgment. </p>
+                                                </div>
+                                                <div class="ai-scan-inner">
+                                                    <div class="scan-img"> <a
+                                                            href="undefined/chat?id=69fc7843d6413b752fd58a2b"
+                                                            target="_blank"> <img
+                                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAACcCAYAAACKuMJNAAAAAklEQVR4AewaftIAAAbjSURBVO3BQY4kR5IAQdVA/v/Lujwa6uBEIKudPQsTsX+w1iUPa130sNZFD2td9OEHlZsqTlSmihOVqeIbKlPFpDJVvKHyRsWkMlWcqNxUMT2sddHDWhc9rHXRh39R8ZtUTlROVKaKE5WTiknljYpJ5aRiqjhROamYVKaKk4rfpHLysNZFD2td9LDWRR9eUnmj4o2KSWWqmFSmihOVNyq+UTGpnFRMFScqU8U3VN6oeONhrYse1rroYa2LPvzlKiaVE5WTiknlGypTxaTyDZWpYqqYVKaKv8nDWhc9rHXRw1oXffjLqUwVJypTxaTyDZWpYlJ5o+IbKv9LHta66GGtix7WuujDSxV/ksobKicq31CZKk4q3lCZKqaKSWWq+E0Vf9LDWhc9rHXRw1oXffgXKv+likllqphUpopJZaqYVKaKSWWqmFSmikllqphUpoo3VKaKE5WbHta66GGtix7WuujDDxX/n6hMFScVk8pUcVIxqfymipOKk4r/0sNaFz2sddHDWhd9+GUq36g4qZhUvqEyVZyoTBWTyk0qJxWTyknFGypTxcnDWhc9rHXRw1oX2T94QWWqOFGZKiaV31Txm1SmiknljYo3VN6omFSmiknljYpJZao4eVjrooe1LnpY66IPv0xlqphUTiomlZOKb6i8ofJGxaRyUjFVTCpvVJxUvKHyjYe1LnpY66KHtS768IPKVDFVnFRMKlPFn6QyVUwqU8WJylTxmyomlaniDZWp4kRlqphUTiomlalieljrooe1LnpY66IP/0JlqjhROVGZKiaVk4qTikllqphU3lCZKt6o+EbFicqkclJx08NaFz2sddHDWhd9+KHiROWk4g2Vb6icVEwqb1RMKicqU8WkMlVMFZPKGxVvqLxRcVJx8rDWRQ9rXfSw1kUfflCZKqaKSeUNlaliUpkqTiomlb+JylQxqUwV31CZKiaVqeINlanijYe1LnpY66KHtS768EPFpHJS8UbFpDJVTCpTxRsqJxWTym+qmFROVKaKP0llqviGylQxPax10cNaFz2sddGHL6ncpHJS8Y2KSWWqOKmYVKaKSeUNlaliUnmj4qaHtS56WOuih7Uusn8wqEwVk8o3KiaVb1R8Q2Wq+E0qv6liUpkq3lA5qZhUTipOHta66GGtix7Wusj+waDyRsUbKicVk8pU8Q2V31QxqbxR8Q2VNyreUDmpeONhrYse1rroYa2L7B8MKicVk8pU8ZtUTiomlZOKSeU3VUwqU8WJylQxqZxUnKicVJyovFExPax10cNaFz2sddGHHyomlZOKSWWqmFSmikllqnij4o2KE5WpYlJ5Q2WqmCreqDhR+ZMq3nhY66KHtS56WOuiDz+ofKNiUpkqTipOVKaKSeWk4kTljYpJZar4hspUMamcVLyhclIxqUwVJw9rXfSw1kUPa1304YeKb6hMFZPKVHGTyhsVf5LKb6r4RsWf9LDWRQ9rXfSw1kUf/oXKScWJylQxqZxUnKhMFZPKGxWTyk0V31CZKk5UpopJ5aRiUpkqpoe1LnpY66KHtS768IPKScUbFZPKScXfpGJSeUPlGypvVJyo/CaVNx7WuuhhrYse1rrI/sGgMlVMKicVk8pU8ZtUvlExqUwVv0llqphU/qSKE5Wp4jc9rHXRw1oXPax10YcfKk4qTlROVE4qTlSmiknlpOIbKicVk8pUMamcVEwqb1R8Q2Wq+MbDWhc9rHXRw1oXffiSylQxqUwVJyq/qeKNiknlpGJSmSomlZOKk4pJ5UTljYoTlTcqpoe1LnpY66KHtS768IPKn6TyRsWkclIxqUwVk8pJxaQyqUwVJxXfUPmTVKaK3/Sw1kUPa130sNZFH36o+E0Vb6j8popJZar4k1SmiknlpOIbFW+oTConFW88rHXRw1oXPax10YcfVG6qeKNiUpkq3lD5RsUbKicVJxUnKicqU8UbFd94WOuih7Uueljrog//ouI3qbyhMlWcqLxRcaJyovJGxTdUvlHxRsWkMlVMKlPF9LDWRQ9rXfSw1kUfXlJ5o+IbFZPKVDGpTBWTyqTyRsUbKpPKVDGpTBVTxYnKpPInqUwVJw9rXfSw1kUPa1304S9TMamcqJyoTBWTylQxqdxUMamcVEwVk8pJxRsV33hY66KHtS56WOuiD/9jKk5UTlSmipOKN1T+pIoTlT9J5aTi5GGtix7WuuhhrYs+vFRxU8WkMlWcVEwqJypTxaQyVUwVk8pUcaIyVUwqJxWTyt/kYa2LHta66GGtiz78C5X/ksobFScVk8obFZPKVDFVTCrfqJhUvqEyVUwqb6hMFdPDWhc9rHXRw1oX2T9Y65KHtS56WOuih7Uu+j82tMhNKX1gqwAAAABJRU5ErkJggg=="
+                                                                alt="QR Code" height="140"> </a> </div>
+                                                    <div class="scan-img"> <img
+                                                            src="https://services-api.labsquire.com/img/uti_ai_desc.svg"
+                                                            alt="logo" style="height:100%;width:100%;"> </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="page-break-before: always;">
+                                <div>
+                                    <div class="heading-block">
+                                        <div class="progress-bar w-150">
+                                            <div class="segment-1"></div>
+                                            <div class="segment-2"></div>
+                                            <div class="segment-3"></div>
+                                        </div>
+                                        <p class="heading">Tested assay results</p>
+                                    </div>
+                                    <p class="ResultArrayPara">All microbial targets tested as part of the assay are
+                                        listed below. Detected (Positive) organisms are <b>bolded</b> and
+                                        <b>flagged</b>.</p>
+                                </div>
+                                <div class="heading-block">
+                                    <div class="progress-bar w-150">
+                                        <div class="segment-1"></div>
+                                        <div class="segment-2"></div>
+                                        <div class="segment-3"></div>
+                                    </div>
+                                    <p class="heading">DNA Copies</p>
+                                </div>
+                                <div class="cru-equivalents">
+                                    <h3 class="blockTwo"> <span class="bold">Low: </span> <span
+                                            style="font-weight: normal;"> ≤ 9,999 DNA Copies/μL</span> </h3>
+                                    <h3 class="blockThree"> <span class="bold">Medium: </span> <span
+                                            style="font-weight: normal;"> > 9,999 to 99,999 DNA Copies/μL</span> </h3>
+                                    <h3 class="blockFour"> <span class="bold">High:</span> <span
+                                            style="font-weight: normal;"> > 99,999 DNA Copies/μL</span> </h3>
+                                </div>
+                                <div class="heading-block">
+                                    <div class="progress-bar w-150">
+                                        <div class="segment-1"></div>
+                                        <div class="segment-2"></div>
+                                        <div class="segment-3"></div>
+                                    </div>
+                                    <p class="heading">Urinary tract infection (UTI)</p>
+                                </div>
+                                <table class="w-100 positive-negative-table">
+                                    <tbody>
+                                        <tr style="vertical-align: top"> <!-- Left Column -->
+                                            <td style="width: 49%" class="p-0 halfTable">
+                                                <table class="w-100">
+                                                    <thead class="titlebg">
+                                                        <tr>
+                                                            <td class="assay-vlaues-level">Flags</td>
+                                                            <td class="assay-vlaues-name">Organism</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Acinetobacter Baumannii</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Candida
+                                                                    Albicans</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Candida
+                                                                    Glabrata</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Candida
+                                                                    Parapsilosis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Candida
+                                                                    Tropicalis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Citrobacter Freundii/ Koseri</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Enterobacter Cloacae</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Enterococcus Faecalis/ Faecium</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Escherichia Coli</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Klebsiella
+                                                                    Oxytoca</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Klebsiella
+                                                                    Pneumoniae</span> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td> <!-- GAP -->
+                                            <td style="width: 2%" class="p-0"></td> <!-- Right Column -->
+                                            <td style="width: 49%" class="p-0 halfTable">
+                                                <table class="w-100">
+                                                    <thead class="titlebg">
+                                                        <tr>
+                                                            <td class="assay-vlaues-level">Flags</td>
+                                                            <td class="assay-vlaues-name">Organism</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Morganella
+                                                                    Morganii</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Pichia
+                                                                    Kudriavzevii/Candida Krusei</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Proteus
+                                                                    Mirabilis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Pseudomonas Aeruginosa</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Serratia
+                                                                    Marcescens</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Staphylococcus Aureus</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Staphylococcus Epidermidis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Stenotrophomonas Maltophilia</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Streptococcus Agalactiae</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Streptococcus Pyogenes</span> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="heading-block">
+                                    <div class="progress-bar w-150">
+                                        <div class="segment-1"></div>
+                                        <div class="segment-2"></div>
+                                        <div class="segment-3"></div>
+                                    </div>
+                                    <p class="heading">Sexually Transmitted Infections (STI)</p>
+                                </div>
+                                <table class="w-100 positive-negative-table">
+                                    <tbody>
+                                        <tr style="vertical-align: top"> <!-- Left Column -->
+                                            <td style="width: 49%" class="p-0 halfTable">
+                                                <table class="w-100">
+                                                    <thead class="titlebg">
+                                                        <tr>
+                                                            <td class="assay-vlaues-level">Flags</td>
+                                                            <td class="assay-vlaues-name">Organism</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Chlamydia
+                                                                    Trachomatis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Gardnerella Vaginalis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Herpes
+                                                                    Simplex Virus Type 1</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Herpes
+                                                                    Simplex Virus Type 2</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Mycoplasma
+                                                                    Genitalium</span> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td> <!-- GAP -->
+                                            <td style="width: 2%" class="p-0"></td> <!-- Right Column -->
+                                            <td style="width: 49%" class="p-0 halfTable">
+                                                <table class="w-100">
+                                                    <thead class="titlebg">
+                                                        <tr>
+                                                            <td class="assay-vlaues-level">Flags</td>
+                                                            <td class="assay-vlaues-name">Organism</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Neisseria
+                                                                    Gonorrhoeae</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Treponema
+                                                                    Pallidum</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span
+                                                                    class="bold">Trichomonas Vaginalis</span> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="assay-vlaues-level"> <span
+                                                                    class="High">High</span> </td>
+                                                            <td class="assay-vlaues-name"> <span class="bold">Ureaplasma
+                                                                    Urealyticum</span> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="heading-block">
+                                    <div class="progress-bar w-150">
+                                        <div class="segment-1"></div>
+                                        <div class="segment-2"></div>
+                                        <div class="segment-3"></div>
+                                    </div>
+                                    <p class="heading">Antibiotic Resistance GENES</p>
+                                </div>
+                                <table class="w-100 positive-negative-table">
+                                    <tr style="vertical-align: top"> <!-- Left Column -->
+                                        <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+                                            <table class="w-100">
+                                                <thead class="titlebg">
+                                                    <tr>
+                                                        <td class="assay-vlaues-name">Gene(s)</td>
+                                                        <td class="assay-vlaues-level">Interpretation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Ambier Class Beta-Lactamase </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Cefotaximase Munich </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            ErmA/B/C </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            KP.Carbapenemase </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Mobilized Colistin Resistance </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Methicillin Resistance A </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            New Delhi Metallo </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td> <!-- GAP -->
+                                        <td style="width: 2%" class="p-0"></td> <!-- Right Column -->
+                                        <td style="width: 49%" class="p-0 halfTable antibiotic-resistance">
+                                            <table class="w-100">
+                                                <thead class="titlebg">
+                                                    <tr>
+                                                        <td class="assay-vlaues-name">Gene(s)</td>
+                                                        <td class="assay-vlaues-level">Interpretation</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Oxacillinase-23 </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Oxacillinase-48 </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Quinolone Resistance A </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Quinolone Resistance B </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Tetracycline Resistance </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Verona Integron Metallo </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                    <tr class="detect-bold">
+                                                        <td class="assay-vlaues-name Detected" style="text-align: left">
+                                                            Vancomycin A/B/C </td>
+                                                        <td class="assay-vlaues-level" style="text-align: left">
+                                                            <b>DETECTED</b> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="Disclaimer"
+                                                    style="page-break-before: always;margin-top: 1rem;">
+                                                    <div class="disclaimer-inner">
+                                                        <p class="disclaimer-heading">Limitation</p>
+                                                        <p class="disclimer-content"> Absence of detection does not rule
+                                                            out the presence of other microorganisms or the possibility
+                                                            that the target sequence exists below the limit of
+                                                            detection. This UTI Diagnostic Report does not consider
+                                                            patient history, potential drug interactions, drug
+                                                            sensitivities, or allergies. It is the responsibility of the
+                                                            treating physician to determine the appropriate medication
+                                                            and dosing based on the complete clinical context and all
+                                                            available data. </p>
+                                                    </div>
+                                                </div>
+                                                <div class="Disclaimer">
+                                                    <div class="disclaimer-inner">
+                                                        <p class="disclaimer-heading">Methodology</p>
+                                                        <p class="disclimer-content"> Nucleic acids are extracted from
+                                                            urine samples and analyzed using Real-Time Polymerase Chain
+                                                            Reaction (RT-PCR). The Genepath-MGN-LUTI assays detect
+                                                            urinary tract pathogens and antibiotic resistance markers
+                                                            with greater than 99% accuracy and specificity. Infection
+                                                            ranges—classified as high, medium, or low—were established
+                                                            during method validation based on corresponding DNA
+                                                            Copies/μL values. The clinical significance of these ranges
+                                                            has not been evaluated by . </p>
+                                                    </div>
+                                                </div>
+                                                <div class="Disclaimer">
+                                                    <div class="disclaimer-inner">
+                                                        <p class="disclaimer-heading">Regulatory Status and Test
+                                                            Development</p>
+                                                        <p class="disclimer-content"> These tests were developed and
+                                                            validated by . The tests included in this UTI panel have not
+                                                            been approved by the FDA. However, FDA approval is not
+                                                            required, provided that the laboratory maintains compliance
+                                                            with all applicable accrediting bodies and consistently
+                                                            demonstrates high analytical accuracy in its testing
+                                                            protocols and procedures. </p>
+                                                    </div>
+                                                </div>
+                                                <div class="Disclaimer pb-1">
+                                                    <div class="disclaimer-inner">
+                                                        <p class="disclaimer-heading">Disclaimer</p>
+                                                        <p class="disclimer-content"> The information contained in this
+                                                            report is intended for interpretation by a licensed
+                                                            physician or other qualified healthcare professional and
+                                                            does not replace professional medical advice, diagnosis, or
+                                                            treatment. All decisions regarding patient care, including
+                                                            medication selection and dosing, must be made solely by a
+                                                            licensed physician, pharmacist, or other authorized
+                                                            healthcare professional based on the patient’s complete
+                                                            clinical information. </p>
+                                                    </div>
+                                                </div>
+                                                <div class="report-performed-info" style="margin:1rem 0">
+                                                    <table class="performed-details">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="width: 45%">
+                                                                    <p> <span class="each-cell"> <span
+                                                                                class="line-name">Test Performed:
+                                                                            </span><span class="line-value"> </span>
+                                                                        </span> </p>
+                                                                    <p> <span class="each-cell"> <span
+                                                                                class="line-name">CLIA: </span><span
+                                                                                class="line-value"></span> </p>
+                                                                </td>
+                                                                <td style="width: 55%">
+                                                                    <p> <span class="each-cell"> <span
+                                                                                class="line-name">Lab Director:
+                                                                            </span><span class="line-value">Dr.
+                                                                                Shamaladevi Nagarajarao, Ph.D</span>
+                                                                        </span> </p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="clia-container">
+                                                    <div class="clia-column">
+                                                        <p>CLIA <strong>01D2141620</strong><br> 234 Aquarius Dr, Ste 100
+                                                            &amp; 111,<br> Homewood, AL 35209</p>
+                                                    </div>
+                                                    <!--                          <div class="clia-column">                            <p>CLIA <strong>04D2307358</strong><br>                            10912 Colonel Glenn Rd, Ste 1000,<br>                            Little Rock, AR 72204</p>                          </div>                          <div class="clia-column">                            <p>CLIA <strong>04D307358</strong><br>                            16310 Tomball Pkwy,<br>                            Houston, TX 77064</p>                          </div>                          -->
+                                                    <div class="clia-column">
+                                                        <p>CLIA <strong>45D2289923</strong><br> 2925 Skyway Cir N, Ste
+                                                            140,<br> Irving, TX 75038</p>
+                                                    </div>
+                                                    <div class="clia-column">
+                                                        <p>CLIA <strong>49D2178444</strong><br> 14225 Sullyfield Cir,
+                                                            Ste E,<br> Chantilly, VA 20151</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>
