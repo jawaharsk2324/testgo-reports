@@ -134,13 +134,7 @@
             page-break-before: auto;
         }
 
-        /* organisms + scores two-column wrapper */
-        .organisms-scores-wrapper {
-            display: grid;
-            grid-template-columns: 65% 35%;
-            margin: 6px 0;
-            overflow: hidden;
-        }
+       
 
         .organisms-scores-wrapper .organismsDetected {
             padding: 0;
@@ -185,6 +179,9 @@
 
         /* score cards right column */
         .scoreCard {
+             display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 0.35rem 0.85rem;
             border-bottom: 0.7px solid #0000004d;
         }
@@ -194,11 +191,9 @@
         }
 
         .scoreCard-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.25rem;
-            column-gap: 0.35rem;
+           display: flex;
+           flex-direction: column;
+            row-gap: 0.2rem;
         }
 
         .scoreCard-title {
@@ -225,13 +220,13 @@
         }
 
         .scoreCard-badge .score-denom {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 600;
             color: #00000080;
         }
 
         .scoreCard-desc {
-            font-size: 9px;
+            font-size: 11px;
             color: #000000;
             line-height: 1.35;
             margin: 0;
@@ -254,7 +249,7 @@
 
         .specialPara {
             font-weight: 500;
-            font-size: 11px;
+            font-size: 11.5px;
             line-height: 15px;
         }
 
@@ -347,12 +342,12 @@
         }
 
         .firstChoiceCard .fc-detail-item .fc-detail-label {
-            font-size: 8px;
+            font-size: 11px;
             font-weight: 700;
             color: rgba(255, 255, 255, 0.75);
             text-transform: uppercase;
             letter-spacing: 0.45px;
-            margin-bottom: 1px;
+            margin-bottom: 5px;
         }
 
         .firstChoiceCard .fc-detail-item .fc-detail-value {
@@ -367,17 +362,18 @@
             border-radius: 8px;
             padding: 8px 10px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+          align-items: center;
+            justify-content: space-between;
             width: 100%;
         }
 
         .firstChoiceCard .fc-score-card .fc-score-header {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+           
             justify-content: space-between;
-            margin-bottom: 4px;
-            column-gap: 6px;
+            
+            row-gap: 0.2rem;
         }
 
         .firstChoiceCard .fc-score-card .fc-score-title {
@@ -403,13 +399,13 @@
         }
 
         .firstChoiceCard .fc-score-card .fc-score-badge .fc-score-denom {
-            font-size: 8px;
+            font-size: 11px;
             font-weight: 600;
             color: #00000080;
         }
 
         .firstChoiceCard .fc-score-card .fc-score-desc {
-            font-size: 9px;
+            font-size: 11px;
             color: #000000;
             line-height: 1.35;
             margin: 0;
@@ -628,7 +624,6 @@
                 align-items: center!important;
                 margin: 0.35rem 0 !important;
                 position: static !important;
-                margin-top: 120px!important;
             }
 
             .ai-scan-block:not(:first-of-type) {
@@ -930,7 +925,6 @@
                                     <p class="heading">Organisms and resistance detected</p>
                                 </div>
 
-                                <div class="organisms-scores-wrapper">
                                     <!-- LEFT: organisms info -->
                                     <div class="organismsDetected">
                                         <div class="organismsDetected-table">
@@ -938,52 +932,59 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="label">Organisms Detected</td>
-                                                        <td class="value">Gardnerella Vaginalis</td>
+                                                        <td class="value">Acinetobacter Baumannii, Pseudomonas Aeruginosa, Neisseria Gonorrhoeae</td>
+                                                        <td>
+                                                              <div class="scoreCard">
+                                            <div class="scoreCard-header">
+                                                <span class="scoreCard-title">Infection Complexity Score</span>
+                                                      <p class="scoreCard-desc">Based on identified resistance genes and their
+                                                impact on antibiotic effectiveness.</p>
+                                               
+                                            </div>
+                                       <span class="scoreCard-badge">1<span
+                                                        class="score-denom">/5</span></span>
+                                        </div> 
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="label">Resistance Detected</td>
-                                                        <td class="value">Methicillin</td>
+                                                        <td class="value">AmpC, KPC, MCR-1, MecA, NDM, OXA-23, OXA-48, QnrA, QnrB, TetM
+</td>
+                                                        <td>
+                                                            <div class="scoreCard">
+                                            <div class="scoreCard-header">
+                                                <span class="scoreCard-title">Resistance Score</span>
+                                                  <p class="scoreCard-desc">Based on identified resistance genes and their
+                                                impact on antibiotic effectiveness.</p>
+                                                
+                                            </div>
+                                            <span class="scoreCard-badge">2<span
+                                                        class="score-denom">/5</span></span>
+                                          
+                                        </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="label">Allergies Reported</td>
                                                         <td class="value">No Allergies Reported</td>
+                                                        <td style="width: 35%;">
+                                                             <div class="scoreCard">
+                                            <div class="scoreCard-header">
+                                                <span class="scoreCard-title">Adverse Reaction</span>
+                                                <p class="scoreCard-desc">Reflects the risk of drug-related side effects,
+                                                adjusted for patient-specific factors.</p>
+                                            </div>
+                                             <span class="scoreCard-badge">4<span
+                                                        class="score-denom">/5</span></span>
+                                           
+                                        </div> 
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-
-                                    <!-- RIGHT: score cards -->
-                                    <div class="scoreCardsContainer">
-                                        <div class="scoreCard">
-                                            <div class="scoreCard-header">
-                                                <span class="scoreCard-title">Infection Complexity Score</span>
-                                                <span class="scoreCard-badge">1<span
-                                                        class="score-denom">/5</span></span>
-                                            </div>
-                                            <p class="scoreCard-desc">Based on identified resistance genes and their
-                                                impact on antibiotic effectiveness.</p>
-                                        </div>
-                                        <div class="scoreCard">
-                                            <div class="scoreCard-header">
-                                                <span class="scoreCard-title">Resistance Score</span>
-                                                <span class="scoreCard-badge">2<span
-                                                        class="score-denom">/5</span></span>
-                                            </div>
-                                            <p class="scoreCard-desc">Based on identified resistance genes and their
-                                                impact on antibiotic effectiveness.</p>
-                                        </div>
-                                        <div class="scoreCard">
-                                            <div class="scoreCard-header">
-                                                <span class="scoreCard-title">Adverse Reaction</span>
-                                                <span class="scoreCard-badge">4<span
-                                                        class="score-denom">/5</span></span>
-                                            </div>
-                                            <p class="scoreCard-desc">Reflects the risk of drug-related side effects,
-                                                adjusted for patient-specific factors.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                              
 
                                 <div class="firstChoiceCard">
                                     <div class="fc-left">
@@ -1013,11 +1014,12 @@
                                         <div class="fc-score-card">
                                             <div class="fc-score-header">
                                                 <span class="fc-score-title">Stewardship Score</span>
-                                                <span class="fc-score-badge">4<span
-                                                        class="fc-score-denom">/5</span></span>
-                                            </div>
-                                            <p class="fc-score-desc">Assesses the suitability of antibiotic selection
+                                               <p class="fc-score-desc">Assesses the suitability of antibiotic selection
                                                 for safe and appropriate use.</p>
+                                            </div>
+                                             <span class="fc-score-badge">4<span
+                                                        class="fc-score-denom">/5</span></span>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1031,7 +1033,7 @@
                                         </div>
                                         <p class="heading">Alternative Choices</p>
                                     </div>
-                                    <div class="medication-table mb-1">
+                                    <div class="medication-table">
                                         <table>
                                             <thead>
                                                 <tr>
