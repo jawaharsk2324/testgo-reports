@@ -51,11 +51,11 @@
       border-collapse: collapse;
     }
 
-    table thead,
+    /* table thead,
     table tbody,
     table tfoot {
       border: none !important;
-    }
+    } */
 
     table td,
     table tr {
@@ -91,13 +91,13 @@
     }
 
     .footer {
-      height: 100px;
+      height: 50px;
       width: 100%;
       margin: 0 auto;
       background: #fff;
     }
     .empty-footer {
-      height: 110px;
+      height: 60px;
       display: none;
       background: #fff;
     }
@@ -110,7 +110,7 @@
     }
     
     .customTable.summary-table table tbody td{
-      padding: 3px 5px!important;
+      padding: 2px 5px!important;
     }
      
     .customTable table {
@@ -118,10 +118,11 @@
     }
 
     .customTable table thead tr th {
-      background-color: #E5E5E5;
+     border-top: 1px solid #000!important;
+      border-bottom: 1px solid #000!important;
       color: #000;
       text-align: left;
-      padding: 8px 5px;
+      padding: 5px;
       font-size: 12px;
       font-weight: 700;
     }
@@ -131,7 +132,8 @@
       color: #000000;
       font-weight: 500;
       vertical-align:middle;
-      padding: 20px 5px;
+      padding:2px 5px;
+      border-bottom: 1px solid #E5E5E5;
     }
  
     .customTable table tbody td .bold{
@@ -162,9 +164,9 @@
       color: #000000;
     }
 
-    .customTable table tbody tr:nth-of-type(even){
+    /* .customTable table tbody tr:nth-of-type(even){
       background-color: #F3F3F3;
-    }
+    } */
 
     .customTable table tr {
       page-break-inside: avoid;
@@ -186,15 +188,12 @@
       font-weight: 600;
       z-index: -9;
     }
-   @page:first { size: A4; margin: 110px 20px 50px 20px; }
-   @page { size: A4; margin: 70px 20px 50px 20px; }
+   /* @page:first { size: A4; margin: 110px 20px 50px 20px; }
+   @page { size: A4; margin: 70px 20px 50px 20px; } */
 
     @media print {
       body.duplicate:before {
         position: fixed !important;
-      }
-      .content{
-        top: 100px;
       }
        .header {
         position: fixed;
@@ -358,7 +357,6 @@
 
     .summary-block p {
       font-size: 12px;
-      margin: 0 0 10px;
       color: #000000;
     }
 
@@ -545,131 +543,6 @@
     }
   </style>
   <style>
-    .range-container {
-    width: 100%;
-    position: relative;
-    margin: 0;
-}
-
-.range-label {
-    position: absolute;
-    font-size: 10px;
-    font-weight: 600;
-}
-
-.bottom-left {
-    bottom: -16px;
-    left: 50px;
-}
-
-.bottom-right {
-    bottom: -16px;
-    right: 50px;
-}
-
-.range-bar {
-    width: 200px;
-    height: 16px;
-    margin: 0 auto;
-    background: #BDBDBD;
-    position: relative;
-    border-radius: 4px;
-    display: flex;
-}
-.range-bar::before {
-    content: "";
-    position: absolute;
-    bottom: -8px;              
-    left: 0;              
-    width: 3px;
-    height: 36px;       
-    background-color: #BDBDBD;
-    z-index: 10;          
-}
-.range-bar::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;              
-    right: 0;              
-    width: 2px;
-    height: 36px;       
-    background-color: #BDBDBD;
-    z-index: 10;          
-}
-
-.segment {
-    width: 25%; 
-    background: #BDBDBD;
-  }
-
-.segment:last-child {
-    border-right: none;
-}
-.indicator-value-start{
-  font-size: 10px;
-  color: #000000;
-  position: relative;
-  left: 8%;
-  z-index: 9999;
-  font-weight: bold;
-}
-.indicator-value-start::after{
-    content: "";
-    position: absolute;
-    left: -3px;
-    top: 13px;
-    width: 20px;            
-    height: 20px;
-    background-image: url("https://dev-api-services.labsquire.com/img/logos/Blue-circle.svg");
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 50%;
-}
-
-.indicator-value-end{
-  font-size: 10px;
-  color: #000000;
-  position: relative;
-  left: 87%;
-  z-index: 9999;
-  font-weight: bold;
-}
-.indicator-value-end::after{
-      content: "";
-    position: absolute;
-    left: -3px;
-    top: 13px;
-    width: 20px;            
-    height: 20px;
-    background-image: url("https://dev-api-services.labsquire.com/img/logos/Red-circle.svg");
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 50%;
-}
-
-.indicator-value-middle{
-  font-size: 10px;
-  color: #000000;
-  position: relative;
-  left: 46%; /* Default position, can be overridden by inline style */
-  z-index: 9999;
-  font-weight: bold;
-}
-.indicator-value-middle::after{
-      content: "";
-    position: absolute;
-    left: -3px;
-    top: 13px;
-    width: 20px;            
-    height: 20px;
-    background-image: url("https://dev-api-services.labsquire.com/img/logos/Green-circle.svg");
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 50%;
-}
     .info-strip {
         background-color: #FCE3E3;
         color: #D33B2C;
@@ -739,6 +612,29 @@
       letter-spacing: 0.8px;
       font-family: 'IBM Plex Sans Devanagari', sans-serif;
     }
+
+ .egfrTable{
+     border: 1px solid #e5e5e5;
+     margin-top: 0.5rem;
+ }
+ .egfrTable table th,td{
+  text-align: left;
+ }
+
+ .egfrTable table th{
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 5px;
+ }
+  .egfrTable table td{
+    font-size: 12px;
+    padding: 2px 5px;
+    
+  }
+  .egfrTable table tr{
+    border-bottom: 1px solid #e5e5e5!important;
+  }
+
   </style>
 </head>
 
@@ -996,12 +892,11 @@
                               <table>
                                 <thead>   
                                   <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -1028,26 +923,7 @@
                                       <td>
                                         <p>4.23 - 9.07</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-end" >9.41</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">4.23</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">9.07</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                 
                                     </tr>
                                   
                                     <tr>
@@ -1070,26 +946,7 @@
                                       <td>
                                         <p>4.63 - 6.08</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 30.344827586206918%;">5.07</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">4.63</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">6.08</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1112,26 +969,7 @@
                                       <td>
                                         <p>13.7 - 17.5</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 57.894736842105274%;">15.9</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">13.7</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">17.5</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1154,26 +992,7 @@
                                       <td>
                                         <p>40.10 - 51.00</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 70%;">48.3</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">40.10</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">51.00</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                      
                                     </tr>
                                   
                                     <tr>
@@ -1198,26 +1017,7 @@
                                       <td>
                                         <p>79.0 - 92.2</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-end" >95.3</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">79.00</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">92.20</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1240,26 +1040,7 @@
                                       <td>
                                         <p>25.7 - 32.2</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 70%;">31.4</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">25.7</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">32.20</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1282,26 +1063,7 @@
                                       <td>
                                         <p>32.3 - 36.5</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 15%;">32.9</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">32.30</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">36.50</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1324,26 +1086,7 @@
                                       <td>
                                         <p>11.6 - 14.4</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 35.7142857142857%;">12.6</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">11.60</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">14.40</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                     <tr>
@@ -1368,26 +1111,7 @@
                                       <td>
                                         <p>35.10 - 43.90</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-end" >44.8</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">35.10</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">43.90</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1410,26 +1134,7 @@
                                       <td>
                                         <p>163 - 337</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 68.39080459770115%;">282</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">163.00</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">337.00</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1452,26 +1157,7 @@
                                       <td>
                                         <p>9.4 - 12.4</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 43.33333333333329%;">10.7</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">9.40</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">12.40</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -1496,26 +1182,7 @@
                                       <td>
                                         <p>1.78 - 5.38</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-end" >5.67</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">1.78</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">5.38</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1538,26 +1205,7 @@
                                       <td>
                                         <p>34.0 - 67.9</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 70%;">60.3</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">34.00</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">67.90</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                     <tr>
@@ -1580,26 +1228,7 @@
                                       <td>
                                         <p>1.32 - 3.57</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 66.66666666666666%;">2.82</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">1.32</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">3.57</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -1622,26 +1251,7 @@
                                       <td>
                                         <p>21.8 - 53.1</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 26.198083067092647%;">30.0</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">21.80</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">53.10</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1664,26 +1274,7 @@
                                       <td>
                                         <p>0.30 - 0.82</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 63.46153846153846%;">0.63</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0.30</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">0.82</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1706,26 +1297,7 @@
                                       <td>
                                         <p>5.3 - 12.2</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 20.289855072463777%;">6.7</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">5.30</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">12.20</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1748,26 +1320,7 @@
                                       <td>
                                         <p>0.04 - 0.54</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 34%;">0.21</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0.04</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">0.54</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1790,26 +1343,7 @@
                                       <td>
                                         <p>0.8 - 7.0</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 22.580645161290324%;">2.2</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0.80</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">7.00</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -1832,26 +1366,7 @@
                                       <td>
                                         <p>0.0 - 0.08</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 62.5%;">0.05</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0.0</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">0.08</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -1874,26 +1389,7 @@
                                       <td>
                                         <p>0.20 - 1.20</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 30%;">0.5</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0.20</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">1.20</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -1916,9 +1412,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -1941,9 +1435,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                     <tr>
@@ -1966,26 +1458,7 @@
                                       <td>
                                         <p>0 - 0.012</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 15%;">0</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">0.012</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                     <tr>
@@ -2008,26 +1481,7 @@
                                       <td>
                                         <p>0 - 0.2</p>
                                       </td>
-                                      <td>
-                                        
-                                          <div class="range-container">
-                                            <div class="indicator-value-middle" style="left: 15%;">0</div>
-                                            <div class="range-bar">
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="segment"></div>
-                                              <div class="indicator"></div>
-                                            </div>
-                                            
-                                              <div class="range-label bottom-left">0</div>
-                                            
-                                            
-                                              <div class="range-label bottom-right">0.2</div>
-                                            
-                                          </div>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                 </tbody>
@@ -2046,12 +1500,11 @@
                               <table>
                                 <thead>   
                                   <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2076,9 +1529,7 @@
                                       <td>
                                         <p>136 - 145</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                     <tr>
@@ -2101,9 +1552,7 @@
                                       <td>
                                         <p>3.5 - 5.1</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2126,9 +1575,7 @@
                                       <td>
                                         <p>98 - 107</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2151,9 +1598,7 @@
                                       <td>
                                         <p>22 - 29</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2176,9 +1621,7 @@
                                       <td>
                                         <p>8.4 - 10.2</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2201,9 +1644,7 @@
                                       <td>
                                         <p>74 - 100</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                 
                                     </tr>
                                   
                                     <tr>
@@ -2226,9 +1667,7 @@
                                       <td>
                                         <p>8.9 - 20.6</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2251,9 +1690,7 @@
                                       <td>
                                         <p>0.60 - 1.30</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2276,9 +1713,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2301,9 +1736,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2326,9 +1759,7 @@
                                       <td>
                                         <p>3.5 - 5.2</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2351,9 +1782,7 @@
                                       <td>
                                         <p>40 - 150</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2376,9 +1805,7 @@
                                       <td>
                                         <p>< 45</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2401,9 +1828,7 @@
                                       <td>
                                         <p>11 - 34</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2426,9 +1851,7 @@
                                       <td>
                                         <p>0.20 - 1.20</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2451,9 +1874,7 @@
                                       <td>
                                         <p>6.0 - 8.3</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                 
                                     </tr>
                                   
                                     <tr>
@@ -2476,9 +1897,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2501,9 +1920,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                 </tbody>
@@ -2522,12 +1939,11 @@
                               <table>
                                 <thead>   
                                   <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2552,9 +1968,7 @@
                                       <td>
                                         <p>≥ 60</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                               
                                     </tr>
                                   
                                     <tr>
@@ -2577,9 +1991,7 @@
                                       <td>
                                         <p><100</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                               
                                     </tr>
                                   
                                     <tr>
@@ -2602,9 +2014,7 @@
                                       <td>
                                         <p><200</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                  
                                     </tr>
                                   
                                     <tr>
@@ -2627,9 +2037,7 @@
                                       <td>
                                         <p><150</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2652,9 +2060,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2677,9 +2083,7 @@
                                       <td>
                                         <p>0.0 - 3.2</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                     <tr>
@@ -2702,9 +2106,7 @@
                                       <td>
                                         <p>5 - 40</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                     <tr>
@@ -2727,9 +2129,7 @@
                                       <td>
                                         <p></p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                 </tbody>
@@ -2748,12 +2148,11 @@
                               <table>
                                 <thead>   
                                   <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2778,9 +2177,7 @@
                                       <td>
                                         <p>1.6 - 2.6</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                 </tbody>
@@ -2799,12 +2196,11 @@
                               <table>
                                 <thead>   
                                   <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2829,9 +2225,7 @@
                                       <td>
                                         <p>3.7 - 7.7</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                 </tbody>
@@ -2849,13 +2243,12 @@
                               </div>
                               <table>
                                 <thead>   
-                                  <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                   <tr>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2880,9 +2273,7 @@
                                       <td>
                                         <p>0.35 - 1.93</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                 </tbody>
@@ -2900,13 +2291,12 @@
                               </div>
                               <table>
                                 <thead>   
-                                  <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <tr>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2931,9 +2321,7 @@
                                       <td>
                                         <p>4.87 - 11.72</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                     
                                     </tr>
                                   
                                 </tbody>
@@ -2951,13 +2339,12 @@
                               </div>
                               <table>
                                 <thead>   
-                                  <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                     <tr>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -2982,9 +2369,7 @@
                                       <td>
                                         <p>0.35 - 4.94</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                 </tbody>
@@ -3002,13 +2387,12 @@
                               </div>
                               <table>
                                 <thead>   
-                                  <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                    <tr>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -3033,9 +2417,7 @@
                                       <td>
                                         <p>30 - 100</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                 </tbody>
@@ -3053,13 +2435,12 @@
                               </div>
                               <table>
                                 <thead>   
-                                  <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                   <tr>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -3084,9 +2465,7 @@
                                       <td>
                                         <p><4</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                    
                                     </tr>
                                   
                                 </tbody>
@@ -3104,13 +2483,12 @@
                               </div>
                               <table>
                                 <thead>   
-                                  <tr>
-                                    <th style="width: 300px;">Test Name</th>
-                                    <th style="width: 100px;">Result</th>
-                                    <th style="width: 100px;">Units</th>
+                                     <tr>
+                                    <th style="width: 250px;">Test Name</th>
+                                    <th style="width: 150px;">Result</th>
+                                    <th style="width: 150px;">Units</th>
                                     <th style="width: 150px;">Flag</th>
-                                    <th style="width: 150px;">Reference Range</th>
-                                    <th style="width: 350px; text-align: center;">Visual Range</th>
+                                    <th style="width: 250px;">Reference Range</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -3135,17 +2513,97 @@
                                       <td>
                                         <p><55</p>
                                       </td>
-                                      <td>
-                                        
-                                      </td>
+                                   
                                     </tr>
                                   
                                 </tbody>
                               </table>
                             </div>
-                          
-                        
+
                       </div>
+                       <div class="egfrTable">
+                              <table>
+                                <thead>   
+                                     <tr>
+                                    <th style="width: 33%;">eGFR (mL/min/1.73 m²)</th>
+                                    <th style="width: 33%;">Interpretation</th>
+                                    <th style="width: 33%;">CKD Stage</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td>
+                                        <div>
+                                          ≥ 90
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <p>Normal or high kidney function*</p>
+                                      </td>
+                                      <td>
+                                        <p>Stage 1</p>
+                                      </td> 
+                                    </tr>
+                                      <tr>
+                                      <td>
+                                        <div>
+                                         60 – 89
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <p>Mildly decreased</p>
+                                      </td>
+                                      <td>
+                                        <p>Stage 2</p>
+                                      </td> 
+                                    </tr>
+                                      <tr>
+                                      <td>
+                                        <div>
+                                         30 – 59
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <p>Moderately decreased</p>
+                                      </td>
+                                      <td>
+                                        <p>Stage 3</p>
+                                      </td> 
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div>
+                                         15 – 29
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <p>Severely decreased</p>
+                                      </td>
+                                      <td>
+                                        <p>Stage 4</p>
+                                      </td> 
+                                    </tr>
+                                     <tr>
+                                      <td>
+                                        <div>
+                                         < 15
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <p>Kidney failure</p>
+                                      </td>
+                                      <td>
+                                        <p>Stage 5</p>
+                                      </td> 
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3">
+                                        <div class="bold">*Stage 1 requires evidence of kidney damage (e.g., proteinuria) for ≥3 months.</div>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
                       <!-- last content code -->
                       <div class="last-content">
                       <div style="page-break-inside: avoid;">
